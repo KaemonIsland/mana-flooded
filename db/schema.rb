@@ -10,9 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_02_223609) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_02_230100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "card_sets", force: :cascade do |t|
+    t.integer "base_set_size"
+    t.string "block"
+    t.integer "cardsphere_set_id"
+    t.string "code"
+    t.boolean "is_foreign_only"
+    t.boolean "is_foil_only"
+    t.boolean "is_non_foil_only"
+    t.boolean "is_online_only"
+    t.boolean "is_partial_preview"
+    t.string "keyrune_code"
+    t.integer "mcm_id"
+    t.integer "mcm_id_extras"
+    t.string "mcm_name"
+    t.string "mtgo_code"
+    t.string "name"
+    t.string "parent_code"
+    t.date "release_date"
+    t.integer "tcgplayer_group_id"
+    t.integer "total_set_size"
+    t.string "set_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_card_sets_on_code", unique: true
+  end
 
   create_table "identifiers", force: :cascade do |t|
     t.string "card_kingdom_etched_id"

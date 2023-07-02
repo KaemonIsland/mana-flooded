@@ -192,6 +192,7 @@ def update_card_sets
       {
         base_set_size: card_set["baseSetSize"] || 0,
         block: card_set["block"] || '',
+        cardsphere_set_id: card_set["cardsphereSetId"] || 0,
         code: card_set["code"] || '',
         is_foreign_only: card_set["isForeignOnly"] === '1' ? true : false,
         is_foil_only: card_set["isFoilOnly"] === '1' ? true : false,
@@ -199,6 +200,9 @@ def update_card_sets
         is_online_only: card_set["isOnlineOnly"] === '1' ? true : false,
         is_partial_preview: card_set["isPartialPreview"] === '1' ? true : false,
         keyrune_code: card_set["keyruneCode"] || '',
+        mcm_id: card_set["mcmId"] || 0,
+        mcm_id_extras: card_set["mcmIdExtras"] || 0,
+        mcm_name: card_set["mcmName"] || '',
         mtgo_code: card_set["mtgoCode"] || '',
         name: card_set["name"] || '',
         parent_code: card_set["parentCode"] || '',
@@ -363,20 +367,20 @@ namespace :cards do
     puts "Fetching CSV files from MTGJSON"
     get_card_files(['cardLegalities.csv', 'cardRulings.csv', 'cardIdentifiers.csv', 'cardPrices.csv', 'cardPurchaseUrls.csv', 'sets.csv'])
 
-    puts "Updating Legalities"
-    update_legalities()
+    # puts "Updating Legalities"
+    # update_legalities()
 
-    puts "Updating Rulings"
-    update_rulings()
+    # puts "Updating Rulings"
+    # update_rulings()
 
-    puts "Updating Identifiers"
-    update_identifiers()
+    # puts "Updating Identifiers"
+    # update_identifiers()
 
-    puts "Updating Prices"
-    update_prices()
+    # puts "Updating Prices"
+    # update_prices()
 
-    puts "Updating Purchase Urls"
-    update_purchase_urls()
+    # puts "Updating Purchase Urls"
+    # update_purchase_urls()
 
     # puts "Updating Card Sets"
     # update_card_sets()
