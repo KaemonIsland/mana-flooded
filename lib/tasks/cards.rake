@@ -30,13 +30,6 @@ def remove_file(file_name)
   File.delete(file_name) if File.exist? (file_name)
 end
 
-def remove_files(file_names)
-  # Clean up files!
-  file_names.each do |file|
-    File.delete(file) if File.exist? (file)
-  end
-end
-
 # CSV includes: alchemy,brawl,commander,duel,explorer,future,gladiator,historic,historicbrawl,legacy,modern,oathbreaker,oldschool,pauper,paupercommander,penny,pioneer,predh,premodern,standard,uuid,vintage
 # @see https://mtgjson.com/data-models/legalities/
 def update_legalities
@@ -77,21 +70,63 @@ def update_legalities
   remove_file('cardLegalities.csv')
 end
 
+# CSV includes: date,text,uuid
+# @see https://mtgjson.com/data-models/rulings/
 def update_rulings
   csv_text = File.read('cardRulings.csv')
 
   rulings = CSV.parse(csv_text, headers: true)
 
-  ruling_attrs = rulings.map do |ruling|
+  ruling_attrs = rulings.map.with_index do |ruling, index|
     {
-      mtgjson_id: ruling["id"],
+      index: index,
       date: ruling["date"] || '',
       text: ruling["text"] || '',
       uuid: ruling["uuid"] || '',
     }
   end
 
-  Ruling.upsert_all(ruling_attrs, unique_by: [:mtgjson_id])
+  Ruling.upsert_all(ruling_attrs, unique_by: [:index])
+
+  puts "Rulings updated, removing file"
+  remove_file('cardRulings.csv')
+end
+
+# CSV includes: cardKingdomEtchedId,cardKingdomFoilId,cardKingdomId,cardsphereId,mcmId,mcmMetaId,mtgArenaId,mtgjsonFoilVersionId,mtgjsonNonFoilVersionId,mtgjsonV4Id,mtgoFoilId,mtgoId,multiverseId,scryfallId,scryfallIllustrationId,scryfallOracleId,tcgplayerEtchedProductId,tcgplayerProductId,uuid
+# @see https://mtgjson.com/data-models/identifiers/
+def update_identifiers
+  csv_text = File.read('cardIdentifiers.csv')
+
+  identifiers = CSV.parse(csv_text, headers: true)
+
+  identifier_attrs = identifiers.map do |identifier|
+    {
+      cardKingdomEtchedId: identifier["cardKingdomEtchedId"] || '',
+      cardKingdomFoilId: identifier["cardKingdomFoilId"] || '',
+      cardKingdomId: identifier["cardKingdomId"] || '',
+      cardsphereId: identifier["cardsphereId"] || '',
+      mcmId: identifier["mcmId"] || '',
+      mcmMetaId: identifier["mcmMetaId"] || '',
+      mtgArenaId: identifier["mtgArenaId"] || '',
+      mtgjsonFoilVersionId: identifier["mtgjsonFoilVersionId"] || '',
+      mtgjsonNonFoilVersionId: identifier["mtgjsonNonFoilVersionId"] || '',
+      mtgjsonV4Id: identifier["mtgjsonV4Id"] || '',
+      mtgoFoilId: identifier["mtgoFoilId"] || '',
+      mtgoId: identifier["mtgoId"] || '',
+      multiverseId: identifier["multiverseId"] || '',
+      scryfallId: identifier["scryfallId"] || '',
+      scryfallIllustrationId: identifier["scryfallIllustrationId"] || '',
+      scryfallOracleId: identifier["scryfallOracleId"] || '',
+      tcgplayerEtchedProductId: identifier["tcgplayerEtchedProductId"] || '',
+      tcgplayerProductId: identifier["tcgplayerProductId"] || '',
+      uuid: identifier["uuid"] || '',
+    }
+  end
+
+  Identifier.upsert_all(identifier_attrs, unique_by: [:uuid])
+
+  puts "Identifiers updated, removing file"
+  remove_file('cardIdentifiers.csv')
 end
 
 def update_card_sets
@@ -274,13 +309,16 @@ namespace :cards do
   desc "Updates all card info for the app"
   task update: :environment do
     puts "Fetching CSV files from MTGJSON"
-    get_card_files(['cards.csv', 'sets.csv', 'cardLegalities.csv', 'cardRulings.csv'])
+    get_card_files(['cardLegalities.csv', 'cardRulings.csv', 'cardIdentifiers.csv'])
 
-    puts "Updating Legalities"
-    update_legalities()
+    # puts "Updating Legalities"
+    # update_legalities()
 
     # puts "Updating Rulings"
     # update_rulings()
+
+    puts "Updating Identifiers"
+    update_identifiers()
 
     # puts "Updating Card Sets"
     # update_card_sets()
@@ -288,12 +326,8 @@ namespace :cards do
     # puts "Updating Cards"
     # update_cards()
 
-    # puts "Updating Identifiers"
 
     # puts "Updating Prices"
-
-    # puts "Removing files"
-    # remove_files(['cards.csv', 'sets.csv', 'legalities.csv', 'rulings.csv'])
 
     # puts "Connecting Cards to Card Sets"
     # connect_cards_to_sets()

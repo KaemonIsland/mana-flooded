@@ -10,9 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_02_210612) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_02_221103) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "identifiers", force: :cascade do |t|
+    t.string "cardKingdomEtchedId"
+    t.string "cardKingdomFoilId"
+    t.string "cardKingdomId"
+    t.string "cardsphereId"
+    t.string "mcmId"
+    t.string "mcmMetaId"
+    t.string "mtgArenaId"
+    t.string "mtgjsonFoilVersionId"
+    t.string "mtgjsonNonFoilVersionId"
+    t.string "mtgjsonV4Id"
+    t.string "mtgoFoilId"
+    t.string "mtgoId"
+    t.string "multiverseId"
+    t.string "scryfallId"
+    t.string "scryfallIllustrationId"
+    t.string "scryfallOracleId"
+    t.string "tcgplayerEtchedProductId"
+    t.string "tcgplayerProductId"
+    t.string "uuid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["uuid"], name: "index_identifiers_on_uuid", unique: true
+  end
 
   create_table "legalities", force: :cascade do |t|
     t.string "uuid", null: false
@@ -40,6 +65,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_210612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["uuid"], name: "index_legalities_on_uuid", unique: true
+  end
+
+  create_table "rulings", force: :cascade do |t|
+    t.integer "index"
+    t.string "uuid"
+    t.string "text"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["index"], name: "index_rulings_on_index", unique: true
   end
 
 end
