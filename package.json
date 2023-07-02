@@ -11,7 +11,7 @@
     "sass": "^1.63.6"
   },
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.sass.scss ./app/assets/builds/application.css --no-source-map\n",
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss ./app/assets/builds/application.css --no-source-map",
     "build": "esbuild app/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds"
   }
 }
