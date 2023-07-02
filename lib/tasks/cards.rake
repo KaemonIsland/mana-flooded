@@ -101,24 +101,24 @@ def update_identifiers
 
   identifier_attrs = identifiers.map do |identifier|
     {
-      cardKingdomEtchedId: identifier["cardKingdomEtchedId"] || '',
-      cardKingdomFoilId: identifier["cardKingdomFoilId"] || '',
-      cardKingdomId: identifier["cardKingdomId"] || '',
-      cardsphereId: identifier["cardsphereId"] || '',
-      mcmId: identifier["mcmId"] || '',
-      mcmMetaId: identifier["mcmMetaId"] || '',
-      mtgArenaId: identifier["mtgArenaId"] || '',
-      mtgjsonFoilVersionId: identifier["mtgjsonFoilVersionId"] || '',
-      mtgjsonNonFoilVersionId: identifier["mtgjsonNonFoilVersionId"] || '',
-      mtgjsonV4Id: identifier["mtgjsonV4Id"] || '',
-      mtgoFoilId: identifier["mtgoFoilId"] || '',
-      mtgoId: identifier["mtgoId"] || '',
-      multiverseId: identifier["multiverseId"] || '',
-      scryfallId: identifier["scryfallId"] || '',
-      scryfallIllustrationId: identifier["scryfallIllustrationId"] || '',
-      scryfallOracleId: identifier["scryfallOracleId"] || '',
-      tcgplayerEtchedProductId: identifier["tcgplayerEtchedProductId"] || '',
-      tcgplayerProductId: identifier["tcgplayerProductId"] || '',
+      card_kingdom_etched_id: identifier["cardKingdomEtchedId"] || '',
+      card_kingdom_foil_id: identifier["cardKingdomFoilId"] || '',
+      card_kingdom_id: identifier["cardKingdomId"] || '',
+      cardsphere_id: identifier["cardsphereId"] || '',
+      mcm_id: identifier["mcmId"] || '',
+      mcm_meta_id: identifier["mcmMetaId"] || '',
+      mtg_arena_id: identifier["mtgArenaId"] || '',
+      mtgjson_foil_version_id: identifier["mtgjsonFoilVersionId"] || '',
+      mtgjson_non_foil_version_id: identifier["mtgjsonNonFoilVersionId"] || '',
+      mtgjson_v4_id: identifier["mtgjsonV4Id"] || '',
+      mtgo_foil_id: identifier["mtgoFoilId"] || '',
+      mtgo_id: identifier["mtgoId"] || '',
+      multiverse_id: identifier["multiverseId"] || '',
+      scryfall_id: identifier["scryfallId"] || '',
+      scryfall_illustration_id: identifier["scryfallIllustrationId"] || '',
+      scryfall_oracle_id: identifier["scryfallOracleId"] || '',
+      tcgplayer_etched_product_id: identifier["tcgplayerEtchedProductId"] || '',
+      tcgplayer_product_id: identifier["tcgplayerProductId"] || '',
       uuid: identifier["uuid"] || '',
     }
   end
@@ -129,15 +129,67 @@ def update_identifiers
   remove_file('cardIdentifiers.csv')
 end
 
+# CSV includes: cardFinish,currency,date,gameAvailability,price,priceProvider,providerListing,uuid
+def update_prices
+  csv_text = File.read('cardPrices.csv')
+
+  prices = CSV.parse(csv_text, headers: true)
+
+  price_attrs = prices.map.with_index do |price, index|
+    {
+      index: index,
+      card_finish: price["cardFinish"] || '',
+      currency: price["currency"] || '',
+      date: price["date"] || '',
+      price: price["price"] || '',
+      price_provider: price["priceProvider"] || '',
+      provider_listing: price["providerListing"] || '',
+      game_availability: price["gameAvailability"] || '',
+      uuid: price["uuid"] || '',
+    }
+  end
+
+  Price.upsert_all(price_attrs, unique_by: [:index])
+
+  puts "prices updated, removing file"
+  remove_file('cardPrices.csv')
+end
+
+# CSV includes: cardKingdom,cardKingdomEtched,cardKingdomFoil,cardmarket,tcgplayer,tcgplayerEtched,uuid
+# @see https://mtgjson.com/data-models/purchase-urls/
+def update_purchase_urls
+  csv_text = File.read('cardPurchaseUrls.csv')
+
+  purchase_urls = CSV.parse(csv_text, headers: true)
+
+  purchase_url_attrs = purchase_urls.map do |purchase_url|
+    {
+      card_kingdom: purchase_url["cardKingdom"] || '',
+      card_kingdom_etched: purchase_url["cardKingdomEtched"] || '',
+      card_kingdom_foil: purchase_url["cardKingdomFoil"] || '',
+      cardmarket: purchase_url["cardmarket"] || '',
+      tcgplayer: purchase_url["tcgplayer"] || '',
+      tcgplayer_etched: purchase_url["tcgplayerEtched"] || '',
+      uuid: purchase_url["uuid"] || '',
+    }
+  end
+
+  PurchaseUrl.upsert_all(purchase_url_attrs, unique_by: [:uuid])
+
+  puts "Purchase URLs updated, removing file"
+  remove_file('cardPurchaseUrls.csv')
+end
+
+# CSV includes: baseSetSize,block,cardsphereSetId,code,decks,isFoilOnly,isForeignOnly,isNonFoilOnly,isOnlineOnly,isPartialPreview,keyruneCode,languages,mcmId,mcmIdExtras,mcmName,mtgoCode,name,parentCode,releaseDate,tcgplayerGroupId,tokenSetCode,totalSetSize,type
+# @see https://mtgjson.com/data-models/set/
 def update_card_sets
   csv_text = File.read('sets.csv')
 
   card_sets = CSV.parse(csv_text, headers: true)
 
-  card_set_attrs = card_sets.map.with_index do |card_set, index|
+  card_set_attrs = card_sets.map do |card_set|
     if card_set["isPartialPreview"] != '1'
       {
-        index: index,
         base_set_size: card_set["baseSetSize"] || 0,
         block: card_set["block"] || '',
         code: card_set["code"] || '',
@@ -309,25 +361,28 @@ namespace :cards do
   desc "Updates all card info for the app"
   task update: :environment do
     puts "Fetching CSV files from MTGJSON"
-    get_card_files(['cardLegalities.csv', 'cardRulings.csv', 'cardIdentifiers.csv'])
+    get_card_files(['cardLegalities.csv', 'cardRulings.csv', 'cardIdentifiers.csv', 'cardPrices.csv', 'cardPurchaseUrls.csv', 'sets.csv'])
 
-    # puts "Updating Legalities"
-    # update_legalities()
+    puts "Updating Legalities"
+    update_legalities()
 
-    # puts "Updating Rulings"
-    # update_rulings()
+    puts "Updating Rulings"
+    update_rulings()
 
     puts "Updating Identifiers"
     update_identifiers()
+
+    puts "Updating Prices"
+    update_prices()
+
+    puts "Updating Purchase Urls"
+    update_purchase_urls()
 
     # puts "Updating Card Sets"
     # update_card_sets()
 
     # puts "Updating Cards"
     # update_cards()
-
-
-    # puts "Updating Prices"
 
     # puts "Connecting Cards to Card Sets"
     # connect_cards_to_sets()
