@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_04_160331) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_04_160703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -148,6 +148,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_160331) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_collections_on_user_id"
+  end
+
+  create_table "decked_cards", force: :cascade do |t|
+    t.bigint "deck_id"
+    t.bigint "card_id"
+    t.integer "quantity"
+    t.integer "foil"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_decked_cards_on_card_id"
+    t.index ["deck_id"], name: "index_decked_cards_on_deck_id"
+  end
+
+  create_table "decks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "description"
+    t.string "format"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_decks_on_user_id"
   end
 
   create_table "identifiers", force: :cascade do |t|
