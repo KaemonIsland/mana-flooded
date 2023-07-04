@@ -3,6 +3,23 @@ require 'zip'
 require 'csv'
 require 'openssl'
 
+def get_string_value()
+end
+
+def get_arr_value(arr = '')
+  if arr.nil?
+    return nil
+  end
+
+  arr.split(',').map(&:strip)
+end
+
+def get_boolean_value()
+end
+
+def get_integer_value()
+end
+
 
 def get_card_files(file_names)
   # Fetch csv files in zip format from mtgjson
@@ -235,6 +252,9 @@ def get_partial_preview_set_codes
   partialPreviewSets
 end
 
+# CSV includes: artist,artistIds,asciiName,attractionLights,availability,boosterTypes,borderColor,cardParts,colorIdentity,colorIndicator,colors,defense,duelDeck,edhrecRank,edhrecSaltiness,faceConvertedManaCost,faceFlavorName,faceManaValue,faceName,finishes,flavorName,flavorText,frameEffects,frameVersion,hand,hasAlternativeDeckLimit,hasContentWarning,hasFoil,hasNonFoil,isAlternative,isFullArt,isFunny,isOnlineOnly,isOversized,isPromo,isRebalanced,isReprint,isReserved,isStarter,isStorySpotlight,isTextless,isTimeshifted,keywords,language,layout,leadershipSkills,life,loyalty,manaCost,manaValue,name,number,originalPrintings,originalReleaseDate,originalText,originalType,otherFaceIds,power,printings,promoTypes,rarity,rebalancedPrintings,relatedCards,securityStamp,setCode,side,signature,subsets,subtypes,supertypes,text,toughness,type,types,uuid,variations,watermark
+
+# @see https://mtgjson.com/data-models/card-atomic/
 def update_cards
   csv_text = File.read('cards.csv')
 
@@ -247,85 +267,90 @@ def update_cards
     if !partialPreviewSets.include?(card["setCode"] || "")
       {
         artist: card["artist"] || '',
+        ascii_name: card["asciiName"] || '',
         border_color: card["borderColor"] || '',
-        color_identity: (card["colorIdentity"] || '')&.split(', '),
-        color_indicator: (card["colorIndicator"] || '')&.split(', '),
-        colors: (card["colors"] || '')&.split(','),
-        converted_mana_cost: card["convertedManaCost"] || 0,
-        edhrec_rank: card["edhrecRank"] || 0,
-        face_converted_mana_cost: card["faceConvertedManaCost"] || 0,
+        defense: card["defense"] || '',
+        duel_deck: card["duelDeck"] || '',
+        face_flavor_name: card["faceFlavorName"] || '',
+        face_name: card["faceName"] || '',
+        flavor_name: card["flavorName"] || '',
         flavor_text: card["flavorText"] || '',
-        has_foil: card["hasFoil"] === '1' ? true : false,
-        has_non_foil: card["hasNonFoil"] === '1' ? true : false,
-        is_alternative: card["isAlternative"] === '1' ? true : false,
-        is_full_art: card["isFullArt"] === '1' ? true : false,
-        is_online_only: card["isOnlineOnly"] === '1' ? true : false,
-        is_oversized: card["isOversized"] === '1' ? true : false,
-        is_promo: card["isPromo"] === '1' ? true : false,
-        is_reprint: card["isReprint"] === '1' ? true : false,
-        is_reserved: card["isReserved"] === '1' ? true : false,
-        is_starter: card["isStarter"] === '1' ? true : false,
-        is_story_spotlight: card["isStorySpotlight"] === '1' ? true : false,
-        is_textless: card["isTextless"] === '1' ? true : false,
+        frame_version: card["frameVersion"] || '',
+        hand: card["hand"] || '',
+        language: card["language"] || '',
         layout: card["layout"] || '',
         leadership_skills: card["leadershipSkills"] || '',
+        life: card["life"] || '',
         loyalty: card["loyalty"] || '',
         mana_cost: card["manaCost"] || '',
-        mcm_id: card["mcmId"] || 0,
-        mcm_meta_id: card["mcmMetaId"] || 0,
-        mtg_arena_id: card["mtgArenaId"] || 0,
-        mtgo_foil_id: card["mtgoFoilId"] || 0,
-        mtgo_id: card["mtgoId"] || 0,
-        multiverse_id: card["multiverseId"] || 0,
+        mana_value: card["manaValue"] || '',
         name: card["name"] || '',
         number: card["number"] || '',
+        original_release_date: card["originalReleaseDate"] || '',
         original_text: card["originalText"] || '',
         original_type: card["originalType"] || '',
-        other_face_ids: (card["otherFaceIds"] || '')&.split(','),
         power: card["power"] || '',
-        printings: card["printings"] || '',
         rarity: card["rarity"] || '',
-        scryfall_id: card["scryfallId"] || '',
-        scryfall_oracle_id: card["scryfallOracleId"] || '',
-        scryfall_illustration_id: card["scryfallIllustrationId"] || '',
+        related_cards: card["relatedCards"] || '',
+        security_stamp: card["securityStamp"] || '',
+        set_code: card["setCode"] || '',
         side: card["side"] || '',
-        subtypes: (card["subtypes"] || '')&.split(','),
-        supertypes: (card["supertypes"] || '')&.split(','),
-        tcgplayer_product_id: card["tcgplayerProductId"] || 0,
+        signature: card["signature"] || '',
         text: card["text"] || '',
         toughness: card["toughness"] || '',
         card_type: card["type"] || '',
-        card_types: (card["types"] || '')&.split(','),
         uuid: card["uuid"] || '',
-        variations: (card["variations"] || '')&.split(','),
         watermark: card["watermark"] || '',
-        ascii_name: card["asciiName"] || '',
-        flavor_name: card["flavorName"] || '',
-        availability: (card["availability"] || '')&.split(','),
-        frame_effects: (card["frameEffects"] || '')&.split(','),
-        keywords: (card["keywords"] || '')&.split(','),
-        promo_types: (card["promoTypes"] || '')&.split(','),
-        purchase_urls: card["purchaseUrls"] || '',
-        card_kingdom_foil_id: card["cardKingdomFoilId"] || '',
-        card_kingdom_id: card["cardKingdomId"] || '',
-        duel_deck: card["duelDeck"] || '',
-        face_name: card["faceName"] || '',
-        frame_version: card["frameVersion"] || '',
-        hand: card["hand"] || '',
-        has_alternative_deck_limit: card["hasAlternativeDeckLimit"] || '' === '1' ? true : false,
-        has_content_warning: card["hasContentWarning"] || '' === '1' ? true : false,
-        is_timeshifted: card["isTimeshifted"] || '' === '1' ? true : false,
-        life: card["life"] || '',
-        set_code: card["setCode"] || '',
-        original_release_date: card["originalReleaseDate"] || '',
+        edhrec_saltiness: card["edhrecSaltiness"].to_i || 0,
+        edhrec_rank: card["edhrecRank"].to_i || 0,
+        face_converted_mana_cost: card["faceConvertedManaCost"].to_i || 0,
+        face_mana_value: card["faceManaValue"].to_i || 0,
+        has_alternative_deck_limit: (card["hasAlternativeDeckLimit"] === '1'),
+        has_content_warning: (card["hasContentWarning"] === '1'),
+        has_foil: (card["hasFoil"] === '1'),
+        has_non_foil: (card["hasNonFoil"] === '1'),
+        is_alternative: (card["isAlternative"] === '1'),
+        is_full_art: (card["isFullArt"] === '1'),
+        is_funny: (card["isFunny"] === '1'),
+        is_online_only: (card["isOnlineOnly"] === '1'),
+        is_oversized: (card["isOversized"] === '1'),
+        is_promo: (card["isPromo"] === '1'),
+        is_rebalanced: (card["isRebalanced"] === '1'),
+        is_reprint: (card["isReprint"] === '1'),
+        is_reserved: (card["isReserved"] === '1'),
+        is_starter: (card["isStarter"] === '1'),
+        is_story_spotlight: (card["isStorySpotlight"] === '1'),
+        is_textless: (card["isTextless"] === '1'),
+        is_timeshifted: (card["isTimeshifted"] === '1'),
+        artist_ids: get_arr_value(card["artistIds"]),
+        atraction_lights: get_arr_value(card["attractionLights"]),
+        availability: get_arr_value(card["availability"]),
+        booster_types: get_arr_value(card["boosterTypes"]),
+        card_parts: get_arr_value(card["cardParts"]),
+        color_identity: get_arr_value(card["colorIdentity"]),
+        color_indicator: get_arr_value(card["colorIndicator"]),
+        colors: get_arr_value(card["colors"]),
+        finishes: get_arr_value(card["finishes"]),
+        frame_effects: get_arr_value(card["frameEffects"]),
+        keywords: get_arr_value(card["keywords"]),
+        original_printings: get_arr_value(card["originalPrintings"]),
+        other_face_ids: get_arr_value(card["otherFaceIds"]),
+        printings: get_arr_value(card["printings"]),
+        promo_types: get_arr_value(card["promoTypes"]),
+        rebalanced_printings: get_arr_value(card["rebalancedPrintings"]),
+        subsets: get_arr_value(card["subsets"]),
+        subtypes: get_arr_value(card["subtypes"]),
+        supertypes: get_arr_value(card["supertypes"]),
+        types: get_arr_value(card["types"]),
+        variations: get_arr_value(card["variations"]),
       }
     end
   end
 
-  # Remove nil insances from card_attrs
-  card_attrs_filtered = card_attrs.select{ |c| c }
+  Card.upsert_all(card_attrs, unique_by: [:uuid])
 
-  Card.upsert_all(card_attrs_filtered, unique_by: [:uuid])
+  puts "Cards updated, removing file"
+  remove_file('cards.csv')
 end
 
 # I've had soooooo many problems linking cards to card sets.
@@ -365,31 +390,31 @@ namespace :cards do
   desc "Updates all card info for the app"
   task update: :environment do
     puts "Fetching CSV files from MTGJSON"
-    get_card_files(['cardLegalities.csv', 'cardRulings.csv', 'cardIdentifiers.csv', 'cardPrices.csv', 'cardPurchaseUrls.csv', 'sets.csv'])
+    get_card_files(['cardLegalities.csv', 'cardRulings.csv', 'cardIdentifiers.csv', 'cardPrices.csv', 'cardPurchaseUrls.csv', 'sets.csv', 'cards.csv'])
 
-    # puts "Updating Legalities"
-    # update_legalities()
+    puts "Updating Legalities"
+    update_legalities()
 
-    # puts "Updating Rulings"
-    # update_rulings()
+    puts "Updating Rulings"
+    update_rulings()
 
-    # puts "Updating Identifiers"
-    # update_identifiers()
+    puts "Updating Identifiers"
+    update_identifiers()
 
-    # puts "Updating Prices"
-    # update_prices()
+    puts "Updating Prices"
+    update_prices()
 
-    # puts "Updating Purchase Urls"
-    # update_purchase_urls()
+    puts "Updating Purchase Urls"
+    update_purchase_urls()
 
-    # puts "Updating Card Sets"
-    # update_card_sets()
+    puts "Updating Card Sets"
+    update_card_sets()
 
-    # puts "Updating Cards"
-    # update_cards()
+    puts "Updating Cards"
+    update_cards()
 
-    # puts "Connecting Cards to Card Sets"
-    # connect_cards_to_sets()
+    puts "Connecting Cards to Card Sets"
+    connect_cards_to_sets()
   end
 
   desc "Updates all card info for the app"
@@ -402,18 +427,5 @@ namespace :cards do
 
     puts "Removing files"
     remove_files(['cards.csv'])
-  end
-
-  desc "Get's price of list of cards"
-  task :price, [:cards] => :environment do |t, args|
-    cards = args[:cards] || []
-    public = Rails.application.credentials.tcg[:public]
-    private = Rails.application.credentials.tcg[:private]
-
-    access_token = HTTParty.post("https://api.tcgplayer.com/token?grant_type=client_credentials&client_id=#{public}&client_secret=#{private}")
-
-    puts access_token.body
-
-    puts "Getting card prices!"
   end
 end

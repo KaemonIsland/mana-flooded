@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_02_230100) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_04_154705) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "card_set_cards", force: :cascade do |t|
+    t.bigint "card_id"
+    t.bigint "card_set_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_card_set_cards_on_card_id"
+    t.index ["card_set_id"], name: "index_card_set_cards_on_card_set_id"
+  end
 
   create_table "card_sets", force: :cascade do |t|
     t.integer "base_set_size"
@@ -38,6 +47,89 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_230100) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_card_sets_on_code", unique: true
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.string "artist"
+    t.string "artist_ids", default: [], array: true
+    t.string "ascii_name"
+    t.string "atraction_lights", default: [], array: true
+    t.string "availability", default: [], array: true
+    t.string "booster_types", default: [], array: true
+    t.string "border_color"
+    t.string "card_parts", default: [], array: true
+    t.string "color_identity", default: [], array: true
+    t.string "color_indicator", default: [], array: true
+    t.string "colors", default: [], array: true
+    t.string "defense"
+    t.string "duel_deck"
+    t.integer "edhrec_rank"
+    t.float "edhrec_saltiness"
+    t.integer "face_converted_mana_cost"
+    t.string "face_flavor_name"
+    t.integer "face_mana_value"
+    t.string "face_name"
+    t.string "finishes", default: [], array: true
+    t.string "flavor_name"
+    t.string "flavor_text"
+    t.string "frame_effects", default: [], array: true
+    t.string "frame_version"
+    t.string "hand"
+    t.boolean "has_alternative_deck_limit"
+    t.boolean "has_content_warning"
+    t.boolean "has_foil"
+    t.boolean "has_non_foil"
+    t.boolean "is_alternative"
+    t.boolean "is_full_art"
+    t.boolean "is_funny"
+    t.boolean "is_online_only"
+    t.boolean "is_oversized"
+    t.boolean "is_promo"
+    t.boolean "is_rebalanced"
+    t.boolean "is_reprint"
+    t.boolean "is_reserved"
+    t.boolean "is_starter"
+    t.boolean "is_story_spotlight"
+    t.boolean "is_textless"
+    t.boolean "is_timeshifted"
+    t.string "keywords", default: [], array: true
+    t.string "language"
+    t.string "layout"
+    t.string "leadership_skills"
+    t.string "life"
+    t.string "loyalty"
+    t.string "mana_cost"
+    t.string "mana_value"
+    t.string "name"
+    t.string "number"
+    t.string "original_printings", default: [], array: true
+    t.string "original_release_date"
+    t.string "original_text"
+    t.string "original_type"
+    t.string "other_face_ids", default: [], array: true
+    t.string "power"
+    t.string "printings", default: [], array: true
+    t.string "promo_types", default: [], array: true
+    t.string "rarity"
+    t.string "rebalanced_printings", default: [], array: true
+    t.string "related_cards"
+    t.string "security_stamp"
+    t.string "set_code"
+    t.string "side"
+    t.string "signature"
+    t.string "subsets", default: [], array: true
+    t.string "subtypes", default: [], array: true
+    t.string "supertypes", default: [], array: true
+    t.string "text"
+    t.string "toughness"
+    t.string "card_type"
+    t.string "types", default: [], array: true
+    t.string "uuid"
+    t.string "variations", default: [], array: true
+    t.string "watermark"
+    t.bigint "card_set_id"
+    t.index ["card_set_id"], name: "index_cards_on_card_set_id"
+    t.index ["uuid"], name: "index_cards_on_uuid", unique: true
   end
 
   create_table "identifiers", force: :cascade do |t|
@@ -131,4 +223,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_230100) do
     t.index ["index"], name: "index_rulings_on_index", unique: true
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "cards", "card_sets"
 end
