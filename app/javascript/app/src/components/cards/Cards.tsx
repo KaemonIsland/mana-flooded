@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import { Filter } from '../filter'
 import { Minimal, ImageOnly } from './card'
-import { Pagination } from '../Pagination'
-import { useFilter, useCards } from '../../utils'
+import { Pagination } from '../page'
+import { useFilter, useCards } from '../../../hooks'
 import { Legend } from '../legend'
 
 const CardsContainer = styled.section(({ theme, isMobile, showFilter }) => ({

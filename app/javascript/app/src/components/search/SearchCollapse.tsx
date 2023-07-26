@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 import { Search as SearchComponent } from './Search'
-import { Cards } from '..'
+import { Cards } from '../'
 
 /**
  * A sidebar search that can be added to any page!

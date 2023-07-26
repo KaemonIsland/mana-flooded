@@ -8,7 +8,7 @@ import { Home } from './pages'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Home</div>,
+    element: <Home />,
   },
   {
     path: '/deck/:deckId',

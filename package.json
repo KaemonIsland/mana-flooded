@@ -7,13 +7,17 @@
     "axios": "^1.4.0",
     "esbuild": "^0.18.11",
     "feather-icons": "^4.29.0",
+    "focus-trap-react": "^10.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-focus-lock": "^2.9.5",
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.14.1",
+    "react-transition-group": "^4.4.5",
     "sass": "^1.63.6",
-    "styled-components": "^6.0.2"
+    "scroll-lock": "^2.1.5",
+    "styled-components": "^6.0.2",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "build:css": "sass ./app/assets/stylesheets/application.sass.scss ./app/assets/builds/application.css --no-source-map",

@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
-import { ToastProvider } from '../../providers'
-import { Navbar } from '../nav/Navbar'
+import { ToastProvider } from '../../../providers'
+import { Navbar } from '../navigation/Navbar'
 
 const PageContainer = styled.div(() => ({
   width: '100%',
