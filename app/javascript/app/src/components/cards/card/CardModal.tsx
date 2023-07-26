@@ -163,7 +163,7 @@ export const CardModal = ({
           </Grid.Item>
           <Grid.Item area="form" alignSelf="end">
             <Container width="100%">
-              <AddCardForm quantity={quantity} foil={foilQuantity} actions={...cardActions} />
+              <AddCardForm quantity={quantity} foil={foilQuantity} actions={{ ...cardActions }} />
             </Container>
           </Grid.Item>
         </Grid>

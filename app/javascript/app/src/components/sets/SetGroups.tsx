@@ -73,7 +73,7 @@ export const SetGroups = ({ sets, setsOptions }: SetsProps): ReactElement => {
           <SetSection
             setType={currentSetType}
             sets={sortedSets[currentSetType]}
-            setsOptions={...setsOptions}
+            setsOptions={{ ...setsOptions }}
           />
         </Container>
       ) : null}

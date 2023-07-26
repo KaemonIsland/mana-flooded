@@ -8,19 +8,19 @@ const PaginationContainer = styled.div(({ theme }) => ({
   margin: `${theme.spaceScale(4)} auto`,
 }))
 
-const PageButton = styled(Button)(({ theme, isDisabled }) => ({
+const PageButton = styled(Button)(({ theme }) => ({
   width: theme.spaceScale(7),
-  border: isDisabled && '1px solid transparent',
+  border: '1px solid transparent',
   borderRadius: 0,
 }))
 
-PageButton.Left = styled(Button)(({ theme, isDisabled }) => ({
-  border: isDisabled && '1px solid transparent',
+const PageButtonLeft = styled(Button)(({ theme }) => ({
+  border: '1px solid transparent',
   borderRadius: `${theme.spaceScale(2)} 0 0 ${theme.spaceScale(2)}`,
 }))
 
-PageButton.Right = styled(Button)(({ theme, isDisabled }) => ({
-  border: isDisabled && '1px solid transparent',
+const PageButtonRight = styled(Button)(({ theme }) => ({
+  border: '1px solid transparent',
   borderRadius: `0 ${theme.spaceScale(2)} ${theme.spaceScale(2)} 0`,
 }))
 
@@ -53,7 +53,7 @@ export const Pagination = ({ page, totalPages, changePage }: PaginationProps): R
   return (
     <PaginationContainer>
       <Flex alignItems="start" justifyContent="center">
-        <PageButton.Left
+        <PageButtonLeft
           type="button"
           color="grey"
           shade={8}
@@ -62,7 +62,7 @@ export const Pagination = ({ page, totalPages, changePage }: PaginationProps): R
           isDisabled={page === 1}
         >
           Previous
-        </PageButton.Left>
+        </PageButtonLeft>
         <PageButton
           type="button"
           color="grey"
@@ -108,7 +108,7 @@ export const Pagination = ({ page, totalPages, changePage }: PaginationProps): R
             {totalPages}
           </PageButton>
         )}
-        <PageButton.Right
+        <PageButtonRight
           type="button"
           color="grey"
           shade={8}
@@ -117,7 +117,7 @@ export const Pagination = ({ page, totalPages, changePage }: PaginationProps): R
           isDisabled={page === totalPages}
         >
           Next
-        </PageButton.Right>
+        </PageButtonRight>
       </Flex>
     </PaginationContainer>
   )

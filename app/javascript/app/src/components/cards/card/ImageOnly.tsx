@@ -64,12 +64,12 @@ export const ImageOnly = ({ card, options = {} }: Props): ReactElement => {
   return (
     <>
       <CardModal
-        popupProps={...modal.popup}
+        popupProps={{ ...modal.popup }}
         isOpen={modal.isOpen}
         quantity={deckId ? deck.quantity : collection.quantity}
         foilQuantity={deckId ? deck.foilQuantity : collection.foilQuantity}
         cardActions={deckId ? deck.actions : collection.actions}
-        cardProps={...card}
+        cardProps={{ ...card }}
         isDeck={Boolean(deckId)}
       />
       <CardContainer>
