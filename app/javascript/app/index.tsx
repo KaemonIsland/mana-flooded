@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import App from './src/App'
 
 document.addEventListener('turbo:load', () => {
-  console.log('I was called!')
   const root = createRoot(document.body.appendChild(document.createElement('div')))
   root.render(<App />)
 })
