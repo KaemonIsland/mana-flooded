@@ -2,8 +2,8 @@ import React, { ReactElement, useEffect, useState } from 'react'
 import { ManaFloodedThemeProvider } from '../theme/ManaFloodedThemeProvider'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { getUser } from '../utils'
-import Routes from '../../routes'
 import { deckLoader } from '../loaders'
+import { Home } from './pages'
 
 const router = createBrowserRouter([
   {
