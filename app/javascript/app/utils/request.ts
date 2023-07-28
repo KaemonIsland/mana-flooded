@@ -20,7 +20,7 @@ export const request = async (
   options: any = {},
 ): Promise<any> => {
   try {
-    const response = await axios(url, options)
+    const response = await axios(url, { headers: { Accept: 'application/json' }, ...options })
 
     return validateAsync(response)
   } catch (error) {

@@ -1,28 +1,28 @@
 import React, { useEffect, useState, ReactElement } from 'react'
-import { Flex, Button } from '../../elements'
 import styled from 'styled-components'
+import { Flex, Button } from '../../elements'
 
-const PaginationContainer = styled.div(({ theme }) => ({
-  width: '100%',
-  maxWidth: theme.spaceScale(16),
-  margin: `${theme.spaceScale(4)} auto`,
-}))
+const PaginationContainer = styled.div`
+  width: 100%;
+  max-width: ${({ theme }) => theme.spaceScale(16)};
+  margin: ${({ theme }) => theme.spaceScale(4)} auto;
+`
 
-const PageButton = styled(Button)(({ theme }) => ({
-  width: theme.spaceScale(7),
-  border: '1px solid transparent',
-  borderRadius: 0,
-}))
+const PageButton = styled(Button)`
+  width: ${({ theme }) => theme.spaceScale(7)};
+  border: 1px solid transparent;
+  border-radius: 0;
+`
 
-const PageButtonLeft = styled(Button)(({ theme }) => ({
-  border: '1px solid transparent',
-  borderRadius: `${theme.spaceScale(2)} 0 0 ${theme.spaceScale(2)}`,
-}))
+const PageButtonLeft = styled(Button)`
+  border: 1px solid transparent;
+  border-radius: ${({ theme }) => `${theme.spaceScale(2)} 0 0 ${theme.spaceScale(2)}`};
+`
 
-const PageButtonRight = styled(Button)(({ theme }) => ({
-  border: '1px solid transparent',
-  borderRadius: `0 ${theme.spaceScale(2)} ${theme.spaceScale(2)} 0`,
-}))
+const PageButtonRight = styled(Button)`
+  border: '1px solid transparent';
+  border-radius: ${({ theme }) => `0 ${theme.spaceScale(2)} ${theme.spaceScale(2)} 0`};
+`
 
 interface PaginationProps {
   changePage: any
@@ -31,7 +31,7 @@ interface PaginationProps {
 }
 
 export const Pagination = ({ page, totalPages, changePage }: PaginationProps): ReactElement => {
-  const [pageRange, setPageRange] = useState([])
+  const [pageRange, setPageRange] = useState<Array<number>>([])
 
   useEffect(() => {
     const buildPageRange = (): Array<number> => {

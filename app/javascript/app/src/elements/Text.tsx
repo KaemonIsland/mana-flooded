@@ -1,42 +1,54 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const TextContainer = styled.p(
-  ({
-    theme,
-    size,
-    isBold,
-    isItalics,
-    align,
-    isUpcase,
-    display,
-    color,
-    shade,
-    family = 'roboto',
-    weight = 400,
-    lineHeight,
-    spacing,
-    ellipse,
-  }) => ({
-    fontFamily: `${family}, sans-serif`,
-    lineHeight,
-    letterSpacing: spacing,
-    fontSize: `${theme.fontSizes[size]}rem`,
-    fontWeight: isBold ? 'bold' : weight,
-    fontStyle: isItalics ? 'italic' : 'normal',
-    textAlign: align,
-    textTransform: isUpcase && 'uppercase',
-    display,
-    color: color !== 'black' ? theme.color[color][shade] : 'black',
-    width: '100%',
-    ...(ellipse && {
-      textOverflow: 'ellipsis',
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-    }),
-  }),
-)
+const TextContainer = styled.div<{
+  $size?: number
+  $isBold?: boolean
+  $isItalics?: boolean
+  $align?: string
+  $isUpcase?: boolean
+  $ellipse?: boolean
+  $display?: string
+  $color?: string
+  $shade?: number
+  $family?: string
+  $weight?: string | number
+  $lineHeight?: number
+  $spacing?: number
+}>`
+  font-family: ${({ $family }) => $family}, sans-serif;
+  line-height: ${({ $lineHeight }) => $lineHeight};
+  letter-spacing: ${({ $spacing }) => $spacing};
+  font-size: ${({ theme, $size }) => theme.fontSizes[$size || 4]}rem;
+  font-weight: ${({ $isBold, $weight }) => ($isBold ? 'bold' : $weight)};
+  font-style: ${({ $isItalics }) => ($isItalics ? 'italic' : 'normal')};
+  text-align: ${({ $align }) => $align};
+  text-transform: ${({ $isUpcase }) => $isUpcase && 'uppercase'};
+  display: ${({ $display }) => $display};
+  color: ${({ $color, $shade, theme }) =>
+    $color !== 'black' ? theme.color[$color || 'blue'][$shade || 5] : 'black'};
+  width: 100%;
+  text-overflow: ${({ $ellipse }) => $ellipse && 'ellipsis'};
+  overflow: ${({ $ellipse }) => $ellipse && 'hidden'};
+  white-space: ${({ $ellipse }) => $ellipse && 'nowrap'};
+`
+
+type TextProps = {
+  size?: number
+  isBold?: boolean
+  isItalics?: boolean
+  align?: string
+  isUpcase?: boolean
+  ellipse?: boolean
+  display?: string
+  color?: string
+  shade?: number
+  family?: string
+  weight?: string | number
+  lineHeight?: number
+  spacing?: number
+  children?: React.ReactNode
+}
 
 export const Text = ({
   size = 3,
@@ -47,46 +59,30 @@ export const Text = ({
   display = 'block',
   color = 'black',
   shade = 1,
-  family,
-  weight,
-  lineHeight,
-  spacing,
+  family = 'Roboto',
+  weight = 400,
+  lineHeight = 1,
+  spacing = 1,
   children,
   ellipse = false,
-  ...rest
-}) => {
-  const textProps = {
-    size,
-    isBold,
-    isItalics,
-    align,
-    isUpcase,
-    display,
-    color,
-    shade,
-    family,
-    weight,
-    lineHeight,
-    spacing,
-    ellipse,
-    ...rest,
-  }
-  return <TextContainer {...textProps}>{children}</TextContainer>
-}
-
-Text.propTypes = {
-  size: PropTypes.number,
-  isBold: PropTypes.bool,
-  isItalics: PropTypes.bool,
-  align: PropTypes.string,
-  isUpcase: PropTypes.bool,
-  ellipse: PropTypes.bool,
-  display: PropTypes.string,
-  color: PropTypes.string,
-  shade: PropTypes.number,
-  family: PropTypes.string,
-  weight: PropTypes.string,
-  lineHeight: PropTypes.number,
-  spacing: PropTypes.number,
-  children: PropTypes.node,
+}: TextProps) => {
+  return (
+    <TextContainer
+      $size={size}
+      $isBold={isBold}
+      $isItalics={isItalics}
+      $align={align}
+      $isUpcase={isUpcase}
+      $ellipse={ellipse}
+      $display={display}
+      $color={color}
+      $shade={shade}
+      $family={family}
+      $weight={weight}
+      $lineHeight={lineHeight}
+      $spacing={spacing}
+    >
+      {children}
+    </TextContainer>
+  )
 }
