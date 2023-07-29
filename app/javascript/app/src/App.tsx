@@ -3,7 +3,7 @@ import { ManaFloodedThemeProvider } from '../theme/ManaFloodedThemeProvider'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { getUser } from '../utils'
 import { deckLoader } from '../loaders'
-import { Home } from './pages'
+import { Home, DeckPage } from './pages'
 
 const router = createBrowserRouter([
   {
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/deck/:deckId',
-    element: <div>Deck Page</div>,
+    element: <DeckPage />,
     loader: deckLoader,
   },
 ])

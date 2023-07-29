@@ -80,7 +80,7 @@ module CardStats
         stats[:cards] += 1
 
         # Card types, they have been stringified so we must parse them
-        card_types = card.card_types
+        card_types = card.types
         types = stats[:types]
         card_subTypes = card.subtypes
 

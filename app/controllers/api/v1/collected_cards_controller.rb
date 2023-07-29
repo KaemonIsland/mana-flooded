@@ -20,7 +20,7 @@ class Api::V1::CollectedCardsController < ApplicationController
       .page(params[:page])
       .per(params[:per_page] || 30)
 
-      render 'api/v1/cards/cards.json.jbuilder', status: 200
+      render 'api/v1/cards/cards', status: 200
     else
       render json: { error: 'User must be signed in' }, status: 401
     end
@@ -44,7 +44,7 @@ class Api::V1::CollectedCardsController < ApplicationController
         .page(params[:page])
         .per(params[:per_page] || 30)
 
-      render 'api/v1/cards/cards.json.jbuilder', status: 200
+      render 'api/v1/cards/cards', status: 200
     else
       render json: { error: 'User must be signed in' }, status: 401
     end
@@ -67,7 +67,7 @@ class Api::V1::CollectedCardsController < ApplicationController
       @cards = Kaminari.paginate_array(@sorted_cards).page(params[:page]).per(params[:per_page] || 30)
 
       @deck = current_user.decks.find(params[:deck_id])
-      render 'api/v1/cards/cards.json.jbuilder', status: 200
+      render 'api/v1/cards/cards', status: 200
     else
       render json: { error: 'User must be signed in' }, status: 401
     end
@@ -82,7 +82,7 @@ class Api::V1::CollectedCardsController < ApplicationController
 
       @collected_card.save
 
-      render 'api/v1/card/collection.json.jbuilder', status: 201
+      render 'api/v1/card/collection', status: 201
     else
       render json: { error: 'Unable to add card to collection' }, status: 400
     end
@@ -100,7 +100,7 @@ class Api::V1::CollectedCardsController < ApplicationController
         @collected_card.save
       end
 
-      render 'api/v1/card/collection.json.jbuilder', status: 201
+      render 'api/v1/card/collection', status: 201
     elsif @collected_card.update(collected_card_params)
 
       # We don't want a collection to have more foils than owned cards
@@ -109,7 +109,7 @@ class Api::V1::CollectedCardsController < ApplicationController
         @collected_card.save
       end
 
-      render 'api/v1/card/collection.json.jbuilder', status: 200
+      render 'api/v1/card/collection', status: 200
     else
       render json: { error: 'Unable to update card quantity' }, status: 400
     end
@@ -136,7 +136,7 @@ class Api::V1::CollectedCardsController < ApplicationController
       end
     end
 
-    render 'api/v1/card/collection.json.jbuilder', status: 200
+    render 'api/v1/card/collection', status: 200
   rescue => error
     render json: { error: 'Unable to update cards' }, status: 400
   end
@@ -145,7 +145,7 @@ class Api::V1::CollectedCardsController < ApplicationController
     if !in_collection?(@collection, @card)
       render json: { error: 'Card not in collection' }, status: 404
     elsif @collected_card.destroy
-      render 'api/v1/card/collection.json.jbuilder', status: 200
+      render 'api/v1/card/collection', status: 200
     else
       render json: { error: 'Unable to remove card from collection' }, status: 400
     end

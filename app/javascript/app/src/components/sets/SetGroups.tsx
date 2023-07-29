@@ -35,7 +35,7 @@ interface SetsProps {
  * Groups sets together by set type
  */
 export const SetGroups = ({ sets, setsOptions }: SetsProps): ReactElement => {
-  const formattedSets = toCamelcase(sets)
+  const formattedSets = toCamelcase(sets || [])
   const [currentSetType, setCurrentSetType] = useState(null)
 
   // Sort all sets by their set type

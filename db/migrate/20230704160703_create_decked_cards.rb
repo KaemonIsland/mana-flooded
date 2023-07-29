@@ -5,6 +5,7 @@ class CreateDeckedCards < ActiveRecord::Migration[7.0]
       t.belongs_to :card
       t.integer :quantity
       t.integer :foil
+      t.string :categories, array: true, default: []
 
       t.timestamps
     end

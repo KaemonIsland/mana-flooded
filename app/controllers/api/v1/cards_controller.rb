@@ -7,7 +7,7 @@ class Api::V1::CardsController < ApplicationController
 
   def collection
     if current_user
-      render 'api/v1/card/collection.json.jbuilder', status: 200
+      render 'api/v1/card/collection', status: 200
     else
     render json: { error: 'User must be signed in' }, status: 401
     end
@@ -16,7 +16,7 @@ class Api::V1::CardsController < ApplicationController
   def deck
     if current_user
       @deck = Deck.find(params[:deck_id])
-      render 'api/v1/card/deck.json.jbuilder', status: 200
+      render 'api/v1/card/deck', status: 200
     else
    render json: { error: 'User must be signed in' }, status: 401
     end
@@ -27,7 +27,7 @@ class Api::V1::CardsController < ApplicationController
     .page(params[:page])
     .per(params[:per_page] || 30)
 
-    render 'api/v1/cards/cards.json.jbuilder', status: 200
+    render 'api/v1/cards/cards', status: 200
   end
 
   def search_with_deck
@@ -37,7 +37,7 @@ class Api::V1::CardsController < ApplicationController
     .page(params[:page])
     .per(params[:per_page] || 30)
 
-    render 'api/v1/cards/cards.json.jbuilder', status: 200
+    render 'api/v1/cards/cards', status: 200
   end
 
   private

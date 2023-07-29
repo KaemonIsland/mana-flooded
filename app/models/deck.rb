@@ -26,14 +26,10 @@ class Deck < ApplicationRecord
 
   def colors
     order = ['W', 'U', 'B', 'R', 'G']
-    card_colors = []
-    self.cards.each{ |card| 
-      card_colors << card.color_identity
-    }
 
-    card_colors.flatten.uniq.sort do |e1, e2|
-      order.index(e1) <=> order.index(e2)
-    end
+    card_colors = self.cards.map(&:color_identity).flatten.compact.uniq
+
+    card_colors.sort_by { |color| order.index(color) }
   end
 
   # This is the default object for setting all of the stats.
@@ -59,146 +55,80 @@ class Deck < ApplicationRecord
 
   # Rarity keeps track of card rarities
   def card_stats
-    stats = {
-      colors: {
-        W: 0,
-        U: 0,
-        B: 0,
-        R: 0,
-        G: 0,
-        C: 0,
-        M: 0,
-        total: 0
-      },
-      types: {
-        creature: { count: 0, subtypes: {} },
-        enchantment: { count: 0, subtypes: {} },
-        instant: { count: 0, subtypes: {} },
-        land: { count: 0, subtypes: {} },
-        sorcery: { count: 0, subtypes: {} },
-        planeswalker: { count: 0, subtypes: {} },
-        artifact: { count: 0, subtypes: {} },
-      },
-      cmc: {
-        1 => 0,
-        2 => 0,
-        3 => 0,
-        4 => 0,
-        5 => 0,
-        6 => 0,
-      },
-      counts: {
-        creature: 0,
-        nonCreature: 0,
-        land: 0,
-        nonLand: 0,
-      },
-      rarity: {
-        common: 0,
-        uncommon: 0,
-        rare: 0,
-        mythic: 0,
-        special: 0,
-        bonus: 0
-      },
+    stats = default_stats
+    cards = self.cards
+  
+    cards.each do |card|
+      multiplier = card.deck_quantity(id).quantity
+      stats[:cards] += multiplier
+      update_types_and_subtypes(stats, card, multiplier)
+      update_colors(stats, card, multiplier)
+      update_counts_and_cmc(stats, card, multiplier) unless card.card_type.include?('Basic Land')
+    end
+  
+    stats
+  end
+  
+  def default_stats
+    {
+      colors: Hash.new(0).merge({M: 0, C: 0, total: 0}),
+      types: default_types,
+      cmc: Hash.new(0),
+      counts: Hash.new(0),
+      rarity: Hash.new(0),
       cards: 0,
     }
-
-    cards = self.cards
-      # Iterates over every card and updates stats object
-      cards.each do |card|
-        multiplier = card.deck_quantity(id).quantity
-
-        # Increment total cards
-        stats[:cards] += multiplier
-
-
-        # Card types, they have been stringified so we must parse them
-        card_types = card.card_types
-        types = stats[:types]
-
-
-        # Counts the card types
-        card_types.each do |type|
-          lower_type = type.downcase().to_sym
-  
-          if types[lower_type]
-            types[lower_type][:count] += multiplier
-          end
-          
-  
-          # Counts the card subTypes
-          card.subtypes&.each do |subtype|
-            lower_subtype = subtype.downcase().to_sym
-
-            if types[lower_type] && types[lower_type][:subtypes] && types[lower_type][:subtypes][lower_subtype]
-              types[lower_type][:subtypes][lower_subtype] += multiplier
-            elsif types[lower_type] && types[lower_type][:subtypes]
-              types[lower_type][:subtypes][lower_subtype] = multiplier
-            end
-          end
-        end
-
-
-        # Counts multicolored cards and individual colors
-        if card.color_identity.length > 1
-          stats[:colors][:M] += multiplier
-        end
-
-        
-
-        # Artifacts do not have colors, so we increment colorless
-        if (card.color_identity.length === 0) 
-          stats[:colors][:C] += multiplier
-          stats[:colors][:total] += multiplier
-        end
-        
-        
-        
-        # Otherwise we update the color identity
-        card.color_identity.each { |color|
-          stats[:colors][color.to_sym] += multiplier
-          stats[:colors][:total] += multiplier
-        }
-
-
-        # if the card is a land we just need to up the land count. Otherwise we set a few more counts
-        if (card.card_type.include?('Basic Land')) 
-          stats[:counts][:land] += multiplier
-        else
-          stats[:counts][:nonLand] += multiplier
-
-    
-          # Updates counts for creatures and nonCreatures
-          if card_types.include?('Creature')
-            stats[:counts][:creature] += multiplier
-          else
-            stats[:counts][:nonCreature] += multiplier
-          end
-
-          # Gets converted mana cost counts
-          card_cmc = card.converted_mana_cost
-    
-          # Increments 1 mana for 1 or 0 cmc
-          if (card_cmc <= 1) 
-            stats[:cmc][1] += multiplier
-    
-            # Increments 6 mana for 6 or more cmc
-          elsif (card_cmc >= 6) 
-            stats[:cmc][6] += multiplier
-    
-            # Otherwise we increment what's in-between as long as it's not a land
-          else
-            stats[:cmc][card_cmc.to_i] += multiplier
-          end
-    
-          # counts card rarity, doesn't include basic lands
-          stats[:rarity][card.rarity.to_sym] += multiplier
-        end
-
-
-      end
-
-      stats
   end
+  
+  def default_types
+    %i[creature enchantment instant land sorcery planeswalker artifact].each_with_object({}) do |type, hash|
+      hash[type] = { count: 0, subtypes: Hash.new(0) }
+    end
+  end
+  
+  def update_types_and_subtypes(stats, card, multiplier)
+    card.types.each do |type|
+      lower_type = type.downcase().to_sym
+      if stats[:types][lower_type]
+        stats[:types][lower_type][:count] += multiplier
+        card.subtypes&.each do |subtype|
+          stats[:types][lower_type][:subtypes][subtype.downcase().to_sym] += multiplier
+        end
+      end
+    end
+  end
+  
+  def update_colors(stats, card, multiplier)
+    if !card.color_identity
+      return
+    end
+
+    if card.color_identity.length > 1
+      stats[:colors][:M] += multiplier
+    elsif card.color_identity.length.zero?
+      stats[:colors][:C] += multiplier
+      stats[:colors][:total] += multiplier
+    else
+      card.color_identity.each do |color|
+        stats[:colors][color.to_sym] += multiplier
+        stats[:colors][:total] += multiplier
+      end
+    end
+  end
+  
+  def update_counts_and_cmc(stats, card, multiplier)
+    stats[:counts][:nonLand] += multiplier
+    stats[:counts][:creature] += multiplier if card.types.include?('Creature')
+    stats[:counts][:nonCreature] += multiplier unless card.types.include?('Creature')
+    update_cmc(stats, card, multiplier)
+    stats[:rarity][card.rarity.to_sym] += multiplier
+  end
+  
+  def update_cmc(stats, card, multiplier)
+    card_cmc = card.mana_value.to_i
+    stats[:cmc][1] += multiplier if card_cmc <= 1
+    stats[:cmc][6] += multiplier if card_cmc >= 6
+    stats[:cmc][card_cmc] += multiplier if (2..5).include?(card_cmc)
+  end
+  
 end

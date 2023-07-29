@@ -8,7 +8,12 @@ class Api::V1::DecksController < ApplicationController
   def index
       if current_user
           @decks = current_user.decks.order(updated_at: :desc)
-          render 'api/v1/decks/decks.json.jbuilder', status: 200
+
+          decks_json = @decks.map do |deck|
+            deck.attributes.merge(colors: deck.colors)
+          end
+
+          render json: decks_json, status: 200
       else
           render json: { error: 'User must be signed in' }, status: 401
       end
@@ -16,7 +21,7 @@ class Api::V1::DecksController < ApplicationController
 
   def show
       if current_user
-          render 'api/v1/deck/deck.json.jbuilder', status: 200
+          render(template: 'api/v1/deck/deck', formats: :json, status: 200)
       else
           render json: { error: 'User must be signed in' }, status: 401
       end
@@ -26,7 +31,7 @@ class Api::V1::DecksController < ApplicationController
       @deck = current_user.decks.create(deck_params)
 
       if @deck.save
-          render 'api/v1/deck/deck.json.jbuilder', status: 200
+          render 'api/v1/deck/deck', status: 200
       else
           render json: { error: 'Unable to create deck' }, status: 422
       end
@@ -34,7 +39,7 @@ class Api::V1::DecksController < ApplicationController
 
   def update
       if @deck.update(deck_params)
-          render 'api/v1/deck/deck.json.jbuilder', status: 200
+          render 'api/v1/deck/deck', status: 200
       else
           render json: { error: 'Unable to update deck' }, status: 422
       end
@@ -42,7 +47,7 @@ class Api::V1::DecksController < ApplicationController
 
   def destroy
       if @deck.destroy
-          render 'api/v1/deck/deck.json.jbuilder', status: 200
+          render 'api/v1/deck/deck', status: 200
       else
           render json: { error: 'Unable to update deck' }, status: 422
       end

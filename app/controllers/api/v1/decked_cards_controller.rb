@@ -15,7 +15,7 @@ class Api::V1::DeckedCardsController < ApplicationController
 
       @cards = Kaminari.paginate_array(@sorted_cards).page(1).per(300)
 
-      render 'api/v1/cards/deck.json.jbuilder', status: 200
+      render 'api/v1/cards/deck', status: 200
     else
       render json: { error: 'User must be signed in' }, status: 401
     end
@@ -26,14 +26,14 @@ class Api::V1::DeckedCardsController < ApplicationController
       render json: { error: 'Card is already in this deck' }, status: 400
     elsif @deck.cards << @card
       @decked_card = @deck.decked_cards.find_by(card_id: @card.id)
-      card_type = @card.card_types.last
+      card_type = @card.types.last
       @decked_card.categories = card_type && [card_type] || []
       
       @decked_card.update(decked_card_params)
 
       @decked_card.save
 
-      render 'api/v1/card/deck.json.jbuilder', status: 201
+      render 'api/v1/card/deck', status: 201
     else
       render json: { error: 'Unable to add card to deck' }, status: 400
     end
@@ -43,7 +43,7 @@ class Api::V1::DeckedCardsController < ApplicationController
     if !in_deck?(@deck, @card)
       @deck.cards << @card
       @decked_card = @deck.decked_cards.find_by(card_id: @card.id)
-      card_type = @card.card_types.last
+      card_type = @card.types.last
       @decked_card.categories = card_type && [card_type] || []
 
       @decked_card.update(decked_card_params)
@@ -54,7 +54,7 @@ class Api::V1::DeckedCardsController < ApplicationController
         @decked_card.save
       end
 
-      render 'api/v1/card/deck.json.jbuilder', status: 201
+      render 'api/v1/card/deck', status: 201
     elsif @decked_card.update(decked_card_params)
 
       # We don't want a collection to have more foils than owned cards
@@ -63,7 +63,7 @@ class Api::V1::DeckedCardsController < ApplicationController
         @decked_card.save
       end
 
-      render 'api/v1/card/deck.json.jbuilder', status: 200
+      render 'api/v1/card/deck', status: 200
     else
       render json: { error: 'Unable to update card quantity' }, status: 400
     end
@@ -73,7 +73,7 @@ class Api::V1::DeckedCardsController < ApplicationController
     if !in_deck?(@deck, @card)
       render json: { error: 'Card not in deck' }, status: 404
     elsif @decked_card.destroy
-      render 'api/v1/card/deck.json.jbuilder', status: 200
+      render 'api/v1/card/deck', status: 200
     else
       render json: { error: 'Unable to remove card from deck' }, status: 400
     end

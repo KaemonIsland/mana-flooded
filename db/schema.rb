@@ -165,6 +165,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_160846) do
     t.bigint "card_id"
     t.integer "quantity"
     t.integer "foil"
+    t.string "categories", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_decked_cards_on_card_id"

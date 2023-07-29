@@ -1,3 +1,4 @@
+
 json.(@card, *@card.attributes.keys)
 if user_signed_in?
     json.has_card in_deck?(@deck, @card)

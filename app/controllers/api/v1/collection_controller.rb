@@ -8,7 +8,7 @@ class Api::V1::CollectionController < ApplicationController
       @cards = @collection.collected_cards
       @decks = current_user.decks
 
-      render 'api/v1/cards/export.json.jbuilder', status: 200
+      render 'api/v1/cards/export', status: 200
     else
       render json: { error: 'User must be signed in' }, status: 401
     end

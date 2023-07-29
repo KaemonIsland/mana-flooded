@@ -26,7 +26,7 @@ class Api::V1::CardSetsController < ApplicationController
       .page(params[:page])
       .per(params[:per_page] || 30)
 
-      render 'api/v1/cards/cards.json.jbuilder', status: 200
+      render 'api/v1/cards/cards', status: 200
     else
       render json: { error: 'User must be signed in' }, status: 401
     end
@@ -48,7 +48,7 @@ class Api::V1::CardSetsController < ApplicationController
       
       @deck = current_user.decks.find(params[:deck_id])
       
-      render 'api/v1/cards/cards.json.jbuilder', status: 200
+      render 'api/v1/cards/cards', status: 200
     else
       render json: { error: 'User must be signed in' }, status: 401
     end
