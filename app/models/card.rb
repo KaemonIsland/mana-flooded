@@ -95,7 +95,7 @@ class Card < ApplicationRecord
   ############## SORTING #############
   # Sorts by mana cost first then alphabetical by name
   def self.by_mana_and_name
-    order(converted_mana_cost: :asc, name: :asc)
+    order(mana_value: :asc, name: :asc)
   end
 
   # Sorts cards by color White, Blue, Black, Red, Green, Colorless, Multi
@@ -139,6 +139,12 @@ class Card < ApplicationRecord
       @colors[:M],
       @colors[:C])
   end
+
+  ############## RANSACK #############
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["artist", "artist_ids", "ascii_name", "atraction_lights", "availability", "booster_types", "border_color", "card_parts", "card_set_id", "card_type", "color_identity", "color_indicator", "colors", "defense", "duel_deck", "edhrec_rank", "edhrec_saltiness", "face_converted_mana_cost", "face_flavor_name", "face_mana_value", "face_name", "finishes", "flavor_name", "flavor_text", "frame_effects", "frame_version", "hand", "has_alternative_deck_limit", "has_content_warning", "has_foil", "has_non_foil", "id", "is_alternative", "is_full_art", "is_funny", "is_online_only", "is_oversized", "is_promo", "is_rebalanced", "is_reprint", "is_reserved", "is_starter", "is_story_spotlight", "is_textless", "is_timeshifted", "keywords", "language", "layout", "leadership_skills", "life", "loyalty", "mana_cost", "mana_value", "name", "number", "original_printings", "original_release_date", "original_text", "original_type", "other_face_ids", "power", "printings", "promo_types", "rarity", "rebalanced_printings", "related_cards", "security_stamp", "set_code", "side", "signature", "subsets", "subtypes", "supertypes", "text", "toughness", "types", "uuid", "variations", "watermark"]
+    end
 
 
 

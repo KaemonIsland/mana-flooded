@@ -103,165 +103,161 @@ export const Stats = ({ stats }: StatsProps): ReactElement => {
   const maxCmcCards = Math.max(...Object.values(cmc))
 
   return (
-    <ThemeProvider>
-      <Collapse isOpen={showStats} color="purple" shade={3}>
-        <Collapse.Header>
-          <Flex alignItems="center" justifyContent="space-between">
-            <Button
-              variant="outline"
-              color="purple"
-              shade={8}
-              onClick={(): void => setShowStats(!showStats)}
-              type="button"
-            >
-              View Stats
-            </Button>
-          </Flex>
-        </Collapse.Header>
-        <Collapse.Content>
-          <Grid
-            columnGap={6}
-            templateAreas={
-              isMobile
-                ? ['ramp', 'info', 'color', 'type', 'land', 'rarity', 'creature']
-                : ['ramp info color creature', 'type land rarity creature']
-            }
-            templateColumns={isMobile ? Grid.fr(1) : Grid.repeat(4, Grid.fr(1))}
-            templateRows={isMobile ? Grid.repeat(7, Grid.fr(1)) : Grid.repeat(2, Grid.fr(1))}
+    <Collapse isOpen={showStats} color="purple" shade={3}>
+      <Collapse.Header>
+        <Flex alignItems="center" justifyContent="space-between">
+          <Button
+            variant="outline"
+            color="purple"
+            shade={8}
+            onClick={(): void => setShowStats(!showStats)}
+            type="button"
           >
-            <Grid.Item area="info">
-              <StyledGridItem>
-                <Flex alignItems="start" isColumn>
-                  <p>Mana Ratio</p>
-                  <ColorBar {...colors} total={colors.total} />
-                  <p>Land Ratio</p>
-                  <ColorBar
-                    W={types.land.subtypes['plains'] || 0}
-                    U={types.land.subtypes['island'] || 0}
-                    B={types.land.subtypes['swamp'] || 0}
-                    R={types.land.subtypes['mountain'] || 0}
-                    G={types.land.subtypes['forest'] || 0}
-                    total={counts.land}
-                  />
-                </Flex>
-              </StyledGridItem>
-            </Grid.Item>
+            View Stats
+          </Button>
+        </Flex>
+      </Collapse.Header>
+      <Collapse.Content>
+        <Grid
+          columnGap={6}
+          templateAreas={
+            isMobile
+              ? ['ramp', 'info', 'color', 'type', 'land', 'rarity', 'creature']
+              : ['ramp info color creature', 'type land rarity creature']
+          }
+          templateColumns={isMobile ? Grid.fr(1) : Grid.repeat(4, Grid.fr(1))}
+          templateRows={isMobile ? Grid.repeat(7, Grid.fr(1)) : Grid.repeat(2, Grid.fr(1))}
+        >
+          <Grid.Item area="info">
+            <StyledGridItem>
+              <Flex alignItems="start" isColumn>
+                <p>Mana Ratio</p>
+                <ColorBar {...colors} total={colors.total} />
+                <p>Land Ratio</p>
+                <ColorBar
+                  W={types.land.subtypes['plains'] || 0}
+                  U={types.land.subtypes['island'] || 0}
+                  B={types.land.subtypes['swamp'] || 0}
+                  R={types.land.subtypes['mountain'] || 0}
+                  G={types.land.subtypes['forest'] || 0}
+                  total={counts.land}
+                />
+              </Flex>
+            </StyledGridItem>
+          </Grid.Item>
 
-            <Grid.Item area="ramp">
-              <StyledGridItem>
-                <StatsTitle>
-                  <div>Ramp</div>
-                  <div>Avg: {averageCost || 0}</div>
-                </StatsTitle>
-                <RampContainer>
-                  {[1, 2, 3, 4, 5, 6].map((manaCost) => (
-                    <StyledRamp key={manaCost}>
-                      <Text size={2} family="roboto">
-                        {manaCost} {manaCost === 1 && '-'} {manaCost === 6 && '+'}
-                      </Text>
-                      <StyledMeter
-                        value={Math.round((Number(cmc[manaCost]) / maxCmcCards) * 100)}
-                      />
-                      <Text size={2} family="roboto">
-                        {formatNumber(cmc[manaCost])}
-                      </Text>
-                    </StyledRamp>
-                  ))}
-                </RampContainer>
-              </StyledGridItem>
-            </Grid.Item>
-            <Grid.Item area="color">
-              <StyledGridItem>
-                <StatsTitle>
-                  <div>Color</div>
-                </StatsTitle>
-                {Object.entries(colors).map(([color, count]) => {
-                  const colorNames = {
-                    W: 'white',
-                    U: 'blue',
-                    B: 'black',
-                    R: 'red',
-                    G: 'green',
-                    C: 'colorless',
-                    M: 'multi',
-                  }
-                  return (
-                    !!count &&
-                    color !== 'total' && (
-                      <StatsPair>
-                        <div>{colorNames[color]}</div>
-                        <div>{((count / colors.total) * 100).toFixed(0)}%</div>
-                      </StatsPair>
-                    )
+          <Grid.Item area="ramp">
+            <StyledGridItem>
+              <StatsTitle>
+                <div>Ramp</div>
+                <div>Avg: {averageCost || 0}</div>
+              </StatsTitle>
+              <RampContainer>
+                {[1, 2, 3, 4, 5, 6].map((manaCost) => (
+                  <StyledRamp key={manaCost}>
+                    <Text size={2} family="roboto">
+                      {manaCost} {manaCost === 1 && '-'} {manaCost === 6 && '+'}
+                    </Text>
+                    <StyledMeter value={Math.round((Number(cmc[manaCost]) / maxCmcCards) * 100)} />
+                    <Text size={2} family="roboto">
+                      {formatNumber(cmc[manaCost])}
+                    </Text>
+                  </StyledRamp>
+                ))}
+              </RampContainer>
+            </StyledGridItem>
+          </Grid.Item>
+          <Grid.Item area="color">
+            <StyledGridItem>
+              <StatsTitle>
+                <div>Color</div>
+              </StatsTitle>
+              {Object.entries(colors).map(([color, count]) => {
+                const colorNames = {
+                  W: 'white',
+                  U: 'blue',
+                  B: 'black',
+                  R: 'red',
+                  G: 'green',
+                  C: 'colorless',
+                  M: 'multi',
+                }
+                return (
+                  !!count &&
+                  color !== 'total' && (
+                    <StatsPair>
+                      <div>{colorNames[color]}</div>
+                      <div>{((count / colors.total) * 100).toFixed(0)}%</div>
+                    </StatsPair>
                   )
-                })}
-              </StyledGridItem>
-            </Grid.Item>
-            <Grid.Item area="type">
-              <StyledGridItem>
-                <StatsTitle>
-                  <div>Types</div>
-                </StatsTitle>
-                {Object.entries(types).map(
-                  ([type, typeObj]) =>
-                    !!typeObj.count && (
-                      <StatsPair>
-                        <div>{type}</div>
-                        <div>{typeObj.count}</div>
-                      </StatsPair>
-                    ),
-                )}
-              </StyledGridItem>
-            </Grid.Item>
-            <Grid.Item area="creature">
-              <StyledGridItem>
-                <StatsTitle>
-                  <div>Creatures</div>
-                  <div>{types.creature.count}</div>
-                </StatsTitle>
-
-                {types.creature.subtypes &&
-                  Object.entries(types.creature.subtypes).map(([type, count]) => (
-                    <StatsPair key={type}>
+                )
+              })}
+            </StyledGridItem>
+          </Grid.Item>
+          <Grid.Item area="type">
+            <StyledGridItem>
+              <StatsTitle>
+                <div>Types</div>
+              </StatsTitle>
+              {Object.entries(types).map(
+                ([type, typeObj]) =>
+                  !!typeObj.count && (
+                    <StatsPair>
                       <div>{type}</div>
-                      <div>{count}</div>
+                      <div>{typeObj.count}</div>
                     </StatsPair>
-                  ))}
-              </StyledGridItem>
-            </Grid.Item>
-            <Grid.Item area="land">
-              <StyledGridItem>
-                <StatsTitle>
-                  <div>Land</div>
-                  <div>{types.land.count}</div>
-                </StatsTitle>
+                  ),
+              )}
+            </StyledGridItem>
+          </Grid.Item>
+          <Grid.Item area="creature">
+            <StyledGridItem>
+              <StatsTitle>
+                <div>Creatures</div>
+                <div>{types.creature.count}</div>
+              </StatsTitle>
 
-                {types.land.subtypes &&
-                  Object.entries(types.land.subtypes).map(([land, count]) => (
-                    <StatsPair key={land}>
-                      <div>{land}</div>
-                      <div>{count}</div>
-                    </StatsPair>
-                  ))}
-              </StyledGridItem>
-            </Grid.Item>
-            <Grid.Item area="rarity">
-              <StyledGridItem>
-                <StatsTitle>
-                  <div>Rarity</div>
-                </StatsTitle>
-
-                {Object.entries(rarity).map(([rare, count]) => (
-                  <StatsPair key={rare}>
-                    <div>{rare}</div>
+              {types.creature.subtypes &&
+                Object.entries(types.creature.subtypes).map(([type, count]) => (
+                  <StatsPair key={type}>
+                    <div>{type}</div>
                     <div>{count}</div>
                   </StatsPair>
                 ))}
-              </StyledGridItem>
-            </Grid.Item>
-          </Grid>
-        </Collapse.Content>
-      </Collapse>
-    </ThemeProvider>
+            </StyledGridItem>
+          </Grid.Item>
+          <Grid.Item area="land">
+            <StyledGridItem>
+              <StatsTitle>
+                <div>Land</div>
+                <div>{types.land.count}</div>
+              </StatsTitle>
+
+              {types.land.subtypes &&
+                Object.entries(types.land.subtypes).map(([land, count]) => (
+                  <StatsPair key={land}>
+                    <div>{land}</div>
+                    <div>{count}</div>
+                  </StatsPair>
+                ))}
+            </StyledGridItem>
+          </Grid.Item>
+          <Grid.Item area="rarity">
+            <StyledGridItem>
+              <StatsTitle>
+                <div>Rarity</div>
+              </StatsTitle>
+
+              {Object.entries(rarity).map(([rare, count]) => (
+                <StatsPair key={rare}>
+                  <div>{rare}</div>
+                  <div>{count}</div>
+                </StatsPair>
+              ))}
+            </StyledGridItem>
+          </Grid.Item>
+        </Grid>
+      </Collapse.Content>
+    </Collapse>
   )
 }

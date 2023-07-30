@@ -25,4 +25,6 @@ json.cards @deck.decked_cards do |decked_card|
 
   json.collection card.collection_quantity(@collection.id)
   json.locations card.locations(current_user.id)
+  json.prices card.prices
+  json.identifiers card.identifiers
 end

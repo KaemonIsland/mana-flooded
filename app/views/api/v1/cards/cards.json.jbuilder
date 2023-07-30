@@ -18,6 +18,10 @@ json.cards @cards do |card|
   json.(card, *card.attributes.keys)
 
   json.collection card.collection_quantity(@collection.id)
+  json.identifiers card.identifiers
+  json.purchase_urls card.purchase_urls
+  json.prices card.prices
+  json.locations card.locations(current_user.id)
 
   if @deck
     json.deck card.deck_quantity(@deck.id)

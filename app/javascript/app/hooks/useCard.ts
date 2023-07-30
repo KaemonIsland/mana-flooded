@@ -47,8 +47,10 @@ export const useCard = (card: Card, deckId?: number, options?: any): UseCardRetu
   const [categories, setCategories] = useState(card.categories || [])
 
   const { add, update, remove } = useCardActions()
-  const { id, name, scryfallId } = card
+  const { id, name, identifiers } = card
   const { addToast } = useToasts()
+
+  const scryfallId = identifiers[0].scryfallId
 
   // DECK RELATED ACTIONS!
   const addDeckCard = (options?: any): void => {
@@ -213,7 +215,7 @@ export const useCard = (card: Card, deckId?: number, options?: any): UseCardRetu
   // Grabs the card Image on load
   useEffect(() => {
     if (isLoading) {
-      // handleCardImage()
+      handleCardImage()
       setIsLoading(false)
     }
   }, [isLoading])

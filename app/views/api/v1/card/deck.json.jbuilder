@@ -6,6 +6,10 @@ if !@variations.nil?
 end
 
 json.collection @card.collection_quantity(@collection.id)
+json.identifiers @card.identifiers
+json.purchase_urls @card.purchase_urls
+json.prices @card.prices
+json.locations @card.locations(current_user.id)
 
 decked_card = @card.decked_cards.find_by(deck_id: @deck.id)
 
