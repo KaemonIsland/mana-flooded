@@ -41,8 +41,8 @@ export const useCard = (card: Card, deckId?: number, options?: any): UseCardRetu
   const [foilCollectionQuantity, setFoilCollectionQuantity] = useState(card?.collection?.foil || 0)
 
   // Deck related values
-  const [deckQuantity, setDeckQuantity] = useState(card?.deck?.quantity || 0)
-  const [prevDeckQuantity, setPrevDeckQuantity] = useState(null)
+  const [deckQuantity, setDeckQuantity] = useState<number>(card?.deck?.quantity || 0)
+  const [prevDeckQuantity, setPrevDeckQuantity] = useState(0)
   const [foilDeckQuantity, setFoilDeckQuantity] = useState(card?.deck?.foil || 0)
   const [categories, setCategories] = useState(card.categories || [])
 

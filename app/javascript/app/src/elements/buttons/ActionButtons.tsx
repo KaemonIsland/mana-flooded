@@ -4,11 +4,11 @@ import { Flex, Text } from '../'
 import styled from 'styled-components'
 import { Feather } from '../../components/icon'
 
-Button.Left = styled(Button)`
+const ButtonLeft = styled(Button)`
   border-radius: 1rem 0 0 1rem;
   background-color: transparent;
 `
-Button.Middle = styled.div`
+const ButtonMiddle = styled.div`
   border-radius: 0;
   background-color: transparent;
   border: 1px solid ${({ theme }): string => theme.color['grey'][8]};
@@ -17,7 +17,7 @@ Button.Middle = styled.div`
   letter-spacing: 0.1rem;
   padding: ${({ theme }): string => [theme.spaceScale(1), theme.spaceScale(2)].join(' ')};
 `
-Button.Right = styled(Button)`
+const ButtonRight = styled(Button)`
   border-radius: ${({ theme, hasCard }): string =>
     hasCard ? '0 1rem 1rem 0' : theme.spaceScale(1)};
   background-color: transparent;
@@ -55,7 +55,7 @@ export const ActionButtons = ({
   <Flex alignItems="center" justifyContent="end">
     {!!quantity && (
       <>
-        <Button.Left
+        <ButtonLeft
           color="grey"
           shade={8}
           size="small"
@@ -71,9 +71,9 @@ export const ActionButtons = ({
             }
           }}
         >
-          <Feather icon="minus" size="small" />
-        </Button.Left>
-        <Button.Middle color="grey" shade={8} variant="outline" isDisabled>
+          <Feather icon="minus" size="tiny" />
+        </ButtonLeft>
+        <ButtonMiddle color="grey" shade={8} variant="outline" isDisabled>
           <Flex alignItems="center">
             <Text family="roboto" display="inline-block">
               {quantity}
@@ -88,10 +88,10 @@ export const ActionButtons = ({
               >{`/${collection.quantity}`}</Text>
             ) : null}
           </Flex>
-        </Button.Middle>
+        </ButtonMiddle>
       </>
     )}
-    <Button.Right
+    <ButtonRight
       hasCard={quantity}
       color="grey"
       shade={8}
@@ -106,7 +106,7 @@ export const ActionButtons = ({
         }
       }}
     >
-      <Feather icon="plus" size="small" />
-    </Button.Right>
+      <Feather icon="plus" size="tiny" />
+    </ButtonRight>
   </Flex>
 )

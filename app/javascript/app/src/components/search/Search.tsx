@@ -1,6 +1,7 @@
-import React, { useState, FormEvent, ReactElement } from 'react'
+import React, { useState, FormEvent, ReactElement, useEffect } from 'react'
 import { Button, Flex, Container, Form, Input, Checkbox, CheckboxConfirm } from '../../elements'
 import { Collapse } from '..'
+import { useSearchParams } from 'react-router-dom'
 
 interface Callback {
   (query: URLSearchParams): void
@@ -13,8 +14,8 @@ interface SearchProps {
 const formatKey = (key): string => `q[${key}]`
 
 const searchSettings = {
-  cardName: 'name_cont',
-  cardText: 'text_cont',
+  cardName: 'name_cont_any',
+  cardText: 'text_cont_any',
   cardType: 'card_type_cont',
   manaCost: 'mana_cost_cont',
   artist: 'artist_cont',
@@ -39,6 +40,7 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
   const [showAdvanced, setShowAdvanced] = useState(false)
   const [form, setForm] = useState(defaultForm)
   const [resetForm, setResetForm] = useState(true)
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const buildQuery = () => {
     const query = new URLSearchParams()
@@ -64,6 +66,8 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
     e.preventDefault()
 
     const query = buildQuery()
+
+    setSearchParams(query)
 
     callback(query)
 
@@ -108,6 +112,12 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
     e.currentTarget.select()
   }
 
+  useEffect(() => {
+    if (searchParams.size) {
+      callback(searchParams)
+    }
+  }, [searchParams])
+
   return (
     <Form onSubmit={submitForm}>
       <Input
@@ -122,24 +132,25 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
       <Collapse isOpen={showAdvanced}>
         <Collapse.Content>
           <>
-            <Flex alignItems="center" justifyContent="space-between">
-              <Container marginRight={4}>
-                <CheckboxConfirm
-                  label="Reset Form?"
-                  onChange={() => {
-                    setResetForm(!resetForm)
-                  }}
-                  value={resetForm}
-                />
-              </Container>
-              <Container marginRight={4}>
-                <CheckboxConfirm
-                  label="Collection Only"
-                  onChange={() => handleCheckboxConfirmChange('collectionOnly')}
-                  value={form?.collectionOnly}
-                />
-              </Container>
-            </Flex>
+            <br />
+            <Input
+              label="Text"
+              name="cardText"
+              type="text"
+              placeholder="Text can match anything"
+              onChange={handleTextChange}
+              value={form?.cardText || ''}
+            />
+            <br />
+            <Input
+              label="Type Line"
+              name="cardType"
+              type="text"
+              placeholder="Text can match anything"
+              hint="Sorcery, Instant, Creature"
+              onChange={handleTextChange}
+              value={form?.cardType || ''}
+            />
             <br />
             <Checkbox
               label="Colors"
@@ -157,23 +168,7 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
                 { label: 'Colorless', value: 'C' },
               ]}
             />
-            <Input
-              label="Card Text"
-              name="cardText"
-              type="text"
-              placeholder="Text can match anything"
-              onChange={handleTextChange}
-              value={form?.cardText || ''}
-            />
-            <Input
-              label="Card Type"
-              name="cardType"
-              type="text"
-              placeholder="Text can match anything"
-              hint="Sorcery, Instant, Creature"
-              onChange={handleTextChange}
-              value={form?.cardType || ''}
-            />
+            <br />
             <Input
               label="Mana Cost"
               name="manaCost"
@@ -183,6 +178,7 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
               onChange={handleTextChange}
               value={form?.manaCost || ''}
             />
+            <br />
             <Checkbox
               label="Rarity"
               onChange={handleCheckboxChange}
@@ -195,6 +191,7 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
                 { value: 'mythic' },
               ]}
             />
+            <br />
             <Input
               label="Artist"
               name="artist"
@@ -203,6 +200,7 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
               onChange={handleTextChange}
               value={form?.artist || ''}
             />
+            <br />
             <Input
               label="Flavor Text"
               name="flavorText"
@@ -211,35 +209,59 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
               onChange={handleTextChange}
               value={form?.flavorText || ''}
             />
+            <br />
           </>
         </Collapse.Content>
       </Collapse>
-      <Flex alignItems="center" justifyContent="flex-end">
-        <Container marginRight={4}>
-          <Button
-            color="grey"
-            shade={9}
-            variant="text"
-            size="large"
-            onClick={() => setShowAdvanced(!showAdvanced)}
-          >
-            Advanced
+      <Flex alignItems="center" justifyContent="space-between">
+        <Flex alignItems="center" justifyContent="flex-start">
+          <Container marginRight={4}>
+            <CheckboxConfirm
+              label="Reset Form?"
+              onChange={() => {
+                setResetForm(!resetForm)
+              }}
+              value={resetForm}
+            />
+          </Container>
+          <Container marginRight={4}>
+            <CheckboxConfirm
+              label="Collection Only"
+              onChange={() => handleCheckboxConfirmChange('collectionOnly')}
+              value={form?.collectionOnly}
+            />
+          </Container>
+        </Flex>
+        <Flex alignItems="center" justiyfContent="flex-end">
+          <Container marginRight={4}>
+            <Button
+              color="grey"
+              shade={9}
+              variant="text"
+              size="large"
+              onClick={() => setShowAdvanced(!showAdvanced)}
+            >
+              Advanced
+            </Button>
+          </Container>
+          <Container marginRight={4}>
+            <Button
+              color="red"
+              shade={6}
+              variant="text"
+              size="large"
+              onClick={() => {
+                setSearchParams(new URLSearchParams())
+                setForm(defaultForm)
+              }}
+            >
+              Clear
+            </Button>
+          </Container>
+          <Button color="purple" size="large" shade={4} type="submit">
+            Search
           </Button>
-        </Container>
-        <Container marginRight={4}>
-          <Button
-            color="red"
-            shade={6}
-            variant="text"
-            size="large"
-            onClick={() => setForm(defaultForm)}
-          >
-            Clear
-          </Button>
-        </Container>
-        <Button color="purple" size="large" shade={4} type="submit">
-          Search
-        </Button>
+        </Flex>
       </Flex>
     </Form>
   )
