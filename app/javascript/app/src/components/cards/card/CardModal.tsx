@@ -66,8 +66,7 @@ export const CardModal = ({
   const [cardImages, setCardImages] = useState([])
   const [cardPrices, setCardPrices] = useState({})
 
-  const { scryfallId, locations, categories } = cardProps
-  const { add, update, remove } = cardActions
+  const { identifiers, locations, categories } = cardProps
 
   const inCollection = locations.filter((location) => location.type === 'collection')[0]
 
@@ -92,6 +91,7 @@ export const CardModal = ({
   }
 
   const handleFetchCard = async (): Promise<void> => {
+    const scryfallId = identifiers[0].scryfallId
     const cardData = await getCard(scryfallId)
 
     // Set card images

@@ -1,4 +1,5 @@
 import { CardStats } from './CardStats'
+import { Card } from './Card'
 
 export interface Deck {
   id: number
@@ -10,4 +11,5 @@ export interface Deck {
   updated_at?: string
   colors?: Array<string>
   stats?: CardStats
+  cards?: Array<Card>
 }

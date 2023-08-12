@@ -43,10 +43,14 @@ class Api::V1::CardsController < ApplicationController
   private
 
   def load_query
-    if params[:q][:collection_only] && @collection
+    if params[:q][:collection_only] && @collection && params[:colors]
       @query = @collection.cards.with_color(params[:colors], Card).order("original_release_date ASC").ransack(params[:q])
-    else
+    elsif params[:q][:collection_only] && @collection
+      @query = @collection.cards.order("original_release_date ASC").ransack(params[:q])
+    elsif params[:colors]
       @query = Card.with_color(params[:colors], Card).order("original_release_date ASC").ransack(params[:q])
+    else
+      @query = Card.order("original_release_date ASC").ransack(params[:q])
     end
 
     @sorted_cards = Card.sort_by_color(@query.result.by_mana_and_name.limit(50000))

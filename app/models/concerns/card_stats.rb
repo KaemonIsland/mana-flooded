@@ -31,7 +31,7 @@ module CardStats
 
         card_types = card.types
         types = stats[:types]
-        card_subTypes = card.subtypes
+        card_subTypes = card.subtypes || []
 
         # Counts the card types and subTypes
         card_types.each do |type|
@@ -48,10 +48,12 @@ module CardStats
           end
         end
 
+        color_identity = card.color_identity || []
+
         # Counts multicolored cards and individual colors
-        stats[:colors][:M] += 1 if card.color_identity.length > 1
-        stats[:colors][:C] += 1 if card.color_identity.length.zero?
-        card.color_identity.each { |color| stats[:colors][color.strip.to_sym] += 1 if color.to_sym }
+        stats[:colors][:M] += 1 if color_identity.length > 1
+        stats[:colors][:C] += 1 if color_identity.length.zero?
+        color_identity.each { |color| stats[:colors][color.strip.to_sym] += 1 if color.to_sym }
 
         if card.card_type.include?('Basic Land')
           stats[:counts][:land] += 1

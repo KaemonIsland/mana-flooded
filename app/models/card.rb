@@ -119,7 +119,7 @@ class Card < ApplicationRecord
     }
 
     cards.each do |card|
-      card_colors = card.color_identity
+      card_colors = card.color_identity || []
 
       if card_colors.empty?
         @colors[:C] << card
@@ -144,7 +144,11 @@ class Card < ApplicationRecord
 
   def self.ransackable_attributes(auth_object = nil)
     ["artist", "artist_ids", "ascii_name", "atraction_lights", "availability", "booster_types", "border_color", "card_parts", "card_set_id", "card_type", "color_identity", "color_indicator", "colors", "defense", "duel_deck", "edhrec_rank", "edhrec_saltiness", "face_converted_mana_cost", "face_flavor_name", "face_mana_value", "face_name", "finishes", "flavor_name", "flavor_text", "frame_effects", "frame_version", "hand", "has_alternative_deck_limit", "has_content_warning", "has_foil", "has_non_foil", "id", "is_alternative", "is_full_art", "is_funny", "is_online_only", "is_oversized", "is_promo", "is_rebalanced", "is_reprint", "is_reserved", "is_starter", "is_story_spotlight", "is_textless", "is_timeshifted", "keywords", "language", "layout", "leadership_skills", "life", "loyalty", "mana_cost", "mana_value", "name", "number", "original_printings", "original_release_date", "original_text", "original_type", "other_face_ids", "power", "printings", "promo_types", "rarity", "rebalanced_printings", "related_cards", "security_stamp", "set_code", "side", "signature", "subsets", "subtypes", "supertypes", "text", "toughness", "types", "uuid", "variations", "watermark"]
-    end
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["card_set_cards", "card_sets", "collected_cards", "collections", "decked_cards", "decks"]
+  end
 
 
 

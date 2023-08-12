@@ -8,7 +8,32 @@ class Api::V1::CollectionController < ApplicationController
       @cards = @collection.collected_cards
       @decks = current_user.decks
 
-      render 'api/v1/cards/export', status: 200
+      export_json = {
+        cards: @cards.map do |card|
+          {
+            uuid: card.card.uuid,
+            quantity: card.quantity,
+            foil: card.foil
+          }
+        end,
+        decks: @decks.map do |deck|
+          {
+            name: deck.name,
+            description: deck.description,
+            format: deck.format,
+            cards: deck.decked_cards.map do |decked_card|
+              {
+                uuid: decked_card.card.uuid,
+                quantity: decked_card.quantity,
+                foil: decked_card.foil,
+                categories: decked_card.categories,
+              }
+            end
+          }
+        end,
+      }
+
+      render json: export_json, status: 200
     else
       render json: { error: 'User must be signed in' }, status: 401
     end
@@ -65,8 +90,9 @@ class Api::V1::CollectionController < ApplicationController
 
               quantity = card[:quantity].to_i || 0
               foil = card[:foil].to_i || 0
+              categories = card[:categories] || []
 
-              new_deck.decked_cards.create({ card_id: card_id, quantity: quantity, foil: foil })
+              new_deck.decked_cards.create!({ card_id: card_id, quantity: quantity, foil: foil, categories: categories })
             rescue
               not_found << { card_id: card_id, quantity: quantity, foil: foil, deck_id: new_deck.id }
             end

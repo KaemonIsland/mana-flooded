@@ -63,7 +63,7 @@ const CheckboxItem = ({
   const checked = groupValue.includes(value)
 
   return (
-    <StyledLabel htmlFor={value} disabled={props.disabled}>
+    <StyledLabel disabled={props.disabled}>
       {capitalize(label || value)}
       <StyledInput
         type="checkbox"

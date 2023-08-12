@@ -13,9 +13,9 @@ interface RemoveCard {
 }
 
 interface Actions {
-  updateCard: UpdateCard
-  addCard: AddCard
-  removeCard: RemoveCard
+  update: UpdateCard
+  add: AddCard
+  remove: RemoveCard
 }
 
 interface ActionButtonProps {
@@ -66,9 +66,9 @@ export const AddCardForm = ({ actions, quantity, foil }: ActionButtonProps): Rea
           onClick={(): void => {
             const newQuantity = quantity - 1
             if (newQuantity) {
-              actions.updateCard(newQuantity, isFoil ? { foil: foil - 1 } : null)
+              actions.update(newQuantity, isFoil ? { foil: foil - 1 } : null)
             } else {
-              actions.removeCard()
+              actions.remove()
             }
           }}
         >
@@ -84,9 +84,9 @@ export const AddCardForm = ({ actions, quantity, foil }: ActionButtonProps): Rea
           variant="outline"
           onClick={(): void => {
             if (quantity) {
-              actions.updateCard(quantity + 1, isFoil ? { foil: foil + 1 } : null)
+              actions.update(quantity + 1, isFoil ? { foil: foil + 1 } : null)
             } else {
-              actions.addCard(isFoil ? { foil: 1 } : null)
+              actions.add(isFoil ? { foil: 1 } : null)
             }
           }}
         >

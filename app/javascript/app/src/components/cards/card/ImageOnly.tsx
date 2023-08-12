@@ -57,7 +57,6 @@ interface Props {
 
 export const ImageOnly = ({ card, options = {} }: Props): ReactElement => {
   const deckId = (options && options.deckId) || null
-  console.log(card)
   const { name } = card
   const { images, prices, deck, collection } = useCard(card, deckId, options)
   const modal = usePopupTrigger()
