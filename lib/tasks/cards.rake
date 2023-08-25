@@ -412,9 +412,21 @@ namespace :cards do
 
     puts "Updating Cards"
     update_cards()
+  end
 
+  desc "Connect cards to sets"
+  task connect: :environment do
     puts "Connecting Cards to Card Sets"
     connect_cards_to_sets()
+  end
+
+  desc "Updates prices for cards"
+  task prices: :environment do
+    puts "Fetching CSV files from MTGJSON"
+    get_card_files(['cardPrices.csv'])
+
+    puts "Updating Prices"
+    update_prices()
   end
 
   desc "Updates all card info for the app"

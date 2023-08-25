@@ -22,7 +22,7 @@ class DeckedCard < ApplicationRecord
 
   def set_default_category
     if categories.empty?
-      card_type = card.types.first
+      card_type = card.types.last
       self.categories << card_type if card_type
     else
       self.categories
