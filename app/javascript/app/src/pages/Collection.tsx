@@ -2,7 +2,7 @@ import React, { useState, useEffect, ReactElement } from 'react'
 import { Text } from '../elements/Text'
 import styled from 'styled-components'
 import { collectionCardActions } from '../../utils'
-import { Page, SetGroups, ImportExport } from '../components'
+import { SetGroups, ImportExport } from '../components'
 import { CardSet } from '../../interface/CardSet'
 
 const SetContainer = styled.a`
@@ -45,7 +45,7 @@ export const Collection = (): ReactElement => {
   }, [])
 
   return (
-    <Page>
+    <>
       <Text size={10}>Collection</Text>
       <ImportExport />
       <hr />
@@ -55,6 +55,6 @@ export const Collection = (): ReactElement => {
         </Text>
       </SetContainer>
       <SetGroups sets={cardSets} setsOptions={{ link: '/collection/set', showAddInfo: true }} />
-    </Page>
+    </>
   )
 }

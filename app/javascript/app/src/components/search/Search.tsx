@@ -40,6 +40,7 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
   const [showAdvanced, setShowAdvanced] = useState(false)
   const [form, setForm] = useState(defaultForm)
   const [resetForm, setResetForm] = useState(true)
+  const [query, setQuery] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
   const buildQuery = () => {
@@ -67,6 +68,7 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
 
     const query = buildQuery()
 
+    setQuery(query)
     setSearchParams(query)
 
     callback(query)
@@ -112,11 +114,11 @@ export const Search = ({ callback }: SearchProps): ReactElement => {
     e.currentTarget.select()
   }
 
-  useEffect(() => {
-    if (searchParams.size) {
-      callback(searchParams)
-    }
-  }, [searchParams])
+  // useEffect(() => {
+  //   if (query.null && searchParams.size) {
+  //     callback(searchParams)
+  //   }
+  // }, [searchParams, query])
 
   return (
     <Form onSubmit={submitForm}>

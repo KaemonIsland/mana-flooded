@@ -34,7 +34,7 @@ export const Decks = (): ReactElement => {
   }, [isLoading])
 
   return (
-    <Page>
+    <>
       <Text size={10}>Decks</Text>
       <Button {...triggerProps} color="purple" shade={7}>
         {isOpen ? 'Hide' : 'Show'} Create Form
@@ -46,6 +46,6 @@ export const Decks = (): ReactElement => {
       </Collapse>
       <hr />
       <>{isLoading ? '...Loading' : <DecksPreview decks={decks} />}</>
-    </Page>
+    </>
   )
 }

@@ -138,9 +138,7 @@ export const Navbar = () => {
               </NavContainer.Logo>
             </li>
             <li>
-              <Button onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
-                Add Cards to Collection
-              </Button>
+              <Button onClick={() => setIsDrawerOpen(!isDrawerOpen)}>Search for cards</Button>
             </li>
             <AuthContainer>
               <AuthContainer.Link tabIndex={10} onClick={() => handleLogout()}>

@@ -7,13 +7,13 @@ import { request } from '../utils'
  */
 export const collectionCardActions = {
   card: async (id: number): Promise<Card> =>
-    await request(`/api/v1/card/${id}`, (error) => {
+    await request(`/api/v1/card/${id}`, (error: any) => {
       console.log('Unable to get card: ', error)
     }),
   search: async (query: URLSearchParams): Promise<Array<Card>> =>
     await request(
       '/api/v1/search',
-      (error) => {
+      (error: any) => {
         console.log('Unable to get cards: ', error)
       },
       {
@@ -23,7 +23,7 @@ export const collectionCardActions = {
   all: async (query: URLSearchParams): Promise<Array<CardSet>> =>
     await request(
       '/api/v1/collection',
-      (error) => {
+      (error: any) => {
         console.log('Unable to get cards: ', error)
       },
       {
@@ -31,13 +31,13 @@ export const collectionCardActions = {
       },
     ),
   sets: async (): Promise<Array<CardSet>> =>
-    await request('/api/v1/collection/sets', (error) => {
+    await request('/api/v1/collection/sets', (error: any) => {
       console.log('Unable to get cards: ', error)
     }),
   collection: async (query: URLSearchParams, id: number): Promise<void> =>
     await request(
       `/api/v1/collection/set/${id}`,
-      (error) => {
+      (error: any) => {
         console.log('Unable to get cards from collection', error)
       },
       {
@@ -48,7 +48,7 @@ export const collectionCardActions = {
     await request(
       `/api/v1/sets/${id}/collection`,
 
-      (error) => {
+      (error: any) => {
         console.log('Unable to get cards from collection', error)
       },
       {
@@ -58,7 +58,7 @@ export const collectionCardActions = {
   add: async (id: number, params: any = {}): Promise<Card> =>
     await request(
       `/api/v1/add_card/${id}`,
-      (error) => {
+      (error: any) => {
         console.log('Unable to add card to collection', error)
       },
       {
@@ -70,7 +70,7 @@ export const collectionCardActions = {
     await request(
       `/api/v1/add_card/${id}`,
 
-      (error) => {
+      (error: any) => {
         console.log('Unable to update card collection quantity', error)
       },
       {
@@ -82,7 +82,7 @@ export const collectionCardActions = {
     await request(
       `/api/v1/remove_card/${id}`,
 
-      (error) => {
+      (error: any) => {
         console.log('Unable to remove card to collection', error)
       },
       {
@@ -97,14 +97,14 @@ export const collectionCardActions = {
  */
 export const deckCardActions = {
   card: async (id: number, deckId: number): Promise<Card> =>
-    await request(`card/${id}/deck/${deckId}`, (error) => {
+    await request(`card/${id}/deck/${deckId}`, (error: any) => {
       console.log('Unable to get card: ', error)
     }),
   search: async (query: URLSearchParams, deckId: number): Promise<Array<Card>> =>
     await request(
       `/api/v1/search/deck/${deckId}`,
 
-      (error) => {
+      (error: any) => {
         console.log('Unable to get cards: ', error)
       },
       {
@@ -114,7 +114,7 @@ export const deckCardActions = {
   set: async (query: URLSearchParams, id: number, deckId: number): Promise<Array<CardSet>> =>
     await request(
       `/api/v1/sets/${id}/deck/${deckId}`,
-      (error) => {
+      (error: any) => {
         console.log('Unable to get cards: ', error)
       },
       {
@@ -125,7 +125,7 @@ export const deckCardActions = {
     await request(
       `/api/v1/collection/set/${id}/deck/${deckId}`,
 
-      (error) => {
+      (error: any) => {
         console.log('Unable to get cards from collection', error)
       },
       {
@@ -136,7 +136,7 @@ export const deckCardActions = {
     await request(
       `/api/v1/decked_cards/${id}`,
 
-      (error) => {
+      (error: any) => {
         console.log('Unable to get cards: ', error)
       },
       {
@@ -146,7 +146,7 @@ export const deckCardActions = {
   add: async (id: number, deckId: number, params: any = {}): Promise<Card> =>
     await request(
       `/api/v1/add_decked_card/${deckId}/${id}`,
-      (error) => {
+      (error: any) => {
         console.log('Unable to add card to deck', error)
       },
       {
@@ -157,7 +157,7 @@ export const deckCardActions = {
   update: async (id: number, deckId: number, params: any = {}): Promise<Card> =>
     await request(
       `/api/v1/add_decked_card/${deckId}/${id}`,
-      (error) => {
+      (error: any) => {
         console.log('Unable to update card in deck', error)
       },
       {
@@ -168,7 +168,7 @@ export const deckCardActions = {
   remove: async (id: number, deckId: number, params: any = {}): Promise<Card> =>
     await request(
       `/api/v1/remove_decked_card/${deckId}/${id}`,
-      (error) => {
+      (error: any) => {
         console.log('Unable to remove card from deck', error)
       },
       {
@@ -186,7 +186,19 @@ export const setActions = {
     await request(
       `/api/v1/sets/${id}/deck/${deckId}`,
 
-      (error) => {
+      (error: any) => {
+        console.log('Unable to get cards: ', error)
+      },
+    ),
+  sets: async (): Promise<Array<CardSet>> =>
+    await request(`/api/v1/sets`, (error: any) => {
+      console.log('Unable to get cards: ', error)
+    }),
+  set: async (id: number): Promise<CardSet> =>
+    await request(
+      `/api/v1/sets/${id}`,
+
+      (error: any) => {
         console.log('Unable to get cards: ', error)
       },
     ),

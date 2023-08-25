@@ -11,7 +11,7 @@ interface SetSectionProps {
 }
 
 const SetSection = ({ setType, sets, setsOptions }: SetSectionProps): ReactElement => {
-  const formattedSetType = setType.replace(/_/g, ' ')
+  const formattedSetType = setType.replace(/_/g, ' ').toUpperCase()
 
   return (
     <>
