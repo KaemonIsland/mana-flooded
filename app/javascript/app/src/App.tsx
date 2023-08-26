@@ -2,8 +2,8 @@ import React, { ReactElement, useEffect, useState } from 'react'
 import { ManaFloodedThemeProvider } from '../theme/ManaFloodedThemeProvider'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { getUser } from '../utils'
-import { deckLoader } from '../loaders'
-import { Home, DeckPage } from './pages'
+import { deckLoader, setLoader } from '../loaders'
+import { Home, Deck as DeckPage, Set as SetPage } from './pages'
 
 const router = createBrowserRouter([
   {
@@ -15,9 +15,14 @@ const router = createBrowserRouter([
     element: <DeckPage />,
     loader: deckLoader,
   },
+  {
+    path: '/set/:setId',
+    element: <SetPage />,
+    loader: setLoader,
+  },
 ])
 
-export default (props): ReactElement => {
+export default (): ReactElement => {
   const [isInitialized, setIsInitialized] = useState(false)
   const [user, setUser] = useState(null)
 

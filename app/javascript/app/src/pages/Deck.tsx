@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
-import { Page, Deck } from '../components'
+import { Deck as DeckContainer } from '../components'
 import { useLoaderData } from 'react-router'
 
-export const DeckPage = (): ReactElement => {
+export const Deck = (): ReactElement => {
   const { id: deckId } = useLoaderData()
 
-  return <Deck deckId={deckId} />
+  return <DeckContainer deckId={deckId} />
 }

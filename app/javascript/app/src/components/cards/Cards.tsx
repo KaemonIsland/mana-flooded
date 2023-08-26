@@ -1,25 +1,22 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { useMediaQuery } from 'react-responsive'
 import { Filter } from '../filter'
 import { Minimal, ImageOnly } from './card'
 import { Pagination } from '../page'
 import { useFilter, useCards } from '../../../hooks'
-import { Legend } from '../legend'
 
-const CardsContainer = styled.section(({ theme, isMobile, showFilter }) => ({
+const CardsContainer = styled.section(({ theme, showFilter }) => ({
   display: 'grid',
-  gridTemplateColumns: isMobile || !showFilter ? `1fr` : `${theme.spaceScale(12)} 1fr`,
-  margin: isMobile && theme.spaceScale(4),
-  gridTemplateRows: isMobile ? `${theme.spaceScale(6)} 1fr` : 'auto',
+  gridTemplateColumns: !showFilter ? `1fr` : `${theme.spaceScale(12)} 1fr`,
+  gridTemplateRows: 'auto',
   gridGap: '1rem',
 }))
 
-const StyledGrid = styled.div(({ theme, imageOnly }) => ({
+const StyledGrid = styled.div(({ theme }) => ({
   display: 'grid',
   gridGap: theme.spaceScale(3),
-  gridTemplateColumns: `repeat(auto-fill, minmax(${imageOnly ? '16rem' : '22rem'}, 1fr))`,
-  gridAutoRows: imageOnly ? '26rem' : '7rem',
+  gridTemplateColumns: `repeat(auto-fill, minmax(16rem, 1fr))`,
+  gridAutoRows: '26rem',
   justifyItems: 'center',
   alignItems: 'start',
 }))
@@ -45,7 +42,6 @@ export const Cards = ({
   imageOnly = false,
   showPagination = true,
 }: Props): ReactElement => {
-  const isMobile = useMediaQuery({ maxWidth: 1100 })
   const { getCards, cards, pagination, stats, isLoading } = useCards(options)
   const filter = useFilter(getCards)
 
@@ -55,13 +51,11 @@ export const Cards = ({
 
   return (
     <>
-      <Legend />
-      <hr />
-      {showPagination && <div>{results}</div>}
-      <CardsContainer showFilter={showFilter} isMobile={isMobile}>
+      <CardsContainer showFilter={showFilter}>
+        {showPagination && <div>{results}</div>}
         {showPagination && <Pagination {...pagination} />}
         {showFilter && <Filter stats={stats} {...filter} />}
-        <StyledGrid imageOnly={imageOnly}>
+        <StyledGrid>
           {isLoading ? (
             <h1>...Loading!</h1>
           ) : (

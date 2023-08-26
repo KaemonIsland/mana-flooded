@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect } from 'react'
 import { Flex, Text } from '../elements'
 import { CardSet } from '../../interface/CardSet'
-import { SetGroups, Page } from '../components'
+import { SetGroups } from '../components'
 import { setActions } from '../../utils'
 
 /**
@@ -29,7 +29,7 @@ export const Sets = (): ReactElement => {
         <Text size={10}>Sets</Text>
       </Flex>
       <hr />
-      <SetGroups sets={cardSets} setsOptions={{ link: '/sets' }} />
+      <SetGroups sets={cardSets} setsOptions={{ link: '/set' }} />
     </>
   )
 }

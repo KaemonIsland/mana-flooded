@@ -4,7 +4,7 @@ const defaultFilters = {
   color: [],
   rarity: [],
   type: null,
-  cmc: {
+  manaValue: {
     min: 0,
     max: 20,
   },
@@ -13,10 +13,17 @@ const defaultFilters = {
 export const useFilter = (cardSearch) => {
   const [filters, setFilters] = useState(defaultFilters)
 
+  console.log(filters)
+
   const formatKey = (key): string => `q[${key}]`
 
   const buildQuery = (queryFilters = defaultFilters) => {
-    const { color = [], rarity = [], type = '', cmc = { min: null, max: null } } = queryFilters
+    const {
+      color = [],
+      rarity = [],
+      type = '',
+      manaValue = { min: null, max: null },
+    } = queryFilters
     const q = new URLSearchParams()
 
     if (color.length) {
@@ -33,12 +40,12 @@ export const useFilter = (cardSearch) => {
       })
     }
 
-    if (cmc.min) {
-      q.append(formatKey('mana_value_gteq'), String(cmc.min))
+    if (manaValue.min) {
+      q.append(formatKey('mana_value_gteq'), String(manaValue.min))
     }
 
-    if (cmc.max) {
-      q.append(formatKey('mana_value_lteq'), String(cmc.max))
+    if (manaValue.max && manaValue.max !== 20) {
+      q.append(formatKey('mana_value_lteq'), String(manaValue.max))
     }
 
     return q
@@ -85,6 +92,7 @@ export const useFilter = (cardSearch) => {
    * @param {string} value - value to add/remove from filter category
    */
   const updateSingle = ({ name, value }) => {
+    console.log('Update Single: ', name, value)
     if (value === 'all') {
       setFilters({ ...filters, [name]: null })
     } else {
@@ -101,7 +109,7 @@ export const useFilter = (cardSearch) => {
   const updateRange = ({ name, value }) => {
     setFilters({
       ...filters,
-      cmc: { ...filters.cmc, [name]: value },
+      manaValue: { ...filters.manaValue, [name]: value },
     })
   }
 
@@ -112,6 +120,8 @@ export const useFilter = (cardSearch) => {
    */
   const update = ({ target }) => {
     const { name } = target
+
+    console.log('Update: ', name)
 
     if (name === 'color' || name === 'rarity') {
       updateMultiple(target)

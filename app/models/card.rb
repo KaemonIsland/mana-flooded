@@ -165,23 +165,62 @@ class Card < ApplicationRecord
   # Card has color within identity
   scope :single_color, -> (color) { where("'#{color}' = ANY (color_identity)") }
 
+  # Cards that contain exactly specific colors (order-agnostic)
+  scope :colors_exact, ->(colors) { 
+    where("ARRAY(SELECT unnest(color_identity) ORDER BY 1) = ARRAY(SELECT unnest(ARRAY[:colors]::varchar[]) ORDER BY 1)", colors: colors) 
+  }
+
+  # Cards that include specific colors
+  scope :colors_include, ->(colors) {
+    where(colors.reduce(nil) do |query, color|
+      new_condition = arel_table[:color_identity].contains([color])
+      query ? query.and(new_condition) : new_condition
+    end)
+  }
+
+  # Cards that have at most specific colors
+  scope :colors_at_most, ->(colors) {
+    where("color_identity <@ ARRAY[:colors]::varchar[] AND ARRAY_LENGTH(color_identity, 1) <= :length",
+          colors: colors, length: colors.length)
+  }
+
+  # Returns cards with any of the specified colors.
+  scope :any_of_colors, ->(colors) {
+    raise ArgumentError, 'This scope expects between 1 to 5 colors' unless (1..5).include?(colors.length)
+    
+    colors[1..-1].inject(single_color(colors.first)) {|s, color| s.or(single_color(color)) }
+  }
+
+
+
   def self.with_color(card_colors, scope)
     return where.not(color_identity: [nil]) unless card_colors
 
     colors = card_colors.split(',').uniq
 
-    if colors.length === 1 && colors.first === 'M'
+    case
+    when colors.length === 1 && colors.first === 'M'
       multi_color
-    elsif colors.length === 1 && colors.first === 'C'
+    when colors.length === 1 && colors.first === 'C'
       colorless
-    elsif colors.length >= 2 && colors.include?('M')
+    when colors.length >= 2 && colors.include?('M')
       colors.delete('M')
       combo_color(colors).multi_color
-    elsif colors.length === 1
+    when colors.length === 1
       single_color(colors.first)
+    when colors.length > 1
+      # If you want cards with any of the specified colors
+      any_of_colors(colors)
+      # If you want exact match irrespective of order
+      # colors_exact(colors)
+      # If you want cards that include the specified colors
+      # colors_include(colors)
+      # If you want cards that have at most the specified colors
+      # colors_at_most(colors)
     else
-      # Searches for multiple colors in OR fashion
+      # This will search for multiple colors in OR fashion (e.g., either red OR blue)
       colors[1..-1].inject(single_color(colors.first)) {|s, color| s.or(scope.single_color(color)) }
     end
-  end
+end
+
 end

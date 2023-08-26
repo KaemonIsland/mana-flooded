@@ -1,24 +1,43 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState, useEffect } from 'react'
 import { Text } from '../../elements'
 import { Cards } from '../cards'
 import { Page } from '../page'
+import { setActions } from '../../../utils'
+import { CardSet } from '../../../interface/CardSet'
 
 interface SetProps {
-  id: number
-  name: string
+  setId: number
 }
 
-export const Set = ({ id, name }: SetProps): ReactElement => (
-  <Page>
-    <Text
-      size={10}
-      style={{
-        textTransform: 'uppercase',
-      }}
-    >
-      {name}
-    </Text>
-    <hr />
-    <Cards options={{ setId: id }} />
-  </Page>
-)
+export const Set = ({ setId }: SetProps): ReactElement => {
+  const [cardSet, setCardSet] = useState<CardSet>({})
+  const [isInitialized, setIsInitialized] = useState(false)
+
+  const getCardSet = async () => {
+    const set: CardSet = await setActions.set(setId)
+
+    setCardSet(set)
+  }
+
+  useEffect(() => {
+    if (!isInitialized) {
+      getCardSet()
+      setIsInitialized(true)
+    }
+  }, [isInitialized, cardSet])
+
+  return (
+    <Page>
+      <Text
+        size={10}
+        style={{
+          textTransform: 'uppercase',
+        }}
+      >
+        {cardSet.name || ''}
+      </Text>
+      <hr />
+      <Cards options={{ setId }} />
+    </Page>
+  )
+}

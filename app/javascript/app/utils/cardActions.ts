@@ -196,7 +196,7 @@ export const setActions = {
     }),
   set: async (id: number): Promise<CardSet> =>
     await request(
-      `/api/v1/sets/${id}`,
+      `/api/v1/set/${id}`,
 
       (error: any) => {
         console.log('Unable to get cards: ', error)

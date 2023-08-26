@@ -1,8 +1,5 @@
-import React, { useState, useEffect, ReactElement } from 'react'
-import { useMediaQuery } from 'react-responsive'
-import styled, { keyframes } from 'styled-components'
-import FocusLock from 'react-focus-lock'
-import { disablePageScroll, enablePageScroll } from 'scroll-lock'
+import React, { ReactElement } from 'react'
+import styled from 'styled-components'
 import { Flex, Button, Container, Text } from '../../elements'
 import { CardStats } from '../../../interface/CardStats'
 import { Filter as CardFilter } from '../../../interface/Filter'
@@ -18,22 +15,11 @@ const Count = styled.span(({ theme }) => ({
   color: theme.color.grey[6],
 }))
 
-const FilterContainer = styled.div(({ theme, isMobile, isOpen }) => ({
+const FilterContainer = styled.div(({ theme }) => ({
   backgroundColor: 'white',
   border: '1px solid black',
   borderRadius: theme.spaceScale(1),
   boxShadow: theme.boxShadow.single[1],
-  height: '100%',
-  ...(isMobile
-    ? {
-        position: 'fixed',
-        top: 0,
-        left: isOpen ? '0' : '-' + theme.spaceScale(13),
-        zIndex: 2000000000,
-        transition: 'all 300ms ease-in',
-        overflowY: 'scroll',
-      }
-    : {}),
 }))
 
 const FilterBox = styled.div(({ theme }) => ({
@@ -42,30 +28,6 @@ const FilterBox = styled.div(({ theme }) => ({
   lineHeight: 1.5,
 }))
 
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.6;
-  }
-`
-
-const Background = styled.div`
-  background-color: black;
-  background-position: cover;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1500000000;
-  width: 100vw;
-  height: 100vh;
-  opacity: 0.6;
-  animation-name: ${fadeIn};
-  animation-duration: 300ms;
-`
-
 interface Update {
   (e: any): void
 }
@@ -73,7 +35,7 @@ interface Clear {
   (): void
 }
 
-interface Cmc {
+interface ManaValue {
   min: number
   max: number
 }
@@ -82,9 +44,7 @@ interface FilterContentProps {
   color: Array<string>
   rarity: Array<string>
   type: string
-  cmc: Cmc
-  isMobile: boolean
-  isOpen: boolean
+  manaValue: ManaValue
   stats: CardStats
   update: Update
   clear: Clear
@@ -95,17 +55,21 @@ const FilterContent = ({
   color,
   type,
   rarity,
-  cmc,
+  manaValue,
   stats,
   update,
-  isMobile,
-  isOpen,
   clear,
   apply,
 }: FilterContentProps): ReactElement => {
-  const isDisabled = !(color.length || rarity.length || type || cmc.min || cmc.max !== 20)
+  const isDisabled = !(
+    color.length ||
+    rarity.length ||
+    type ||
+    manaValue.min ||
+    manaValue.max !== 20
+  )
   return (
-    <FilterContainer isOpen={isOpen} isMobile={isMobile}>
+    <FilterContainer>
       <FilterBox>
         {
           <Flex alignItems="center" justifyContent="space-between">
@@ -250,35 +214,35 @@ const FilterContent = ({
       </FilterBox>
       <FilterBox>
         <Flex alignItems="center" justifyContent="space-between">
-          <Text family="roboto">CMC</Text>
+          <Text family="roboto">Mana Value</Text>
         </Flex>
         <hr />
         <Flex isColumn alignItems="start" justifyContent="start">
           <Container width="100%">
             <StyledLabel htmlFor="min">
-              <span>Min: {cmc.min}</span>
+              <span>Min: {manaValue.min}</span>
             </StyledLabel>
             <input
               type="range"
               name="min"
               min={0}
-              max={cmc.max}
+              max={manaValue.max}
               id="min"
-              value={cmc.min}
+              value={manaValue.min}
               onChange={update}
             />
           </Container>
           <Container width="100%">
             <StyledLabel htmlFor="max">
-              <span>Max: {cmc.max}</span>
+              <span>Max: {manaValue.max}</span>
             </StyledLabel>
             <input
               type="range"
               name="max"
-              min={cmc.min}
+              min={manaValue.min}
               max={20}
               id="max"
-              value={cmc.max}
+              value={manaValue.max}
               onChange={update}
             />
           </Container>
@@ -297,57 +261,17 @@ interface FilterProps {
 }
 
 export const Filter = ({ stats, update, filters, clear, apply }: FilterProps): ReactElement => {
-  const isMobile = useMediaQuery({ maxWidth: 1100 })
-  const [isOpen, setIsOpen] = useState(false)
-
-  const openFilter = (): void => {
-    setIsOpen(true)
-    disablePageScroll()
-  }
-
-  const closeFilter = (): void => {
-    setIsOpen(false)
-    enablePageScroll()
-  }
-
-  useEffect(() => {
-    // Closes the mobile navbar when escape key is pressed
-    const closeOnEscape = (e): void => {
-      if (e.key === 'Escape') {
-        closeFilter()
-      }
-    }
-
-    isOpen
-      ? addEventListener('keydown', closeOnEscape)
-      : removeEventListener('keydown', closeOnEscape)
-  }, [isOpen])
-
   const filterParams = {
     ...filters,
     stats,
     update,
-    isMobile,
-    isOpen,
     clear,
     apply,
   }
 
   return (
     <div style={{ position: 'relative' }}>
-      {isMobile ? (
-        <>
-          <Button onClick={openFilter} color="purple" bubble={false} variant="outline" shade={7}>
-            Filters
-          </Button>
-          <FocusLock disabled={!isOpen}>
-            <FilterContent {...filterParams} />
-          </FocusLock>
-        </>
-      ) : (
-        <FilterContent {...filterParams} />
-      )}
-      {isMobile && isOpen && <Background onClick={closeFilter} />}
+      <FilterContent {...filterParams} />
     </div>
   )
 }
