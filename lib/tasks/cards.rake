@@ -3,6 +3,8 @@ require 'zip'
 require 'csv'
 require 'openssl'
 
+BATCH_SIZE = 1000
+
 def get_string_value()
 end
 
@@ -81,7 +83,10 @@ def update_legalities
     }
   end
 
-  Legality.upsert_all(legality_attrs, unique_by: [:uuid])
+  legality_attrs.each_slice(BATCH_SIZE) do |batch|
+    Legality.upsert_all(batch, unique_by: [:uuid])
+    sleep(1)
+  end
   
   puts "Legalities updated, removing file"
   remove_file('cardLegalities.csv')
@@ -103,7 +108,10 @@ def update_rulings
     }
   end
 
-  Ruling.upsert_all(ruling_attrs, unique_by: [:index])
+  ruling_attrs.each_slice(BATCH_SIZE) do |batch|
+    Ruling.upsert_all(batch, unique_by: [:index])
+    sleep(1)
+  end
 
   puts "Rulings updated, removing file"
   remove_file('cardRulings.csv')
@@ -140,7 +148,10 @@ def update_identifiers
     }
   end
 
-  Identifier.upsert_all(identifier_attrs, unique_by: [:uuid])
+  identifier_attrs.each_slice(BATCH_SIZE) do |batch|
+    Identifier.upsert_all(batch, unique_by: [:uuid])
+    sleep(1)
+  end
 
   puts "Identifiers updated, removing file"
   remove_file('cardIdentifiers.csv')
@@ -166,7 +177,10 @@ def update_prices
     }
   end
 
-  Price.upsert_all(price_attrs, unique_by: [:index])
+  price_attrs.each_slice(BATCH_SIZE) do |batch|
+    Price.upsert_all(batch, unique_by: [:index])
+    sleep(1)
+  end
 
   puts "prices updated, removing file"
   remove_file('cardPrices.csv')
@@ -191,7 +205,10 @@ def update_purchase_urls
     }
   end
 
-  PurchaseUrl.upsert_all(purchase_url_attrs, unique_by: [:uuid])
+  purchase_url_attrs.each_slice(BATCH_SIZE) do |batch|
+    PurchaseUrl.upsert_all(batch, unique_by: [:uuid])
+    sleep(1)
+  end
 
   puts "Purchase URLs updated, removing file"
   remove_file('cardPurchaseUrls.csv')
@@ -231,7 +248,10 @@ def update_card_sets
     end
   end
 
-  CardSet.upsert_all(card_set_attrs.compact, unique_by: [:code])
+  card_set_attrs.each_slice(BATCH_SIZE) do |batch|
+    CardSet.upsert_all(batch.compact, unique_by: [:code])
+    sleep(1)
+  end
 end
 
 # Checks available sets for partial preview codes and returns them
@@ -347,7 +367,10 @@ def update_cards
     end
   end
 
-  Card.upsert_all(card_attrs, unique_by: [:uuid])
+  card_attrs.each_slice(BATCH_SIZE) do |batch|
+    Card.upsert_all(batch, unique_by: [:uuid])
+    sleep(1)
+  end
 
   puts "Cards updated, removing file"
   remove_file('cards.csv')
