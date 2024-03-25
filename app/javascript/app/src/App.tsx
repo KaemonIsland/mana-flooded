@@ -4,20 +4,33 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { getUser } from '../utils'
 import { deckLoader, setLoader } from '../loaders'
 import { Home, Deck as DeckPage, Set as SetPage } from './pages'
+import { Page } from './components'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: (
+      <Page>
+        <Home />
+      </Page>
+    ),
   },
   {
     path: '/deck/:deckId',
-    element: <DeckPage />,
+    element: (
+      <Page>
+        <DeckPage />
+      </Page>
+    ),
     loader: deckLoader,
   },
   {
     path: '/set/:setId',
-    element: <SetPage />,
+    element: (
+      <Page>
+        <SetPage />
+      </Page>
+    ),
     loader: setLoader,
   },
 ])

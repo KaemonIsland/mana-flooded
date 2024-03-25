@@ -6,12 +6,12 @@ import { Page } from '../components'
 
 export const Home = () => {
   return (
-    <Page>
+    <>
       <Collection />
       <hr />
       <Sets />
       <hr />
       <Decks />
-    </Page>
+    </>
   )
 }

@@ -13,8 +13,6 @@ const defaultFilters = {
 export const useFilter = (cardSearch) => {
   const [filters, setFilters] = useState(defaultFilters)
 
-  console.log(filters)
-
   const formatKey = (key): string => `q[${key}]`
 
   const buildQuery = (queryFilters = defaultFilters) => {
@@ -92,7 +90,6 @@ export const useFilter = (cardSearch) => {
    * @param {string} value - value to add/remove from filter category
    */
   const updateSingle = ({ name, value }) => {
-    console.log('Update Single: ', name, value)
     if (value === 'all') {
       setFilters({ ...filters, [name]: null })
     } else {
@@ -120,8 +117,6 @@ export const useFilter = (cardSearch) => {
    */
   const update = ({ target }) => {
     const { name } = target
-
-    console.log('Update: ', name)
 
     if (name === 'color' || name === 'rarity') {
       updateMultiple(target)

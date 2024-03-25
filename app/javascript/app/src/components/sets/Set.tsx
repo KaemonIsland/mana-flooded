@@ -27,7 +27,7 @@ export const Set = ({ setId }: SetProps): ReactElement => {
   }, [isInitialized, cardSet])
 
   return (
-    <Page>
+    <>
       <Text
         size={10}
         style={{
@@ -38,6 +38,6 @@ export const Set = ({ setId }: SetProps): ReactElement => {
       </Text>
       <hr />
       <Cards options={{ setId }} />
-    </Page>
+    </>
   )
 }
