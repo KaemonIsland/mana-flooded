@@ -85,7 +85,6 @@ def update_legalities
 
   legality_attrs.each_slice(BATCH_SIZE) do |batch|
     Legality.upsert_all(batch, unique_by: [:uuid])
-    sleep(1)
   end
   
   puts "Legalities updated, removing file"
@@ -110,7 +109,6 @@ def update_rulings
 
   ruling_attrs.each_slice(BATCH_SIZE) do |batch|
     Ruling.upsert_all(batch, unique_by: [:index])
-    sleep(1)
   end
 
   puts "Rulings updated, removing file"
@@ -150,7 +148,6 @@ def update_identifiers
 
   identifier_attrs.each_slice(BATCH_SIZE) do |batch|
     Identifier.upsert_all(batch, unique_by: [:uuid])
-    sleep(1)
   end
 
   puts "Identifiers updated, removing file"
@@ -179,7 +176,6 @@ def update_prices
 
   price_attrs.each_slice(BATCH_SIZE) do |batch|
     Price.upsert_all(batch, unique_by: [:index])
-    sleep(1)
   end
 
   puts "prices updated, removing file"
@@ -207,7 +203,6 @@ def update_purchase_urls
 
   purchase_url_attrs.each_slice(BATCH_SIZE) do |batch|
     PurchaseUrl.upsert_all(batch, unique_by: [:uuid])
-    sleep(1)
   end
 
   puts "Purchase URLs updated, removing file"
@@ -250,7 +245,6 @@ def update_card_sets
 
   card_set_attrs.each_slice(BATCH_SIZE) do |batch|
     CardSet.upsert_all(batch.compact, unique_by: [:code])
-    sleep(1)
   end
 end
 
@@ -369,7 +363,6 @@ def update_cards
 
   card_attrs.each_slice(BATCH_SIZE) do |batch|
     Card.upsert_all(batch, unique_by: [:uuid])
-    sleep(1)
   end
 
   puts "Cards updated, removing file"
@@ -402,10 +395,31 @@ def list_preview_cards
   puts "Listing preview card uuids"
   preview_cards = db_cards_uuid - latest_cards_uuid
 
-  if preview_cards.empty?
-    puts "The DB is in sync with the current card list!"
+  deleted_cards_uuids = []
+  manual_card_uuids = []
+
+  preview_cards.each do |uuid|
+    card = Card.find_by(uuid: uuid)
+    if card && card.decked_cards.empty? && card.collected_cards.empty?
+      deleted_cards_uuids << card.uuid
+      card.destroy
+    else
+      manual_card_uuids << card.uuid
+    end
+  end
+
+  if deleted_cards_uuids.empty?
+    puts "The DB is in sync with the current card list or no preview cards needed deletion!"
   else
-    puts preview_cards
+    puts "Deleted the following preview cards: "
+    puts deleted_cards_uuids
+  end
+
+  if manual_card_uuids.empty?
+    puts "No follow up necessary!"
+  else
+    puts "The following cards need to be manually deleted:"
+    puts manual_card_uuids
   end
 end
 
@@ -461,6 +475,18 @@ namespace :cards do
     list_preview_cards()
 
     puts "Removing files"
-    remove_files(['cards.csv'])
+    remove_file('cards.csv')
+  end
+
+  desc "Updates, connects, and removes preview cards"
+  task update_all: :environment do
+    puts "Updating all card info"
+    Rake::Task['cards:update'].invoke
+
+    puts "Connecting cards to sets"
+    Rake::Task['cards:connect'].invoke
+    
+    puts "Listing preview cards"
+    Rake::Task['cards:list_preview'].invoke
   end
 end

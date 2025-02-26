@@ -76,6 +76,16 @@ export const Deck = ({ deckId }): ReactElement => {
     }
   }, [isLoading])
 
+  // Exports a deck to a users clipboard
+  const exportDeck = () => {
+    const deckString = deck.cards
+      .map((card) => `${card.deck.quantity}x ${card.name} (${card.setCode}) ${card.number}`)
+      .join('\n')
+
+    console.log(deckString)
+    navigator.clipboard.writeText(deckString)
+  }
+
   return (
     <>
       {isLoading ? (
@@ -97,6 +107,7 @@ export const Deck = ({ deckId }): ReactElement => {
               <Text as="p" size={3} family="roboto">
                 Deck Size: {getCardCount(deck?.cards)}
               </Text>
+              <Button onClick={exportDeck}>Export Deck</Button>
             </Flex.Item>
             <Flex.Item>
               <ButtonOptions isMobile={isMobile}>

@@ -33,6 +33,15 @@ const router = createBrowserRouter([
     ),
     loader: setLoader,
   },
+  {
+    path: '/collection/set/:setId',
+    element: (
+      <Page>
+        <SetPage />
+      </Page>
+    ),
+    loader: setLoader,
+  },
 ])
 
 export default (): ReactElement => {
