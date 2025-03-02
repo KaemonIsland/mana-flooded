@@ -3,32 +3,28 @@ class Collection < ApplicationRecord
   has_many :collected_cards, dependent: :destroy
   has_many :cards, -> { distinct }, through: :collected_cards
 
-  # Lists all unique card within collection
-  def unique
+  # Returns the number of unique cards in the collection.
+  def unique_cards_count
     cards.count
   end
 
-  # Lists total cards in collection
-  def total
-    total = 0
-
-    collected_cards.each { |card| total = total + card.quantity }
-
-    total
+  # Returns the total number of cards in the collection.
+  def total_cards
+    collected_cards.sum(:quantity)
   end
 
-  # Lists each card set code
-  def sets
-    cards.map(&:set_code).uniq
+  # Returns an array of unique card set codes present in the collection.
+  def set_codes
+    cards.distinct.pluck(:set_code)
   end
 
-  # Returns number of unique cards collected in set
-  def sets_unique(card_set_code)
-    cards.filter{ |card| card.set_code == card_set_code }.count
+  # Returns the number of cards from a specific set.
+  def count_by_set(card_set_code)
+    cards.where(set_code: card_set_code).count
   end
 
-  ############## SCOPES #################
-  def with_set_cards (set_code)
+  # Scope-like method to fetch cards for a given set code.
+  def with_set_cards(set_code)
     cards.where(set_code: set_code)
   end
 end

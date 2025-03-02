@@ -1,31 +1,27 @@
 module CollectionUtils
   extend ActiveSupport::Concern
-def in_collection?(collection, card)
-  return false unless collection && card
 
-  collection.collected_cards.exists?(card_id: card.id)
-end
-
-# Returns the quantity of cards in a users collection for a specific card.
-def collection_quantity(collection, card)
-  return false unless collection && card
-
-  if in_collection?(collection, card)
-    collection.collected_cards.find_by(card_id: card.id)
+  # Returns true if the card exists in the collection, false otherwise.
+  def in_collection?(collection, card)
+    collection&.collected_cards&.exists?(card_id: card.id) || false
   end
-end
 
-def in_deck?(deck, card)
-  return false unless deck && card
-
-  deck.decked_cards.exists?(card_id: card.id)
-end
-
-def deck_quantity(deck, card)
-  return false unless deck && card
-
-  if in_deck?(deck, card)
-    deck.decked_cards.find_by(card_id: card.id)
+  # Returns the quantity of a specific card in a collection, or 0 if not found.
+  def collection_quantity(collection, card)
+    return 0 unless collection && card
+    collected_card = collection.collected_cards.find_by(card_id: card.id)
+    collected_card ? collected_card.quantity : 0
   end
-end
+
+  # Returns true if the card exists in the deck, false otherwise.
+  def in_deck?(deck, card)
+    deck&.decked_cards&.exists?(card_id: card.id) || false
+  end
+
+  # Returns the quantity of a specific card in a deck, or 0 if not found.
+  def deck_quantity(deck, card)
+    return 0 unless deck && card
+    decked_card = deck.decked_cards.find_by(card_id: card.id)
+    decked_card ? decked_card.quantity : 0
+  end
 end

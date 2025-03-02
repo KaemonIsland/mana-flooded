@@ -1,6 +1,7 @@
 class Api::V1::CardSetsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :load_set, only: [:show, :collection, :deck]
+  before_action :ensure_signed_in, only: [:collection, :deck]
   respond_to :json
 
   def index
@@ -13,54 +14,41 @@ class Api::V1::CardSetsController < ApplicationController
   end
 
   def collection
-    if current_user
-      @collection = current_user.collection
-
-      if params[:colors]
-        @query = @set.cards.with_color(params[:colors], @set.cards).ransack(params[:q])
-      else
-        @query = @set.cards.ransack(params[:q])
-      end
-
-      @sorted_cards = Card.sort_by_color(@query.result.by_mana_and_name)
-
-      @stats = Card.card_stats(@set.cards)
-
-      @cards = Kaminari.paginate_array(@sorted_cards)
-      .page(params[:page])
-      .per(params[:per_page] || 30)
-
-      render 'api/v1/cards/cards', status: 200
-    else
-      render json: { error: 'User must be signed in' }, status: 401
-    end
+    load_cards
+    render 'api/v1/cards/cards', status: 200
   end
 
   def deck
-    if current_user
-      @collection = current_user.collection
-
-      @query =@set.cards.with_color(params[:colors], @set.cards).ransack(params[:q])
-
-      @sorted_cards = Card.sort_by_color(@query.result.by_mana_and_name)
-
-      @stats = Card.card_stats(@set.cards)
-
-      @cards = Kaminari.paginate_array(@sorted_cards)
-      .page(params[:page])
-      .per(params[:per_page] || 30)
-      
-      @deck = current_user.decks.find(params[:deck_id])
-      
-      render 'api/v1/cards/cards', status: 200
-    else
-      render json: { error: 'User must be signed in' }, status: 401
-    end
+    load_cards
+    @deck = current_user.decks.find(params[:deck_id])
+    render 'api/v1/cards/cards', status: 200
   end
 
   private
 
     def load_set
       @set = CardSet.find(params[:id])
+    end
+
+    def ensure_signed_in
+      render json: { error: 'User must be signed in' }, status: :unauthorized unless current_user
+    end
+
+    def load_cards
+      # We already know current_user exists thanks to ensure_signed_in.
+      @collection = current_user.collection
+      
+      # Use the colors filter if provided.
+      cards_relation = @set.cards
+      cards_relation = cards_relation.with_color(params[:colors], cards_relation) if params[:colors]
+      
+      @query = cards_relation.ransack(params[:q])
+      # Apply further sorting and stats calculation.
+      @sorted_cards = Card.sort_by_color(@query.result.by_mana_and_name)
+      @stats = Card.card_stats(@set.cards)
+      
+      @cards = Kaminari.paginate_array(@sorted_cards)
+                        .page(params[:page])
+                        .per(params[:per_page] || 30)
     end
 end

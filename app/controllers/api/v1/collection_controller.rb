@@ -1,124 +1,118 @@
 class Api::V1::CollectionController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :ensure_signed_in
   respond_to :json
 
   def export
-    if current_user
-      @collection = current_user.collection
-      @cards = @collection.collected_cards
-      @decks = current_user.decks
+    @collection = current_user.collection
+    @cards = @collection.collected_cards.includes(:card)
+    @decks = current_user.decks.includes(decked_cards: :card)
 
-      export_json = {
-        cards: @cards.map do |card|
-          {
-            uuid: card.card.uuid,
-            quantity: card.quantity,
-            foil: card.foil
-          }
-        end,
-        decks: @decks.map do |deck|
-          {
-            name: deck.name,
-            description: deck.description,
-            format: deck.format,
-            cards: deck.decked_cards.map do |decked_card|
-              {
-                uuid: decked_card.card.uuid,
-                quantity: decked_card.quantity,
-                foil: decked_card.foil,
-                categories: decked_card.categories,
-              }
-            end
-          }
-        end,
-      }
+    export_json = {
+      cards: @cards.map do |collected_card|
+        {
+          uuid: collected_card.card.uuid,
+          quantity: collected_card.quantity,
+          foil: collected_card.foil
+        }
+      end,
+      decks: @decks.map do |deck|
+        {
+          name: deck.name,
+          description: deck.description,
+          format: deck.format,
+          cards: deck.decked_cards.map do |decked_card|
+            {
+              uuid: decked_card.card.uuid,
+              quantity: decked_card.quantity,
+              foil: decked_card.foil,
+              categories: decked_card.categories
+            }
+          end
+        }
+      end
+    }
 
-      render json: export_json, status: 200
-    else
-      render json: { error: 'User must be signed in' }, status: 401
-    end
+    render json: export_json, status: 200
   end
 
   def import
-    if current_user
-      @collection = current_user.collection
+    @collection = current_user.collection
 
-      permitted = params.permit(
-        cards: [:uuid, :quantity, :foil],
-        decks: [:name, :description, :format, cards: [:uuid, :quantity, :foil]]
-      )
+    permitted = params.permit(
+      cards: [:uuid, :quantity, :foil],
+      decks: [:name, :description, :format, cards: [:uuid, :quantity, :foil, { categories: [] }]]
+    )
 
-      @cards = permitted[:cards]
-      @decks = permitted[:decks]
-      not_found = []
+    cards_data = permitted[:cards] || []
+    decks_data = permitted[:decks] || []
+    not_found = []
 
-      # Imports all cards into a collection
-      @cards.each do |card|
-        begin
-          imported = Card.find_by(uuid: card[:uuid])
-
-          quantity = card[:quantity].to_i || 0
-          foil = card[:foil].to_i || 0
-
-          # Updates card quantity if already in collection
-          if in_collection?(@collection, imported)
-            @collected_card = @collection.collected_cards.find_by(card_id: imported.id)
-
-            updated_quantity = @collected_card.quantity + quantity
-            updated_foil = @collected_card.foil + foil
-
-            @collected_card.update(quantity: updated_quantity, foil: updated_foil)
-          else
-            # Add card to collection
-            CollectedCard.create({ card_id: imported.id, quantity: quantity, foil: foil, collection_id: @collection.id })
-          end
-        rescue
-          not_found << card
-        end
+    # Process cards import
+    cards_data.each do |card_data|
+      card = Card.find_by(uuid: card_data[:uuid])
+      unless card
+        not_found << card_data
+        next
       end
 
-      # Imports all decks and decked cards into a collection
-      @decks.each do |deck|
-        deck_params = { name: deck[:name], description: deck[:description], format: deck[:format] }
-        
-        new_deck = current_user.decks.create(deck_params)
-        
-        if new_deck
-          deck[:cards].each do |card|
-            begin
-              card_id = Card.find_by(uuid: card[:uuid]).id
+      quantity = card_data[:quantity].to_i
+      foil = card_data[:foil].to_i
 
-              quantity = card[:quantity].to_i || 0
-              foil = card[:foil].to_i || 0
-              categories = card[:categories] || []
-
-              new_deck.decked_cards.create!({ card_id: card_id, quantity: quantity, foil: foil, categories: categories })
-            rescue
-              not_found << { card_id: card_id, quantity: quantity, foil: foil, deck_id: new_deck.id }
-            end
-          end
-        end
+      collected_card = @collection.collected_cards.find_by(card_id: card.id)
+      if collected_card
+        new_quantity = collected_card.quantity + quantity
+        new_foil = collected_card.foil + foil
+        collected_card.update(quantity: new_quantity, foil: new_foil)
+      else
+        @collection.collected_cards.create(card_id: card.id, quantity: quantity, foil: foil)
       end
-
-      puts not_found
-
-      render json: { success: 'Collection imported Successfully!' }, status: 201
-    else
-      render json: { error: 'User must be signed in' }, status: 401
     end
+
+    # Process decks import
+    decks_data.each do |deck_data|
+      deck_params = { name: deck_data[:name], description: deck_data[:description], format: deck_data[:format] }
+      deck = current_user.decks.create(deck_params)
+      if deck
+        (deck_data[:cards] || []).each do |deck_card_data|
+          card = Card.find_by(uuid: deck_card_data[:uuid])
+          unless card
+            not_found << { uuid: deck_card_data[:uuid], deck_id: deck.id }
+            next
+          end
+
+          quantity = deck_card_data[:quantity].to_i
+          foil = deck_card_data[:foil].to_i
+          categories = deck_card_data[:categories] || []
+
+          deck.decked_cards.create(card_id: card.id, quantity: quantity, foil: foil, categories: categories)
+        end
+      end
+    end
+
+    Rails.logger.info("Not found during import: #{not_found.inspect}")
+
+    render json: { success: 'Collection imported Successfully!' }, status: 201
+  rescue => e
+    render json: { error: 'Unable to import collection', details: e.message }, status: 400
   end
 
   def sets
-    if current_user
-      @collection = current_user.collection
-      @card_sets = CardSet.where(code: current_user.collection.sets).sort_by(&:release_date).reverse
+    @collection = current_user.collection
+    set_codes = @collection.set_codes
+    @card_sets = CardSet.where(code: set_codes).sort_by(&:release_date).reverse
 
-      card_sets_json = @card_sets.map do |card_set|
-        card_set.attributes.merge(unique: @collection.sets_unique(card_set.code))
-      end
+    card_sets_json = @card_sets.map do |card_set|
+      card_set.attributes.merge(unique: @collection.count_by_set(card_set.code))
+    end
 
-      render json: card_sets_json, status: 200
-    else
+    render json: card_sets_json, status: 200
+  end
+
+  private
+
+  def ensure_signed_in
+    unless current_user
       render json: { error: 'User must be signed in' }, status: 401
     end
   end

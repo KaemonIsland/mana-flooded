@@ -1,73 +1,68 @@
 class Api::V1::DecksController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  before_action :load_deck, only: [:show, :update, :destroy]
-  before_action :load_collection, only: [:show, :update, :destroy]
-  before_action :check_current_user
-  respond_to :json
+    skip_before_action :verify_authenticity_token
+    before_action :ensure_signed_in
+    before_action :load_deck, only: [:show, :update, :destroy]
+    before_action :load_collection, only: [:show, :update, :destroy]
+    respond_to :json
 
-  def index
-      if current_user
-          @decks = current_user.decks.order(updated_at: :desc)
+    def index
+        @decks = current_user.decks.order(updated_at: :desc)
+        decks_json = @decks.map do |deck|
+        deck.attributes.merge(colors: deck.colors)
+        end
+        render json: decks_json, status: 200
+    end
 
-          decks_json = @decks.map do |deck|
-            deck.attributes.merge(colors: deck.colors)
-          end
+    def show
+        render template: 'api/v1/deck/deck', formats: :json, status: 200
+    end
 
-          render json: decks_json, status: 200
-      else
-          render json: { error: 'User must be signed in' }, status: 401
-      end
-  end
+    def create
+        @deck = current_user.decks.new(deck_params)
+        if @deck.save
+        render 'api/v1/deck/deck', status: 200
+        else
+        render json: { error: 'Unable to create deck', messages: @deck.errors.full_messages }, status: 422
+        end
+    end
 
-  def show
-      if current_user
-          render(template: 'api/v1/deck/deck', formats: :json, status: 200)
-      else
-          render json: { error: 'User must be signed in' }, status: 401
-      end
-  end
+    def update
+        if @deck.update(deck_params)
+        render 'api/v1/deck/deck', status: 200
+        else
+        render json: { error: 'Unable to update deck', messages: @deck.errors.full_messages }, status: 422
+        end
+    end
 
-  def create
-      @deck = current_user.decks.create(deck_params)
+    def destroy
+        if @deck.destroy
+        render json: { success: 'Deck deleted successfully' }, status: 200
+        else
+        render json: { error: 'Unable to delete deck' }, status: 422
+        end
+    end
 
-      if @deck.save
-          render 'api/v1/deck/deck', status: 200
-      else
-          render json: { error: 'Unable to create deck' }, status: 422
-      end
-  end
+    private
 
-  def update
-      if @deck.update(deck_params)
-          render 'api/v1/deck/deck', status: 200
-      else
-          render json: { error: 'Unable to update deck' }, status: 422
-      end
-  end
+    def ensure_signed_in
+        unless current_user
+        render json: { error: 'User must be signed in' }, status: 401 and return
+        end
+    end
 
-  def destroy
-      if @deck.destroy
-          render 'api/v1/deck/deck', status: 200
-      else
-          render json: { error: 'Unable to update deck' }, status: 422
-      end
-  end
+    def deck_params
+        params.permit(:name, :description, :format)
+    end
 
-  private
+    def load_deck
+        @deck = current_user.decks.find_by(id: params[:id])
+        unless @deck
+        render json: { error: 'Deck not found' }, status: 404 and return
+        end
+    end
 
-  def check_current_user
-      return render json: { error: 'User must be signed in' }, status: 401 unless current_user
-  end
-
-  def deck_params
-      params.permit(:name, :description, :format)
-  end
-
-  def load_deck
-      @deck = current_user.decks.find(params[:id])
-  end
-
-  def load_collection
-      @collection = current_user.collection
-  end
+    def load_collection
+        @collection = current_user.collection
+    end
 end
+  
