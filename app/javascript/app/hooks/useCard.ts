@@ -16,6 +16,7 @@ interface UseCardReturn {
       add: (options: any) => void
       update: (newQuantity: number, options: any) => void
       remove: () => void
+      updateCategories: (newCategories: string[]) => void
     }
   }
   collection: {
@@ -35,10 +36,15 @@ export const useCard = (card: Card, deckId?: number, options?: any): UseCardRetu
   const [images, setImages] = useState([])
   const [prices, setPrices] = useState({})
 
+  const collection = card?.locations?.filter((location) => location.type === 'collection')[0] || {
+    quantity: 0,
+    foil: 0,
+  }
+
   // Collection related values
-  const [collectionQuantity, setCollectionQuantity] = useState(card?.collection?.quantity || 0)
+  const [collectionQuantity, setCollectionQuantity] = useState(collection?.quantity || 0)
   const [prevCollectionQuantity, setPrevCollectionQuantity] = useState(null)
-  const [foilCollectionQuantity, setFoilCollectionQuantity] = useState(card?.collection?.foil || 0)
+  const [foilCollectionQuantity, setFoilCollectionQuantity] = useState(collection?.foil || 0)
 
   // Deck related values
   const [deckQuantity, setDeckQuantity] = useState<number>(card?.deck?.quantity || 0)
@@ -80,6 +86,10 @@ export const useCard = (card: Card, deckId?: number, options?: any): UseCardRetu
     if (options && options.categories !== undefined) {
       setCategories(options.categories)
     }
+  }
+
+  const updateDeckCardCategories = (newCategories: string[]) => {
+    setCategories(newCategories)
   }
 
   const removeDeckCard = (): void => {
@@ -231,6 +241,13 @@ export const useCard = (card: Card, deckId?: number, options?: any): UseCardRetu
     }
   }, [deckQuantity])
 
+  // Updates card categories
+  useEffect(() => {
+    if (!isLoading) {
+      saveDeckCard()
+    }
+  }, [categories])
+
   // Uses debounce to update card toasts and collection quantities
   useEffect(() => {
     if (!isLoading) {
@@ -254,6 +271,7 @@ export const useCard = (card: Card, deckId?: number, options?: any): UseCardRetu
         add: addDeckCard,
         update: updateDeckCard,
         remove: removeDeckCard,
+        updateCategories: updateDeckCardCategories,
       },
     },
     collection: {

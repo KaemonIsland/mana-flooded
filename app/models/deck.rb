@@ -35,8 +35,11 @@ class Deck < ApplicationRecord
 
     cards.each do |card|
       deck_qty_record = card.deck_quantity(id)
-      multiplier = deck_qty_record ? deck_qty_record.quantity : 0
+      puts "deck_qty_record: #{deck_qty_record}"
+      multiplier = deck_qty_record ? deck_qty_record : 0
       next if multiplier.zero?
+
+      puts "multiplier: #{multiplier}"
 
       stats[:cards] += multiplier
       update_types_and_subtypes(stats, card, multiplier)
@@ -50,7 +53,7 @@ class Deck < ApplicationRecord
   # Returns the default statistics hash.
   def default_stats
     {
-      colors: { M: 0, C: 0, total: 0 },
+      colors: Hash.new(0).merge({M: 0, C: 0, total: 0}),
       types: default_types,
       cmc: Hash.new(0),
       counts: Hash.new(0),

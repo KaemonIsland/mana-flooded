@@ -47,7 +47,7 @@ export const AddCardForm = ({ actions, quantity, foil }: ActionButtonProps): Rea
       </Text>
       <Container paddingBottom={2}>
         <CheckboxConfirm
-          label="Is Foil?"
+          label="Foil?"
           removeHint
           value={isFoil}
           onChange={(): void => {

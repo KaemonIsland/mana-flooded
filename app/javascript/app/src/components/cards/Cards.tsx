@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Filter } from '../filter'
-import { Minimal, ImageOnly } from './card'
+import { ImageOnly } from './card'
 import { Pagination } from '../page'
 import { useFilter, useCards } from '../../../hooks'
 

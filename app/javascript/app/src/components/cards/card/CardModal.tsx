@@ -2,7 +2,7 @@ import React, { useState, useEffect, ReactElement } from 'react'
 import styled from 'styled-components'
 import { Flex, Text, Modal, FlipCard, Container, Grid } from '../../../elements'
 import { Prices } from '../../price'
-import { AddCardForm } from '../../forms'
+import { AddCardForm, CategoriesForm } from '../../forms'
 import { getCard } from '../../../../utils'
 
 const CardImgContainer = styled.div(({ theme }) => ({
@@ -66,7 +66,7 @@ export const CardModal = ({
   const [cardImages, setCardImages] = useState([])
   const [cardPrices, setCardPrices] = useState({})
 
-  const { identifiers, locations, categories } = cardProps
+  const { identifiers, locations, categories = [] } = cardProps
 
   const inCollection = locations.filter((location) => location.type === 'collection')[0]
 
@@ -153,17 +153,21 @@ export const CardModal = ({
               />
             </Container>
           </Grid.Item>
-          <Grid.Item>
+          {/* <Grid.Item>
             <Text size={6} isBold>
               Categories:
             </Text>
             {(categories || []).map((category) => {
               return <Text>{category}</Text>
             })}
-          </Grid.Item>
+          </Grid.Item> */}
           <Grid.Item area="form" alignSelf="end">
             <Container width="100%">
               <AddCardForm quantity={quantity} foil={foilQuantity} actions={{ ...cardActions }} />
+              {/* <CategoriesForm
+                initialCategories={categories}
+                onUpdateCategories={cardActions.updateCategories}
+              /> */}
             </Container>
           </Grid.Item>
         </Grid>
