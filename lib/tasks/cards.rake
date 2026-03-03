@@ -35,10 +35,10 @@ def get_card_files(file_names)
   # Opens zip files and adds required files to root directory
   Zip::File.open_buffer(content) do |zip|
     zip.each do |entry|
-      if file_names.include? entry.name
+      if file_names.include? File.basename(entry.name)
         puts "Extracting #{entry.name}"
         # Adds file to root directory
-        entry.extract
+        entry.extract(File.basename(entry.name))
       end
     end
   end
