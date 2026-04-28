@@ -1,6 +1,33 @@
 class Card < ApplicationRecord
   include CardStats
 
+  DEFAULT_PRICE_PROVIDER = 'tcgplayer'.freeze
+  DEFAULT_PROVIDER_LISTING = 'retail'.freeze
+
+  PRICE_FINISH_LABELS = {
+    'normal' => :usd,
+    'foil' => :usd_foil,
+    'etched' => :usd_etched,
+    'foil_etched' => :usd_etched,
+    'etched_foil' => :usd_etched
+  }.freeze
+
+  RARITY_ORDER = {
+    'common' => 0,
+    'uncommon' => 1,
+    'rare' => 2,
+    'mythic' => 3
+  }.freeze
+
+  SUPPORTED_PRICE_PROVIDERS = %w[
+    tcgplayer
+    cardkingdom
+    cardmarket
+    cardsphere
+    cardhoarder
+    manapool
+  ].freeze
+
   # Associations
   has_many :card_set_cards
   has_many :card_sets, through: :card_set_cards
@@ -10,6 +37,7 @@ class Card < ApplicationRecord
 
   has_many :decked_cards, dependent: :destroy
   has_many :decks, through: :decked_cards
+  has_many :price_records, class_name: 'Price', primary_key: :uuid, foreign_key: :uuid
 
   # Validations
   validates :uuid, presence: true, uniqueness: { case_sensitive: false }
@@ -33,6 +61,97 @@ class Card < ApplicationRecord
 
   def prices
     Price.where(uuid: uuid)
+  end
+
+  def price_summary
+    provider_summaries = SUPPORTED_PRICE_PROVIDERS.each_with_object({}) do |provider, summaries|
+      provider_summary = provider_price_summary(provider)
+      summaries[provider] = provider_summary if provider_summary[:list_price]
+    end
+
+    summary = provider_summaries[DEFAULT_PRICE_PROVIDER] || {
+      usd: nil,
+      usd_foil: nil,
+      usd_etched: nil,
+      list_price: nil,
+      provider: DEFAULT_PRICE_PROVIDER,
+      provider_listing: DEFAULT_PROVIDER_LISTING,
+      date: nil
+    }
+
+    summary.merge(
+      providers: provider_summaries,
+      available_providers: provider_summaries.keys
+    )
+  end
+
+  def provider_price_summary(provider)
+    summary = {
+      usd: nil,
+      usd_foil: nil,
+      usd_etched: nil,
+      list_price: nil,
+      provider: provider,
+      provider_listing: DEFAULT_PROVIDER_LISTING,
+      date: nil
+    }
+
+    grouped_prices = price_records
+      .select do |price|
+        price.currency == 'USD' &&
+          price.game_availability == 'paper' &&
+          price.provider_listing == DEFAULT_PROVIDER_LISTING &&
+          price.price_provider == provider &&
+          price.price.present?
+      end
+      .group_by(&:card_finish)
+
+    grouped_prices.each do |finish, finish_prices|
+      key = PRICE_FINISH_LABELS[finish]
+      next unless key
+
+      latest_price = finish_prices.max_by do |price|
+        [price.date || Date.new(1970, 1, 1), price.updated_at || Time.zone.at(0)]
+      end
+
+      summary[key] = latest_price.price&.to_f
+    end
+
+    summary[:list_price] = summary[:usd] || summary[:usd_foil] || summary[:usd_etched]
+    summary[:date] = grouped_prices.values.flatten.compact.map(&:date).compact.max
+    summary
+  end
+
+  def self.with_price_range(scope, min_price: nil, max_price: nil)
+    return scope unless min_price.present? || max_price.present?
+
+    normal_prices = latest_price_subquery('normal')
+    foil_prices = latest_price_subquery('foil')
+    etched_prices = latest_price_subquery(%w[etched foil_etched etched_foil])
+
+    filtered_scope = scope
+      .joins("LEFT JOIN (#{normal_prices.to_sql}) latest_normal_prices ON latest_normal_prices.uuid = cards.uuid")
+      .joins("LEFT JOIN (#{foil_prices.to_sql}) latest_foil_prices ON latest_foil_prices.uuid = cards.uuid")
+      .joins("LEFT JOIN (#{etched_prices.to_sql}) latest_etched_prices ON latest_etched_prices.uuid = cards.uuid")
+
+    effective_price_sql = 'COALESCE(latest_normal_prices.price, latest_foil_prices.price, latest_etched_prices.price)'
+
+    filtered_scope = filtered_scope.where("#{effective_price_sql} >= ?", min_price.to_f) if min_price.present?
+    filtered_scope = filtered_scope.where("#{effective_price_sql} <= ?", max_price.to_f) if max_price.present?
+
+    filtered_scope
+  end
+
+  def self.latest_price_subquery(finishes)
+    Price.select('DISTINCT ON (prices.uuid) prices.uuid, prices.price')
+      .where(
+        currency: 'USD',
+        game_availability: 'paper',
+        card_finish: finishes,
+        price_provider: DEFAULT_PRICE_PROVIDER,
+        provider_listing: DEFAULT_PROVIDER_LISTING
+      )
+      .order(Arel.sql('prices.uuid, prices.date DESC NULLS LAST, prices.updated_at DESC NULLS LAST'))
   end
 
   # Returns locations where the card is used for a given user.
@@ -92,6 +211,40 @@ class Card < ApplicationRecord
   # Sorts by mana cost then alphabetically by name.
   def self.by_mana_and_name
     order(mana_value: :asc, name: :asc)
+  end
+
+  def self.sort_cards(cards, sort = nil)
+    scoped_cards = cards.respond_to?(:includes) ? cards.includes(:price_records) : cards
+    cards_array = scoped_cards.to_a
+
+    case sort
+    when 'name_asc'
+      cards_array.sort_by { |card| [card.name.to_s.downcase, card.id] }
+    when 'name_desc'
+      cards_array.sort_by { |card| [card.name.to_s.downcase, card.id] }.reverse
+    when 'mana_value_asc'
+      cards_array.sort_by { |card| [card.mana_value.to_f, card.name.to_s.downcase, card.id] }
+    when 'mana_value_desc'
+      cards_array.sort_by { |card| [-card.mana_value.to_f, card.name.to_s.downcase, card.id] }
+    when 'price_asc'
+      cards_array.sort_by do |card|
+        [card.price_summary[:list_price].nil? ? 1 : 0, card.price_summary[:list_price] || 0, card.name.to_s.downcase, card.id]
+      end
+    when 'price_desc'
+      cards_array.sort_by do |card|
+        [card.price_summary[:list_price].nil? ? 1 : 0, -(card.price_summary[:list_price] || 0), card.name.to_s.downcase, card.id]
+      end
+    when 'rarity_asc'
+      cards_array.sort_by do |card|
+        [RARITY_ORDER.fetch(card.rarity, 99), card.name.to_s.downcase, card.id]
+      end
+    when 'rarity_desc'
+      cards_array.sort_by do |card|
+        [-RARITY_ORDER.fetch(card.rarity, -1), card.name.to_s.downcase, card.id]
+      end
+    else
+      sort_by_color(cards_array.sort_by { |card| [card.mana_value.to_f, card.name.to_s.downcase, card.id] })
+    end
   end
 
   # Sorts cards by a custom color order:

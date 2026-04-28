@@ -4,7 +4,7 @@ import { Card } from '../interface/Card'
 import { CardStats } from '../interface/CardStats'
 
 interface Get {
-  (query?: {}): Promise<void>
+  (query?: URLSearchParams): Promise<void>
 }
 
 interface PaginationProps {
@@ -19,7 +19,6 @@ interface Options {
   setId?: number
   query?: URLSearchParams
   deckId?: number
-  isCollection?: boolean
   isDeck?: boolean
 }
 
@@ -29,6 +28,12 @@ interface Actions {
   pagination: PaginationProps
   stats: CardStats
   isLoading: boolean
+}
+
+interface CardsResponse {
+  cards: Array<Card>
+  pagination: PaginationProps
+  stats: CardStats
 }
 
 const defaultStats = {
@@ -81,51 +86,80 @@ const defaultStats = {
  */
 export const useCards = (options: Options = {}): Actions => {
   const [isLoading, setIsLoading] = useState(true)
-  const [cards, setCards] = useState([])
-  const [pagination, setPagination] = useState({ page: 1, totalPages: 1 })
+  const [cards, setCards] = useState<Array<Card>>([])
+  const [pagination, setPagination] = useState<PaginationProps>({
+    page: 1,
+    totalPages: 1,
+    changePage: () => null,
+  })
   const [stats, setStats] = useState(defaultStats)
   const [query, setQuery] = useState(options?.query || new URLSearchParams())
 
+  const buildQuery = (cardQuery = new URLSearchParams()): URLSearchParams => {
+    const mergedQuery = new URLSearchParams(options?.query?.toString() || '')
+
+    Array.from(cardQuery.keys()).forEach((key) => {
+      mergedQuery.delete(key)
+      cardQuery.getAll(key).forEach((value) => mergedQuery.append(key, value))
+    })
+
+    if (!mergedQuery.has('page')) {
+      mergedQuery.append('page', '1')
+    }
+
+    mergedQuery.set('per_page', '30')
+    mergedQuery.set('q[side_not_eq]', 'b')
+
+    return mergedQuery
+  }
+
   const getCards = async (cardQuery = new URLSearchParams()): Promise<void> => {
-    if (!cardQuery.has('page')) {
-      cardQuery.append('page', '1')
-    }
+    const requestQuery = buildQuery(cardQuery)
 
-    cardQuery.set('per_page', '30')
+    setIsLoading(true)
+    setQuery(requestQuery)
 
-    // Only return front side of MDFCs and Adventures
-    cardQuery.append('q[side_not_eq]', 'b')
+    try {
+      let response: CardsResponse | undefined
+      const { setId, deckId, isDeck } = options
 
-    setQuery(cardQuery)
-
-    let response
-    const { setId, deckId, isDeck } = options
-
-    // Get cards from a set or from a deck
-    if (setId || deckId) {
-      // Get cards from a set with deck quantities
-      if (setId && deckId) {
-        response = await deckCardActions.set(cardQuery, options.setId, options.deckId)
-        // Get cards from a deck
-      } else if (deckId && isDeck) {
-        response = await deckCardActions.deck(cardQuery, deckId)
-        // get cards with deck quantities
-      } else if (deckId) {
-        response = await deckCardActions.search(cardQuery, deckId)
-        // get set cards without deck quantities
-      } else if (setId) {
-        response = await collectionCardActions.set(cardQuery, setId)
+      // Get cards from a set or from a deck
+      if (setId || deckId) {
+        // Get cards from a set with deck quantities
+        if (setId && deckId) {
+          response = (await deckCardActions.set(
+            requestQuery,
+            setId,
+            deckId,
+          )) as unknown as CardsResponse
+          // Get cards from a deck
+        } else if (deckId && isDeck) {
+          response = (await deckCardActions.deck(requestQuery, deckId)) as unknown as CardsResponse
+          // get cards with deck quantities
+        } else if (deckId) {
+          response = (await deckCardActions.search(
+            requestQuery,
+            deckId,
+          )) as unknown as CardsResponse
+          // get set cards without deck quantities
+        } else if (setId) {
+          response = (await collectionCardActions.set(
+            requestQuery,
+            setId,
+          )) as unknown as CardsResponse
+        }
+      } else {
+        response = (await collectionCardActions.search(requestQuery)) as unknown as CardsResponse
       }
-      // Otherwise get cards by collection
-    } else {
-      response = await collectionCardActions.search(cardQuery)
+
+      if (response) {
+        setCards(response.cards)
+        setPagination(response.pagination)
+        setStats(response.stats)
+      }
+    } finally {
+      setIsLoading(false)
     }
-
-    setIsLoading(false)
-
-    setCards(response.cards)
-    setPagination(response.pagination)
-    setStats(response.stats)
   }
 
   const changePage = (newPage: number): void => {

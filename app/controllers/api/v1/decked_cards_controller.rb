@@ -7,8 +7,15 @@ class Api::V1::DeckedCardsController < ApplicationController
   respond_to :json
 
   def index
-    @query = @deck.cards.with_color(params[:colors], @deck.cards).ransack(params[:q])
-    @sorted_cards = @query.result.by_mana_and_name
+    cards_relation = @deck.cards
+    cards_relation = cards_relation.with_color(params[:colors], @deck.cards) if params[:colors].present?
+    cards_relation = Card.with_price_range(
+      cards_relation,
+      min_price: params.dig(:q, :price_gteq),
+      max_price: params.dig(:q, :price_lteq)
+    )
+    @query = cards_relation.ransack(filtered_query_params)
+    @sorted_cards = Card.sort_cards(@query.result, params[:sort])
     @cards = Kaminari.paginate_array(@sorted_cards).page(1).per(300)
     render 'api/v1/cards/deck', status: 200
   end
@@ -97,5 +104,9 @@ class Api::V1::DeckedCardsController < ApplicationController
     if @decked_card.foil > @decked_card.quantity
       @decked_card.update(foil: @decked_card.quantity)
     end
+  end
+
+  def filtered_query_params
+    params[:q]&.except(:price_gteq, :price_lteq)
   end
 end

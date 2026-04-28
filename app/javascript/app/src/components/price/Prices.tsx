@@ -4,12 +4,13 @@ import { Price } from './Price'
 export interface PricesProps {
   prices: Array<{ label: string; price: number }>
   containerProps?: any
+  note?: string
 }
 
 /**
  * Lists multiple prices at once
  */
-export const Prices = ({ prices }: PricesProps): ReactElement => {
+export const Prices = ({ prices, note }: PricesProps): ReactElement => {
   const filteredPrices = prices.filter(({ label, price }) => label && price)
 
   return (
@@ -17,6 +18,7 @@ export const Prices = ({ prices }: PricesProps): ReactElement => {
       {filteredPrices.map(({ label, price }, index) => (
         <Price key={index + price} label={label} price={price} />
       ))}
+      {note ? <small>{note}</small> : null}
     </>
   )
 }

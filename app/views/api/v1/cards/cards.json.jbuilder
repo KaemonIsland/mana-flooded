@@ -20,7 +20,7 @@ json.cards @cards do |card|
   json.collection card.collection_quantity(@collection.id)
   json.identifiers card.identifiers
   json.purchase_urls card.purchase_urls
-  json.prices card.prices
+  json.prices card.price_summary
   json.locations card.locations(current_user.id)
 
   if @deck

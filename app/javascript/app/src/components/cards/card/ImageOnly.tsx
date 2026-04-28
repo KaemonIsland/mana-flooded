@@ -8,6 +8,8 @@ import { Feather } from '../../icon'
 import { useCard } from '../../../../hooks'
 import { Price } from '../../price'
 import { CardModal } from './CardModal'
+import { usePricePreference } from '../../../../providers'
+import { getDisplayPrices, getPriceSourceNote } from '../../../../utils/prices'
 
 const CardContainer = styled.div(({ theme }) => ({
   backgroundColor: 'transparent',
@@ -60,6 +62,9 @@ export const ImageOnly = ({ card, options = {} }: Props): ReactElement => {
   const { name } = card
   const { images, prices, deck, collection } = useCard(card, deckId, options)
   const modal = usePopupTrigger()
+  const { preferredPriceProvider } = usePricePreference()
+  const displayPrices = getDisplayPrices(prices, preferredPriceProvider)
+  const priceSourceNote = getPriceSourceNote(displayPrices)
 
   return (
     <>
@@ -109,11 +114,14 @@ export const ImageOnly = ({ card, options = {} }: Props): ReactElement => {
           )}
         </CardImagesContainer>
         <Flex alignItems="center" justifyContent="space-between">
-          {prices && prices.usd ? <Price label="Normal" price={prices && prices.usd} /> : null}
-          {prices && prices.usdFoil ? (
-            <Price label="Foil" price={prices && prices.usdFoil} />
+          {displayPrices && displayPrices.usd ? (
+            <Price label="Normal" price={displayPrices.usd} />
+          ) : null}
+          {displayPrices && displayPrices.usdFoil ? (
+            <Price label="Foil" price={displayPrices.usdFoil} />
           ) : null}
         </Flex>
+        {priceSourceNote ? <small>{priceSourceNote}</small> : null}
       </CardContainer>
     </>
   )

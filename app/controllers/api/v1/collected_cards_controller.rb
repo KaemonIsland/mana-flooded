@@ -8,8 +8,15 @@ class Api::V1::CollectedCardsController < ApplicationController
   respond_to :json
 
   def index
-    @query = @collection.cards.with_color(params[:colors], @collection.cards).ransack(params[:q])
-    @sorted_cards = Card.sort_by_color(@query.result.by_mana_and_name)
+    cards_relation = @collection.cards
+    cards_relation = cards_relation.with_color(params[:colors], @collection.cards) if params[:colors].present?
+    cards_relation = Card.with_price_range(
+      cards_relation,
+      min_price: params.dig(:q, :price_gteq),
+      max_price: params.dig(:q, :price_lteq)
+    )
+    @query = cards_relation.ransack(filtered_query_params)
+    @sorted_cards = Card.sort_cards(@query.result, params[:sort])
     @stats = Card.card_stats(@collection.cards)
     @cards = Kaminari.paginate_array(@sorted_cards)
                       .page(params[:page])
@@ -19,12 +26,18 @@ class Api::V1::CollectedCardsController < ApplicationController
 
   def collection
     collection_set_cards = @collection.with_set_cards(@set.code)
-    @query = if params[:colors].present?
-               collection_set_cards.with_color(params[:colors], collection_set_cards).ransack(params[:q])
-             else
-               collection_set_cards.ransack(params[:q])
-             end
-    @sorted_cards = Card.sort_by_color(@query.result.by_mana_and_name)
+    cards_relation = if params[:colors].present?
+                       collection_set_cards.with_color(params[:colors], collection_set_cards)
+                     else
+                       collection_set_cards
+                     end
+    cards_relation = Card.with_price_range(
+      cards_relation,
+      min_price: params.dig(:q, :price_gteq),
+      max_price: params.dig(:q, :price_lteq)
+    )
+    @query = cards_relation.ransack(filtered_query_params)
+    @sorted_cards = Card.sort_cards(@query.result, params[:sort])
     @stats = Card.card_stats(collection_set_cards)
     @cards = Kaminari.paginate_array(@sorted_cards)
                       .page(params[:page])
@@ -34,12 +47,18 @@ class Api::V1::CollectedCardsController < ApplicationController
 
   def deck
     collection_set_cards = @collection.with_set_cards(@set.code)
-    @query = if params[:colors].present?
-               collection_set_cards.with_color(params[:colors], collection_set_cards).ransack(params[:q])
-             else
-               collection_set_cards.ransack(params[:q])
-             end
-    @sorted_cards = Card.sort_by_color(@query.result.by_mana_and_name)
+    cards_relation = if params[:colors].present?
+                       collection_set_cards.with_color(params[:colors], collection_set_cards)
+                     else
+                       collection_set_cards
+                     end
+    cards_relation = Card.with_price_range(
+      cards_relation,
+      min_price: params.dig(:q, :price_gteq),
+      max_price: params.dig(:q, :price_lteq)
+    )
+    @query = cards_relation.ransack(filtered_query_params)
+    @sorted_cards = Card.sort_cards(@query.result, params[:sort])
     @stats = Card.card_stats(collection_set_cards)
     @cards = Kaminari.paginate_array(@sorted_cards)
                       .page(params[:page])
@@ -161,5 +180,9 @@ class Api::V1::CollectedCardsController < ApplicationController
       @collected_card.foil = @collected_card.quantity
       @collected_card.save
     end
+  end
+
+  def filtered_query_params
+    params[:q]&.except(:price_gteq, :price_lteq)
   end
 end

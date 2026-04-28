@@ -41,14 +41,23 @@ class Api::V1::CardSetsController < ApplicationController
       # Use the colors filter if provided.
       cards_relation = @set.cards
       cards_relation = cards_relation.with_color(params[:colors], cards_relation) if params[:colors]
+      cards_relation = Card.with_price_range(
+        cards_relation,
+        min_price: params.dig(:q, :price_gteq),
+        max_price: params.dig(:q, :price_lteq)
+      )
       
-      @query = cards_relation.ransack(params[:q])
+      @query = cards_relation.ransack(filtered_query_params)
       # Apply further sorting and stats calculation.
-      @sorted_cards = Card.sort_by_color(@query.result.by_mana_and_name)
+      @sorted_cards = Card.sort_cards(@query.result, params[:sort])
       @stats = Card.card_stats(@set.cards)
       
       @cards = Kaminari.paginate_array(@sorted_cards)
                         .page(params[:page])
                         .per(params[:per_page] || 30)
+    end
+
+    def filtered_query_params
+      params[:q]&.except(:price_gteq, :price_lteq)
     end
 end

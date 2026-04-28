@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { getCard } from '../utils'
 import { useCardActions } from './useCardActions'
-import { Card } from '../interface/Card'
+import { Card, CardPrices } from '../interface/Card'
 import { useToasts } from '../providers'
 
 interface UseCardReturn {
   isLoading: boolean
   images: Array<string>
-  prices: any
+  prices: CardPrices
   deck: {
     quantity: number
     foilQuantity: number
@@ -34,7 +34,7 @@ export const useCard = (card: Card, deckId?: number, options?: any): UseCardRetu
   const [isLoading, setIsLoading] = useState(true)
 
   const [images, setImages] = useState([])
-  const [prices, setPrices] = useState({})
+  const [prices] = useState<CardPrices>(card?.prices || {})
 
   const collection = card?.locations?.filter((location) => location.type === 'collection')[0] || {
     quantity: 0,
@@ -217,9 +217,6 @@ export const useCard = (card: Card, deckId?: number, options?: any): UseCardRetu
 
     // Set card images
     getCardImage(cardData, 'normal')
-
-    // Set card Price
-    setPrices(cardData && cardData.prices)
   }
 
   // Grabs the card Image on load

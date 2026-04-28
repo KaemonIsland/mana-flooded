@@ -1,12 +1,17 @@
 import { useState } from 'react'
 
 const defaultFilters = {
+  sort: 'default',
   color: [],
   rarity: [],
   type: null,
   manaValue: {
     min: 0,
     max: 20,
+  },
+  price: {
+    min: null,
+    max: null,
   },
 }
 
@@ -17,12 +22,18 @@ export const useFilter = (cardSearch) => {
 
   const buildQuery = (queryFilters = defaultFilters) => {
     const {
+      sort = 'default',
       color = [],
       rarity = [],
       type = '',
       manaValue = { min: null, max: null },
+      price = { min: null, max: null },
     } = queryFilters
     const q = new URLSearchParams()
+
+    if (sort && sort !== 'default') {
+      q.append('sort', sort)
+    }
 
     if (color.length) {
       q.append('colors', String(color))
@@ -44,6 +55,14 @@ export const useFilter = (cardSearch) => {
 
     if (manaValue.max && manaValue.max !== 20) {
       q.append(formatKey('mana_value_lteq'), String(manaValue.max))
+    }
+
+    if (price.min !== null && price.min !== '') {
+      q.append(formatKey('price_gteq'), String(price.min))
+    }
+
+    if (price.max !== null && price.max !== '') {
+      q.append(formatKey('price_lteq'), String(price.max))
     }
 
     return q
@@ -103,10 +122,10 @@ export const useFilter = (cardSearch) => {
    * @param {string} name - category of the filter
    * @param {string} value - value to add/remove from filter category
    */
-  const updateRange = ({ name, value }) => {
+  const updateRange = ({ filterName, name, value }) => {
     setFilters({
       ...filters,
-      manaValue: { ...filters.manaValue, [name]: value },
+      [filterName]: { ...filters[filterName], [name]: value },
     })
   }
 
@@ -120,10 +139,20 @@ export const useFilter = (cardSearch) => {
 
     if (name === 'color' || name === 'rarity') {
       updateMultiple(target)
-    } else if (name === 'type') {
+    } else if (name === 'type' || name === 'sort') {
       updateSingle(target)
-    } else if (name === 'min' || name === 'max') {
-      updateRange(target)
+    } else if (name === 'manaValueMin' || name === 'manaValueMax') {
+      updateRange({
+        filterName: 'manaValue',
+        name: name === 'manaValueMin' ? 'min' : 'max',
+        value: Number(target.value),
+      })
+    } else if (name === 'priceMin' || name === 'priceMax') {
+      updateRange({
+        filterName: 'price',
+        name: name === 'priceMin' ? 'min' : 'max',
+        value: target.value === '' ? null : Number(target.value),
+      })
     }
   }
 

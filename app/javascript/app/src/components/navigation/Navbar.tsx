@@ -4,6 +4,8 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { Text, Container, Button, Flex } from '../../elements'
 import { SearchCollapse, Drawer } from '../'
+import { usePricePreference } from '../../../providers'
+import { formatPriceProvider } from '../../../utils/prices'
 
 const NavContainer = styled.div(({ theme }) => ({
   position: 'fixed',
@@ -95,6 +97,12 @@ AuthContainer.Link = styled('li')(({ theme }) => ({
   },
 }))
 
+const PriceSourceContainer = styled.div(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  gap: theme.spaceScale(2),
+}))
+
 /**
  * Navigation bar that should always be present on webpage.
  * It shows the current action link.
@@ -102,6 +110,8 @@ AuthContainer.Link = styled('li')(({ theme }) => ({
 export const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const navigate = useNavigate()
+  const { preferredPriceProvider, availableProviders, updatePreferredPriceProvider } =
+    usePricePreference()
 
   const handleLogout = async () => {
     const csrfToken = document.querySelector('meta[name=csrf-token]').getAttribute('content')
@@ -139,6 +149,21 @@ export const Navbar = () => {
             </li>
             <li>
               <Button onClick={() => setIsDrawerOpen(!isDrawerOpen)}>Search for cards</Button>
+            </li>
+            <li>
+              <PriceSourceContainer>
+                <Text size={2}>Prices</Text>
+                <select
+                  value={preferredPriceProvider}
+                  onChange={(event) => updatePreferredPriceProvider(event.target.value)}
+                >
+                  {availableProviders.map((provider) => (
+                    <option key={provider} value={provider}>
+                      {formatPriceProvider(provider)}
+                    </option>
+                  ))}
+                </select>
+              </PriceSourceContainer>
             </li>
             <AuthContainer>
               <AuthContainer.Link tabIndex={10} onClick={() => handleLogout()}>

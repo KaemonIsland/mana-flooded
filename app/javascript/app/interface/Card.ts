@@ -31,6 +31,18 @@ export interface Location {
   name?: string
 }
 
+export interface CardPrices {
+  usd?: number
+  usdFoil?: number
+  usdEtched?: number
+  listPrice?: number
+  provider?: string
+  providerListing?: string
+  date?: string
+  availableProviders?: Array<string>
+  providers?: Record<string, CardPrices>
+}
+
 export interface Card {
   isAlternative: boolean
   isPromo: boolean
@@ -61,4 +73,5 @@ export interface Card {
   promoTypes?: Array<string>
   locations?: Array<Location>
   categories: Array<string>
+  prices?: CardPrices
 }

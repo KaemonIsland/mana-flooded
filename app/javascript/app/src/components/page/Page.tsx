@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
-import { ToastProvider } from '../../../providers'
+import { PricePreferenceProvider, ToastProvider } from '../../../providers'
 import { Navbar } from '../navigation/Navbar'
 
 const PageContainer = styled.div(() => ({
@@ -23,10 +23,12 @@ export const Page = ({ children }: PageProps): ReactElement => {
   const isMobile = useMediaQuery({ maxWidth: 650 })
   return (
     <ToastProvider>
-      <PageContainer>
-        <Navbar />
-        <StyledPage isMobile={isMobile}>{children}</StyledPage>
-      </PageContainer>
+      <PricePreferenceProvider>
+        <PageContainer>
+          <Navbar />
+          <StyledPage isMobile={isMobile}>{children}</StyledPage>
+        </PageContainer>
+      </PricePreferenceProvider>
     </ToastProvider>
   )
 }

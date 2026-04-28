@@ -1,0 +1,859 @@
+code,name,releaseDate,type,isOnlineOnly,isFoilOnly,isNonFoilOnly,parentCode,totalSetSize,baseSetSize,keyruneCode,isPartialPreview,isForeignOnly,isPaperOnly,languages,mtgoCode,tcgplayerGroupId,tokenSetCode,mcmId,mcmName,mcmIdExtras,block
+OM2,Through the Omenpaths 2,2026-06-26,expansion,false,true,true,MSH,0,0,DEFAULT,true,,,English,OM2,,,,,,
+MSH,Marvel Super Heroes,2026-06-26,expansion,false,false,false,,20,303,MSH,true,,,English,,24553,,,,,
+MSC,Marvel Super Heroes Commander,2026-06-26,commander,false,false,false,MSH,7,7,MSC,true,,,English,,24554,,,,,
+PSOS,Secrets of Strixhaven Promos,2026-04-24,promo,false,false,false,SOS,81,81,SOS,,,,English,,,,,,,
+SOC,Secrets of Strixhaven Commander,2026-04-24,commander,false,false,false,SOS,426,426,SOC,,,,English,SOC,24602,TSOC,,,,
+ASOS,Secrets of Strixhaven Art Series,2026-04-24,memorabilia,false,false,false,,54,54,SOS,,,,English,,,ASOS,,,,
+SOS,Secrets of Strixhaven,2026-04-24,expansion,false,false,false,,368,368,SOS,,,,English,SOS,24601,TSOS,,,,
+SOA,Secrets of Strixhaven Mystical Archive,2026-04-24,masterpiece,false,false,false,SOS,195,195,SOA,,,,"English, Japanese",SOA,24603,,,,,
+FTMC,Teenage Mutant Ninja Turtles Eternal Front Cards,2026-03-06,memorabilia,false,false,true,TMC,5,5,TMC,,,,English,,,FTMC,,,,
+TMT,Teenage Mutant Ninja Turtles,2026-03-06,expansion,false,false,false,,320,260,TMT,,,,"English, French, German, Italian, Japanese, Spanish",TMT,24495,TTMT,,,,
+ATMT,Teenage Mutant Ninja Turtles Art Series,2026-03-06,memorabilia,false,false,false,TMT,54,54,TMT,,,,English,,,ATMT,,,,
+TMC,Teenage Mutant Ninja Turtles Eternal,2026-03-06,eternal,false,false,false,TMT,132,0,TMC,,,,"English, French, German, Japanese",TMC,24496,TTMC,,,,
+PZA,Teenage Mutant Ninja Turtles Source Material,2026-03-06,masterpiece,false,false,false,TMT,20,20,PZA,,,,"English, French, German, Italian, Japanese, Spanish",PZA,24497,,,,,
+PL26,Year of the Horse 2026,2026-02-17,promo,false,true,false,,4,5,PMEI,,,,English,,,PL26,,,,
+YECL,Alchemy: Lorwyn Eclipsed,2026-02-03,alchemy,true,false,true,ECL,30,30,Y26,,,,English,,,,,,,
+PECL,Lorwyn Eclipsed Promos,2026-01-23,promo,false,false,false,ECL,87,87,ECL,,,,English,,,,,,,
+ECC,Lorwyn Eclipsed Commander,2026-01-23,commander,false,false,false,ECL,176,176,ECC,,,,"English, French, German, Italian, Japanese, Spanish",ECC,24464,TECC,6326,Commander: Lorwyn Eclipsed,,
+AECL,Lorwyn Eclipsed Art Series,2026-01-23,memorabilia,false,false,false,ECL,54,54,ECL,,,,English,,,AECL,,,,
+ECL,Lorwyn Eclipsed,2026-01-23,expansion,false,false,false,,408,408,ECL,,,,"English, French, German, Italian, Japanese, Spanish",ECL,24463,TECL,6325,Lorwyn Eclipsed,6421,
+PW26,Wizards Play Network 2026,2026-01-01,promo,false,false,false,,9,9,PMEI,,,,"English, Japanese",,,,,,,
+PF26,MagicFest 2026,2026-01-01,promo,false,false,false,,6,6,PMEI,,,,English,,,,,,,
+AFIC,Final Fantasy Scene Box,2025-12-05,memorabilia,false,false,false,FIC,24,24,FIC,,,,English,,,AFIC,,,,
+PTLA,Avatar: The Last Airbender Promos,2025-11-21,promo,false,true,false,TLA,80,88,TLA,,,,English,,,,,,,
+TLA,Avatar: The Last Airbender,2025-11-21,expansion,false,false,false,,394,286,TLA,,,,"English, French, German, Italian, Japanese, Spanish",TLA,24421,TTLA,,,,
+ATLA,Avatar: the Last Airbender Art Series,2025-11-21,memorabilia,false,false,false,TLA,54,0,TLA,,,,English,,24527,ATLA,,,,
+JTLA,Avatar: The Last Airbender Jumpstart Front Cards,2025-11-21,memorabilia,false,false,false,TLA,46,0,TLA,,,,English,,,JTLA,,,,
+FTLA,Avatar: The Last Airbender Beginner Box Front Cards,2025-11-21,memorabilia,false,false,false,TLA,10,0,TLA,,,,English,,,FTLA,,,,
+TLE,Avatar: The Last Airbender Eternal,2025-11-21,eternal,false,false,false,TLA,317,0,TLE,,,,"English, French, German, Italian, Japanese, Spanish",TLE,24422,TTLE,,,,
+ATLE,Avatar: the Last Airbender Eternal Art Series,2025-11-21,memorabilia,false,false,false,TLE,12,0,TLE,,,,English,,24422,ATLE,,,,
+LMAR,Marvel Legends Series Inserts,2025-09-30,promo,false,true,false,MAR,4,0,PMEI,,,,English,,,,,,,
+PSPM,Marvel's Spider-Man Promos,2025-09-26,promo,false,true,false,SPM,68,73,SPM,,,,English,,,,,,,
+ASPM,Marvel's Spider-Man Art Series,2025-09-26,memorabilia,false,false,false,,54,0,SPM,,,,English,,,ASPM,,,,
+MAR,Marvel Universe,2025-09-26,masterpiece,false,false,false,,53,0,MAR,,,,"English, French, German, Japanese, Spanish",,24432,,,,,
+SPM,Marvel's Spider-Man,2025-09-26,expansion,false,false,false,,286,198,SPM,,,,"English, French, German, Italian, Japanese, Spanish",,24245,TSPM,,,,
+SPE,Marvel's Spider-Man Eternal,2025-09-26,eternal,false,false,false,SPM,26,20,SPE,,,,"English, French, German, Japanese",,24246,,,,,
+AA4,Arena Anthology 4,2025-09-23,box,true,false,true,,28,28,MTGA,,,,English,,,,,,,
+OMB,Through the Omenpaths Bonus Sheet,2025-09-23,masterpiece,true,false,true,MAR,40,40,OMB,,,,English,,,,,,,
+AA3,Arena Anthology 3,2025-09-23,box,true,false,true,,25,25,MTGA,,,,English,,,,,,,
+OM1,Through the Omenpaths,2025-09-23,expansion,true,false,true,SPM,189,194,OM1,,,,English,OM1,,,,,,
+PH23,2023 Heroes of the Realm,2025-08-24,funny,false,false,true,,1,1,PMEI,,,,English,,1163,,,,,Heroes of the Realm
+AA2,Arena Anthology 2,2025-08-19,box,true,false,true,,25,26,MTGA,,,,English,,,,,,,
+YEOE,Alchemy: Edge of Eternities,2025-08-19,alchemy,true,false,true,EOE,40,40,Y25,,,,English,,,,,,,
+AA1,Arena Anthology 1,2025-08-19,box,true,false,true,,26,26,MTGA,,,,English,,,,,,,
+AEOE,Edge of Eternities Art Series,2025-08-01,memorabilia,false,false,false,EOE,54,0,EOE,,,,English,,24377,AEOE,,,,
+PEOE,Edge of Eternities Promos,2025-08-01,promo,false,false,false,EOE,160,160,EOE,,,,English,,24376,,,,,
+EOC,Edge of Eternities Commander,2025-08-01,commander,false,false,false,EOE,191,24,EOC,,,,"English, French, German, Italian, Japanese, Spanish",EOC,24236,TEOC,,,,Commander
+EOS,Edge of Eternities: Stellar Sights,2025-08-01,masterpiece,false,false,false,EOE,180,0,EOS,,,,English,EOS,24361,,,,,
+PBIG,The Big Score Promos,2025-08-01,promo,false,false,false,BIG,9,9,BIG,,,,English,,,,,,,
+EOE,Edge of Eternities,2025-08-01,expansion,false,false,false,,400,276,EOE,,,,"English, French, German, Italian, Japanese, Spanish",EOE,24233,TEOE,6063,Edge of Eternities,6174,
+RFIN,Final Fantasy Regional Promos,2025-06-13,promo,false,false,false,FIN,2,2,FIN,,,,"English, Japanese",,2156,,,,,
+FIC,Final Fantasy Commander,2025-06-13,commander,false,false,false,FIN,486,100,FIC,,,,"English, French, German, Italian, Japanese, Spanish",,24220,TFIC,6143,Commander: Magic: The Gathering - FINAL FANTASY: Collector's Edition,,Commander
+PFIN,Final Fantasy Promos,2025-06-13,promo,false,true,false,FIN,94,116,FIN,,,,English,,92,,,,,
+AFIN,Final Fantasy Art Series,2025-06-13,memorabilia,false,false,false,FIN,53,0,FIN,,,,English,,24341,AFIN,,,,
+FCA,Final Fantasy: Through the Ages,2025-06-13,masterpiece,false,false,false,FIN,65,0,FCA,,,,"English, Japanese",,24226,,,,,
+FIN,Final Fantasy,2025-06-13,expansion,false,false,false,,598,309,FIN,,,,"English, French, German, Italian, Japanese, Spanish",,24219,TFIN,6137,Magic: The Gathering - FINAL FANTASY: Extras,,
+WFIN,FIN Asia WPN Promo Tokens,2025-06-13,token,false,true,false,FIN,3,0,FIN,,,,English,,,WFIN,,,,
+PSS5,FIN Standard Showdown,2025-06-13,promo,false,true,false,FIN,2,1,PMEI,,,,English,,2067,,,,,
+PA1,Pioneer Anthology 1,2025-05-05,box,true,false,true,,11,11,MTGA,,,,English,,13,,,,,
+YTDM,Alchemy: Tarkir,2025-04-29,alchemy,true,false,true,TDM,30,33,Y25,,,,English,,24232,,,,,
+PTDM,Tarkir: Dragonstorm Promos,2025-04-11,promo,false,false,false,TDM,160,166,TDM,,,,English,,24267,,,,,
+ATDM,Tarkir: Dragonstorm Art Series,2025-04-11,memorabilia,false,false,false,TDM,54,0,TDM,,,,English,,24274,ATDM,,,,
+TDC,Tarkir: Dragonstorm Commander,2025-04-11,commander,false,false,false,TDM,413,50,TDC,,,,"English, French, German, Italian, Japanese, Spanish",TDC,24234,TTDC,6062,Commander: Tarkir: Dragonstorm,,Commander
+TDM,Tarkir: Dragonstorm,2025-04-11,expansion,false,false,false,,426,291,TDM,,,,"English, French, German, Italian, Japanese, Spanish",TDM,24232,TTDM,6060,Tarkir: Dragonstorm,6091,
+PLG25,Love Your LGS 2025,2025-03-26,promo,false,false,false,,2,2,PMEI,,,,English,,2899,,,,,
+YDFT,Alchemy: Aetherdrift,2025-03-04,alchemy,true,false,true,DFT,30,30,Y25,,,,English,,23874,,,,,
+PSSC,Secret Lair Showcase Planes,2025-02-21,memorabilia,false,false,true,SLD,10,10,DEFAULT,,,,English,,,,,,,
+ADFT,Aetherdrift Art Series,2025-02-14,memorabilia,false,false,false,DFT,54,0,DFT,,,,English,,24097,ADFT,,,,
+PDFT,Aetherdrift Promos,2025-02-14,promo,false,false,false,DFT,160,160,DFT,,,,English,,23930,,,,,
+PL25,Year of the Snake 2025,2025-02-14,promo,false,true,false,,5,5,PMEI,,,,English,,1163,PL25,,,,
+DRC,Aetherdrift Commander,2025-02-14,commander,false,false,false,DFT,184,187,DRC,,,,"English, French, German, Italian, Japanese, Spanish",DRC,23929,TDRC,5988,Commander: Aetherdrift,,Commander
+DFT,Aetherdrift,2025-02-14,expansion,false,false,false,,553,291,DFT,,,,"English, French, German, Italian, Japanese, Spanish",DFT,23874,TDFT,5982,Aetherdrift,6011,
+PJSC,Japan Standard Cup,2025-02-09,promo,false,true,false,,4,4,PMEI,,,,"English, Japanese",,93,,,,,
+AINR,Innistrad Remastered Art Series,2025-01-24,memorabilia,false,false,false,INR,25,0,INR,,,,English,,24067,AINR,,,,
+INR,Innistrad Remastered,2025-01-24,masters,false,false,false,,495,287,INR,,,,English,,23848,TINR,5930,Innistrad Remastered,5977,
+PSPL,Spotlight Series,2025-01-03,promo,false,false,false,,10,10,PMEI,,,,English,,1163,,,,,
+PF25,MagicFest 2025,2025-01-01,promo,false,false,false,,19,19,PMEI,,,,"English, Japanese",,2376,,,,,
+PW25,Wizards Play Network 2025,2025-01-01,promo,false,false,false,,17,1,PMEI,,,,English,,53,,,,,
+PIO,Pioneer Masters,2024-12-10,masters,true,false,true,,398,278,PIO,,,,English,,,,,,,
+AFDN,Foundations Art Series,2024-11-15,memorabilia,false,false,false,FDN,55,0,FDN,,,,English,,23816,AFDN,,,,
+PFDN,Foundations Promos,2024-11-15,promo,false,false,false,FDN,101,101,FDN,,,,English,,23556,,,,,
+FDN,Foundations,2024-11-15,core,false,false,false,,771,291,FDN,,,,"English, French, German, Italian, Japanese, Spanish",FDN,23556,TFDN,,,,Core Set
+FFDN,Foundations Front Cards,2024-11-15,memorabilia,false,false,false,FDN,10,0,FDN,,,,English,,23556,FFDN,,,,
+J25,Foundations Jumpstart,2024-11-15,draft_innovation,false,false,true,FDN,779,779,J25,,,,"English, French, German, Italian, Japanese, Spanish",,23792,,5932,Foundations Jumpstart,,
+FDC,Foundations Commander,2024-11-15,commander,false,true,false,FDN,3,3,FDC,,,,English,,23814,,,,,
+FJ25,Foundations Jumpstart Front Cards,2024-11-15,memorabilia,false,false,true,J25,46,0,J25,,,,English,,,FJ25,,,,
+PLTC,Tales of Middle-earth Deluxe Commander Kit,2024-10-16,promo,false,true,false,LTR,4,4,PMEI,,,,English,,23071,,,,,
+YDSK,Alchemy: Duskmourn,2024-10-15,alchemy,true,false,true,DSK,30,32,Y25,,,,English,,23550,,,,,
+PDSK,Duskmourn: House of Horror Promos,2024-09-27,promo,false,false,false,DSK,160,180,DSK,,,,English,,23735,,,,,
+DSC,Duskmourn: House of Horror Commander,2024-09-27,commander,false,false,false,DSK,373,40,DSC,,,,"English, French, German, Italian, Japanese, Spanish",,23551,TDSC,5808,Commander: Duskmourn: House of Horror,,Commander
+DSK,Duskmourn: House of Horror,2024-09-27,expansion,false,false,false,,417,286,DSK,,,,"English, French, German, Italian, Japanese, Spanish",DSK,23550,TDSK,5806,Duskmourn: House of Horror,5807,
+ADSK,Duskmourn: House of Horror Art Series,2024-09-27,memorabilia,false,false,false,DSK,54,0,DSK,,,,English,,23749,ADSK,,,,
+YBLB,Alchemy: Bloomburrow,2024-08-20,alchemy,true,false,true,BLB,30,30,Y25,,,,English,,23447,,,,,Alchemy 2025
+PLG24,Love Your LGS 2024,2024-08-06,promo,false,true,false,,5,5,PMEI,,,,"English, Japanese",,2899,PLG24,,,,
+PBLB,Bloomburrow Promos,2024-08-02,promo,false,false,false,BLB,160,160,BLB,,,,English,,23560,,,,,
+ABLB,Bloomburrow Art Series,2024-08-02,memorabilia,false,false,false,BLB,54,0,BLB,,,,English,,23569,ABLB,,,,
+MB2,Mystery Booster 2,2024-08-02,masters,false,false,false,,384,390,MB2,,,,English,,23580,MB2,5854,Mystery Booster 2,,
+BLC,Bloomburrow Commander,2024-08-02,commander,false,false,false,BLB,356,40,BLC,,,,"English, French, German, Japanese, Spanish",BLC,23448,TBLC,5660,Commander: Bloomburrow,,Commander
+BLB,Bloomburrow,2024-08-02,expansion,false,false,false,,397,281,BLB,,,,"English, French, German, Italian, Japanese, Spanish",BLB,23447,TBLB,5658,Bloomburrow,5659,
+PCBB,Cowboy Bebop,2024-08-02,promo,false,true,false,,5,5,PMEI,,,,English,,2067,,,,,
+MACR,Assassin's Creed Minigames,2024-07-05,minigame,false,false,false,ACR,3,0,ACR,,,,English,,23446,MACR,,,,
+ACR,Assassin's Creed,2024-07-05,draft_innovation,false,false,false,,309,110,ACR,,,,"Ancient Greek, Chinese Simplified, English, French, German, Italian, Japanese, Spanish",ACR,23446,TACR,,,,
+AACR,Assassin's Creed Art Series,2024-07-05,memorabilia,false,false,false,ACR,20,0,ACR,,,,English,,23542,AACR,,,,
+PMH3,Modern Horizons 3 Promos,2024-06-14,promo,false,false,false,MH3,89,90,MH3,,,,English,,23444,,,,,
+SMH3,Modern Horizons 3 Substitute Cards,2024-06-14,token,false,false,true,MH3,1,0,MH3,,,,English,,23444,SMH3,,,,
+AMH3,Modern Horizons 3 Art Series,2024-06-14,memorabilia,false,false,false,MH3,54,0,MH3,,,,English,,23533,AMH3,,,,
+MH3,Modern Horizons 3,2024-06-14,draft_innovation,false,false,false,,524,303,MH3,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",MH3,23444,TMH3,5652,Modern Horizons 3,5653,Modern Horizons Block
+M3C,Modern Horizons 3 Commander,2024-06-14,commander,false,false,false,MH3,398,16,M3C,,,,"Chinese Simplified, English, French, German, Japanese",,23445,TM3C,5657,Commander: Modern Horizons 3: Extras,,Commander
+H2R,Modern Horizons 2 Timeshifts,2024-06-07,draft_innovation,false,false,false,MH3,16,0,MH2,,,,English,,2809,,,,,
+YOTJ,Alchemy: Outlaws of Thunder Junction,2024-05-07,alchemy,true,false,true,OTJ,30,31,Y24,,,,English,,23439,,,,,Alchemy 2024
+AOTJ,Outlaws of Thunder Junction Art Series,2024-04-19,memorabilia,false,false,false,OTJ,54,0,OTJ,,,,English,,23497,AOTJ,,,,
+POTJ,Outlaws of Thunder Junction Promos,2024-04-19,promo,false,false,false,OTJ,160,160,OTJ,,,,English,,23498,,,,,
+OTC,Outlaws of Thunder Junction Commander,2024-04-19,commander,false,false,false,OTJ,342,40,OTC,,,,"Chinese Simplified, English, French, German, Japanese, Spanish",,23440,TOTC,5648,Commander: Outlaws of Thunder Junction,,Commander
+OTJ,Outlaws of Thunder Junction,2024-04-19,expansion,false,false,false,,374,286,OTJ,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",OTJ,23439,TOTJ,5647,Outlaws of Thunder Junction,5662,Outlaws of Thunder Junction
+OTP,Breaking News,2024-04-19,masterpiece,false,false,false,OTJ,80,0,OTP,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",OTP,23442,TOTP,5665,Breaking News,,Outlaws of Thunder Junction
+BIG,The Big Score,2024-04-19,expansion,false,false,false,OTJ,95,30,BIG,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",BIG,23443,TBIG,5664,The Big Score,,Outlaws of Thunder Junction
+PIP,Fallout,2024-03-08,commander,false,false,false,,1068,1076,PIP,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Spanish",,23337,TPIP,5545,Universes Beyond: Fallout: Extras,,Commander
+YMKM,Alchemy: Murders at Karlov Manor,2024-03-05,alchemy,true,false,true,MKM,30,30,Y24,,,,English,,23361,,,,,Alchemy 2024
+PUNK,Black Lotus Unknown Planechase,2024-02-24,funny,false,false,true,UNK,52,52,MB1,,,,English,,,,,,,
+CLU,Ravnica: Clue Edition,2024-02-23,draft_innovation,false,false,false,MKM,284,289,CLU,,,,English,,23362,,,,,
+FCLU,Ravnica: Clue Edition Front Cards,2024-02-23,memorabilia,false,false,true,CLU,10,0,CLU,,,,English,,23362,FCLU,,,,
+PSS4,MKM Standard Showdown,2024-02-10,promo,false,true,false,MKM,5,5,PMEI,,,,English,,2067,,,,,
+PMKM,Murders at Karlov Manor Promos,2024-02-09,promo,false,false,false,MKM,180,182,MKM,,,,English,,23420,,,,,
+AMKM,Murders at Karlov Manor Art Series,2024-02-09,memorabilia,false,false,false,MKM,49,0,MKM,,,,English,,23421,AMKM,,,,
+MKM,Murders at Karlov Manor,2024-02-09,expansion,false,false,false,,451,286,MKM,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",MKM,23361,TMKM,5561,Murders at Karlov Manor,5599,
+MKC,Murders at Karlov Manor Commander,2024-02-09,commander,false,false,false,MKM,358,361,MKC,,,,"Chinese Simplified, English, French, German, Italian, Japanese",,23363,TMKC,5562,Commander: Murders at Karlov Manor,,Commander
+WMKM,MKM Japanese Promo Tokens,2024-02-09,token,false,true,false,MKM,4,0,PMEI,,,,English,,2351,WMKM,,,,
+PL24,Year of the Dragon 2024,2024-02-08,promo,false,true,false,,6,6,PMEI,,,,English,,1163,PL24,,,,
+RVR,Ravnica Remastered,2024-01-12,masters,false,false,false,,531,291,RVR,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,23319,TRVR,5505,Ravnica Remastered,5506,
+PF24,MagicFest 2024,2024-01-01,promo,false,false,false,,2,2,PMEI,,,,English,,2376,,,,,
+PW24,Wizards Play Network 2024,2024-01-01,promo,false,false,false,,18,14,PMEI,,,,English,,53,,,,,
+YLCI,Alchemy: Ixalan,2023-12-05,alchemy,true,false,true,LCI,30,30,Y24,,,,English,,23312,,,,,Alchemy 2024
+PLCI,The Lost Caverns of Ixalan Promos,2023-11-17,promo,false,false,false,LCI,136,138,LCI,,,,English,,23342,,,,,
+SPG,Special Guests,2023-11-17,masterpiece,false,false,false,,165,0,SPG,,,,English,,23318,,5523,Special Guests,,
+ALCI,The Lost Caverns of Ixalan Art Series,2023-11-17,memorabilia,false,false,false,LCI,81,0,LCI,,,,English,,23345,ALCI,,,,
+LCC,The Lost Caverns of Ixalan Commander,2023-11-17,commander,false,false,false,LCI,370,16,LCC,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",LCC,23316,TLCC,5492,Commander: The Lost Caverns of Ixalan,,Commander
+REX,Jurassic World Collection,2023-11-17,eternal,false,false,false,LCI,45,0,REX,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,23317,TREX,,,,
+PMAT,March of the Machine: The Aftermath Promos,2023-11-17,promo,false,false,false,MAT,8,8,MAT,,,,English,,22876,,,,,
+LCI,The Lost Caverns of Ixalan,2023-11-17,expansion,false,false,false,,415,291,LCI,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",LCI,23312,TLCI,5490,The Lost Caverns of Ixalan,5491,
+SLCI,The Lost Caverns of Ixalan Substitute Cards,2023-11-17,token,false,false,false,LCI,1,0,LCI,,,,English,,23312,SLCI,,,,
+ALTC,Tales of Middle-earth Scene Box,2023-11-04,memorabilia,false,false,false,LTC,24,0,LTC,,,,English,,23223,ALTC,,,,
+WHO,Doctor Who,2023-10-13,commander,false,false,false,,1178,331,WHO,,,,"English, French, German, Japanese",,23165,TWHO,5424,Universes Beyond: Doctor Who: Extras,,Commander
+YWOE,Alchemy: Wilds of Eldraine,2023-10-10,alchemy,true,false,true,WOE,30,34,Y24,,,,English,,23163,,,,,Alchemy 2024
+PWOE,Wilds of Eldraine Promos,2023-09-08,promo,false,false,false,WOE,160,200,WOE,,,,English,,23224,,,,,
+WWOE,WOE Japanese Promo Tokens,2023-09-08,token,false,false,false,WOE,6,0,PMEI,,,,English,,2351,WWOE,,,,
+AWOE,Wilds of Eldraine Art Series,2023-09-08,memorabilia,false,false,false,WOE,81,0,WOE,,,,English,,23288,AWOE,,,,
+WOT,Wilds of Eldraine: Enchanting Tales,2023-09-08,masterpiece,false,false,false,WOE,103,0,WOT,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",WOT,23273,,,,,
+WOC,Wilds of Eldraine Commander,2023-09-08,commander,false,false,false,WOE,173,28,WOC,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,23164,TWOC,5360,Commander: Wilds of Eldraine,,Commander
+PMDA,Magic × Duel Masters Promos,2023-09-08,promo,false,true,false,,4,4,PMEI,,,,"English, Japanese",,1163,,,,,
+WOE,Wilds of Eldraine,2023-09-08,expansion,false,false,false,,381,276,WOE,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",WOE,23163,TWOE,5359,Wilds of Eldraine,5428,
+PTSR,Time Spiral Remastered Promos,2023-09-08,promo,false,false,false,TSR,3,3,TSR,,,,English,,2772,,,,,
+P30T,30th Anniversary Celebration Tokyo,2023-09-01,promo,false,true,false,30A,2,2,PMEI,,,,"English, Japanese",,3178,,,,,
+ACMM,Commander Masters Art Series,2023-08-04,memorabilia,false,false,false,CMM,81,0,CMM,,,,English,,23270,ACMM,,,,
+CMM,Commander Masters,2023-08-04,masters,false,false,false,,1067,451,CMM,,,,"Chinese Simplified, English, French, German, Japanese, Portuguese (Brazil), Spanish",CMM,23020,TCMM,5286,Commander Masters,5418,Commander
+PH22,2022 Heroes of the Realm,2023-08-01,funny,false,false,true,,5,5,PMEI,,,,English,,1163,,,,,Heroes of the Realm
+HA7,Historic Anthology 7,2023-07-18,box,true,false,true,,25,25,HA1,,,,English,,13,,,,,
+EA3,Explorer Anthology 3,2023-07-18,box,true,false,true,,25,25,MTGA,,,,English,,13,,,,,
+PF23,MagicFest 2023,2023-07-01,promo,false,false,false,,4,4,PMEI,,,,English,,2376,,,,,
+PLTR,Tales of Middle-earth Promos,2023-06-23,promo,false,true,false,LTR,86,86,LTR,,,,English,,23019,,,,,
+LTC,Tales of Middle-earth Commander,2023-06-23,commander,false,false,false,LTR,591,84,LTC,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Quenya, Spanish",LTC,23071,TLTC,,,,Commander
+FLTR,Tales of Middle-earth Front Cards,2023-06-23,memorabilia,false,false,true,LTR,10,0,LTR,,,,English,,23019,FLTR,,,,
+ALTR,Tales of Middle-earth Art Series,2023-06-23,memorabilia,false,false,false,LTR,81,0,LTR,,,,English,,23223,ALTR,,,,
+LTR,The Lord of the Rings: Tales of Middle-earth,2023-06-23,draft_innovation,false,false,false,,854,281,LTR,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Quenya, Spanish",LTR,23019,TLTR,5285,The Lord of the Rings: Tales of Middle-earth,5308,
+MLTR,The Lord of the Rings: Tales of Middle-earth Minigames,2023-06-23,minigame,false,false,true,LTR,1,0,LTR,,,,English,,23019,MLTR,,,,
+MAT,March of the Machine: The Aftermath,2023-05-12,expansion,false,false,false,,230,50,MAT,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",MAT,22876,,5320,March of the Machine: The Aftermath,5208,
+FMOM,March of the Machine Jumpstart Front Cards,2023-04-21,memorabilia,false,false,true,MOM,5,0,MOM,,,,English,,2654,FMOM,,,,
+SMOM,March of the Machine Substitute Cards,2023-04-21,token,false,false,true,MOM,1,0,MOM,,,,English,,22875,SMOM,,,,
+MUL,Multiverse Legends,2023-04-21,masterpiece,false,false,false,MOM,260,261,MUL,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,22989,TMUL,5284,Multiverse Legends,,
+PMOM,March of the Machine Promos,2023-04-21,promo,false,false,false,MOM,144,162,MOM,,,,English,,23099,,,,,
+MOC,March of the Machine Commander,2023-04-21,commander,false,false,false,MOM,450,79,MOC,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,22979,TMOC,5279,Commander: March of the Machine,,Commander
+AMOM,March of the Machine Art Series,2023-04-21,memorabilia,false,false,false,MOM,81,0,MOM,,,,English,,23102,AMOM,,,,
+MOM,March of the Machine,2023-04-21,expansion,false,false,false,,387,291,MOM,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",MOM,22875,TMOM,5227,March of the Machine,5278,
+WMOM,MOM Japanese Promo Tokens,2023-04-21,token,false,false,false,MOM,12,0,MOM,,,,English,,2351,WMOM,,,,
+SIS,Shadows of the Past,2023-03-21,masters,true,false,true,SIR,76,81,SIS,,,,English,,23580,,,,,
+SIR,Shadows over Innistrad Remastered,2023-03-21,masters,true,false,true,,294,320,SIR,,,,English,,,,,,,
+YONE,Alchemy: Phyrexia,2023-02-28,alchemy,true,false,true,ONE,30,30,Y23,,,,English,,17684,,,,,Alchemy 2023
+SLP,Secret Lair Promo,2023-02-17,promo,false,false,false,SLD,51,50,PMEI,,,,English,,22970,,,,,
+UNK,Unknown Event,2023-02-15,funny,false,false,true,,470,477,MB1,,,,English,,1163,,,,,
+PONE,Phyrexia: All Will Be One Promos,2023-02-10,promo,false,false,false,ONE,160,160,ONE,,,,English,,22922,,,,,
+ONE,Phyrexia: All Will Be One,2023-02-10,expansion,false,false,false,,479,271,ONE,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Phyrexian, Portuguese (Brazil), Spanish",ONE,17684,TONE,5184,Phyrexia: All Will Be One,5191,
+PL23,Year of the Rabbit 2023,2023-02-10,promo,false,true,false,,5,5,PMEI,,,,English,,1163,PL23,,,,
+ONC,Phyrexia: All Will Be One Commander,2023-02-10,commander,false,false,false,ONE,174,28,ONC,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",ONC,17685,TONC,5225,Commander: Phyrexia: All Will Be One,,Commander
+AONE,Phyrexia: All Will Be One Art Series,2023-02-03,memorabilia,false,false,false,ONE,81,0,ONE,,,,English,,22933,AONE,,,,
+MONE,Phyrexia: All Will Be One Minigames,2023-02-03,minigame,false,false,false,ONE,5,0,ONE,,,,English,,17684,MONE,,,,
+FONE,Phyrexia: All Will Be One Jumpstart Front Cards,2023-02-03,memorabilia,false,false,true,ONE,5,0,ONE,,,,English,,2654,FONE,,,,
+WONE,ONE Japanese Promo Tokens,2023-01-27,token,false,false,true,ONE,6,0,ONE,,,,English,,2351,WONE,,,,
+DMR,Dominaria Remastered,2023-01-13,masters,false,false,false,,457,261,DMR,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,17670,TDMR,5192,Dominaria Remastered,5193,
+PR23,Regional Championship Qualifiers 2023,2023-01-07,promo,false,false,false,,3,4,PMEI,,,,English,,21,,,,,
+P23,Judge Gift Cards 2023,2023-01-01,promo,false,true,false,,10,10,ARCHIE,,,,English,,62,,,,,Judge Gift Cards
+PW23,Wizards Play Network 2023,2023-01-01,promo,false,false,false,,11,11,PMEI,,,,"English, Phyrexian",,53,,,,,
+YBRO,Alchemy: The Brothers' War,2022-12-13,alchemy,true,false,true,BRO,31,31,Y23,,,,English,,3157,,,,,Alchemy 2023
+EA2,Explorer Anthology 2,2022-12-13,box,true,false,true,,25,25,MTGA,,,,English,,13,,,,,
+SCD,Starter Commander Decks,2022-12-02,commander,false,false,true,,352,352,SCD,,,,English,,17662,TSCD,5173,Starter Commander Decks,,Commander
+FJ22,Jumpstart 2022 Front Cards,2022-12-02,memorabilia,false,false,false,J22,46,0,J22,,,,English,,,FJ22,,,,
+J22,Jumpstart 2022,2022-12-02,draft_innovation,false,false,false,,835,834,J22,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Spanish",,3185,,5185,Jumpstart 2022,,
+30A,30th Anniversary Edition,2022-11-28,memorabilia,false,false,true,,594,594,30A,,,,English,,3178,T30A,5199,30th Anniversary Edition,,
+PEWK,Eternal Weekend,2022-11-26,promo,false,false,false,,8,8,PMEI,,,,English,,93,,,,,
+BRC,The Brothers' War Commander,2022-11-18,commander,false,false,false,BRO,209,40,BRC,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,3159,TBRC,5168,Commander: The Brothers' War,,Commander
+BRR,The Brothers' War Retro Artifacts,2022-11-18,masterpiece,false,false,false,BRO,189,63,BRR,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,17665,,,,,
+PBRO,The Brothers' War Promos,2022-11-18,promo,false,false,false,BRO,169,169,BRO,,,,English,,3160,PBRO,,,,
+PTBRO,The Brothers' War Southeast Asia Tokens,2022-11-18,token,false,false,true,BRO,3,0,BRO,,,,English,,2351,PTBRO,,,,
+BOT,Transformers,2022-11-18,eternal,false,false,false,BRO,29,58,BOT,,,,English,,17664,TBOT,,,,
+BRO,The Brothers' War,2022-11-18,expansion,false,false,false,,387,287,BRO,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",BRO,3157,TBRO,5164,The Brothers' War,5165,
+SBRO,The Brothers' War Substitute Cards,2022-11-18,token,false,false,true,BRO,1,0,BRO,,,,English,,3157,SBRO,,,,
+FBRO,The Brothers' War Jumpstart Front Cards,2022-11-18,memorabilia,false,false,false,BRO,5,0,BRO,,,,English,,2654,FBRO,,,,
+ABRO,The Brothers' War Art Series,2022-11-18,memorabilia,false,false,false,BRO,81,0,BRO,,,,English,,3158,ABRO,,,,
+MBRO,The Brothers' War Minigames,2022-11-18,minigame,false,false,false,BRO,3,0,BRO,,,,English,,3157,MBRO,,,,
+SLC,Secret Lair Countdown,2022-11-01,box,false,false,false,SLD,84,84,PMEI,,,,English,,17667,,,,,
+GN3,Game Night: Free-for-All,2022-10-14,box,false,false,false,,135,135,GN3,,,,"English, French, German, Italian, Japanese, Spanish",,3129,TGN3,,,,
+ULST,The List (Unfinity Foil Edition),2022-10-07,funny,false,true,false,PLST,62,62,MB1,,,,English,,2715,,,,,
+UNF,Unfinity,2022-10-07,funny,false,false,false,,639,244,UNF,,,,English,,2958,TUNF,4468,Unfinity,4469,
+SUNF,Unfinity Sticker Sheets,2022-10-07,funny,false,false,true,UNF,48,48,UNF,,,,English,,2958,,,,,
+40K,"Warhammer 40,000 Commander",2022-10-07,commander,false,false,false,,617,617,40K,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,3079,T40K,5074,"Universes Beyond: Warhammer 40,000",,Commander
+YDMU,Alchemy: Dominaria,2022-10-05,alchemy,true,false,true,DMU,39,39,Y23,,,,English,,3102,,,,,Alchemy 2023
+PRCQ,Regional Championship Qualifiers 2022,2022-10-01,promo,false,false,false,,3,0,PMEI,,,,English,,21,,,,,
+P30H,30th Anniversary History Promos,2022-09-09,promo,false,true,false,30A,10,10,PMEI,,,,"English, Japanese",,3178,,5171,30th Anniversary History Promos,,
+PDMU,Dominaria United Promos,2022-09-09,promo,false,false,false,DMU,161,161,DMU,,,,English,,3169,,,,,
+PTDMU,Dominaria United Southeast Asia Tokens,2022-09-09,token,false,false,true,DMU,3,0,DMU,,,,English,,2351,PTDMU,,,,
+MDMU,Dominaria United Minigames,2022-09-09,minigame,false,false,false,DMU,3,0,DMU,,,,English,,3102,MDMU,,,,
+DMC,Dominaria United Commander,2022-09-09,commander,false,false,false,DMU,240,50,DMC,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,3140,TDMC,5122,Commander: Dominaria United,,Commander
+WDMU,DMU Japanese Promo Tokens,2022-09-09,token,false,true,false,DMU,5,0,PMEI,,,,English,,2351,WDMU,,,,
+FDMU,Dominaria United Jumpstart Front Cards,2022-09-09,memorabilia,false,false,false,DMU,10,0,DMU,,,,English,,2654,FDMU,,,,
+DMU,Dominaria United,2022-09-09,expansion,false,false,false,,436,281,DMU,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Phyrexian, Portuguese (Brazil), Spanish",DMU,3102,TDMU,5072,Dominaria United,5073,
+ADMU,Dominaria United Art Series,2022-09-09,memorabilia,false,false,false,DMU,81,0,DMU,,,,English,,3175,ADMU,,,,
+P30A,30th Anniversary Play Promos,2022-09-02,promo,false,true,false,30A,30,30,PMEI,,,,"English, French, German, Italian, Portuguese (Brazil), Spanish",,3178,,,,,
+P30M,30th Anniversary Misc Promos,2022-09-02,promo,false,false,false,30A,5,5,PMEI,,,,English,,3178,,,,,
+PSVC,Summer Vacation Promos 2022,2022-08-01,promo,false,true,false,,3,3,PMEI,,,,English,,1163,,,,,
+PH21,2021 Heroes of the Realm,2022-08-01,funny,false,false,true,,4,4,PMEI,,,,English,,1163,,,,,Heroes of the Realm
+EA1,Explorer Anthology 1,2022-07-28,box,true,false,true,,20,20,MTGA,,,,English,,13,,,,,
+HA6,Historic Anthology 6,2022-07-28,box,true,false,true,,20,20,HA1,,,,English,,13,,,,,
+SCH,Store Championships,2022-07-09,promo,false,false,false,,50,49,PMEI,,,,English,,21,,,,,
+2X2,Double Masters 2022,2022-07-08,masters,false,false,false,,579,331,2X2,,,,"Chinese Simplified, English, French, German, Japanese",,3070,T2X2,5070,Double Masters 2022,5071,
+HBG,Alchemy Horizons: Baldur's Gate,2022-07-07,alchemy,true,false,true,,408,456,HBG,,,,English,,13,,,,,Alchemy 2022
+PLG22,Love Your LGS 2022,2022-07-01,promo,false,true,false,,2,2,PMEI,,,,English,,2899,,,,,
+PCLB,Battle for Baldur's Gate Promos,2022-06-10,promo,false,false,false,CLB,104,108,CLB,,,,English,,3047,,,,,
+MCLB,Commander Legends: Battle for Baldur's Gate Minigames,2022-06-10,minigame,false,false,false,CLB,3,0,CLB,,,,English,,3047,MCLB,,,,
+ACLB,Battle for Baldur's Gate Art Series,2022-06-10,memorabilia,false,false,false,CLB,81,0,CLB,,,,English,,3048,ACLB,,,,
+OCLB,Battle for Baldur's Gate Oversized Cards,2022-06-10,memorabilia,false,false,true,CLB,1,0,CLB,,,,English,,3047,OCLB,,,,
+CLB,Commander Legends: Battle for Baldur's Gate,2022-06-10,draft_innovation,false,false,false,,936,361,CLB,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",,3047,TCLB,5030,Commander Legends: Battle for Baldur's Gate,5031,Commander
+YSNC,Alchemy: New Capenna,2022-06-02,alchemy,true,false,true,SNC,30,30,Y22,,,,English,,3026,,,,,Alchemy 2022
+PTSNC,Streets of New Capenna Southeast Asia Tokens,2022-04-30,promo,false,false,true,PSNC,6,0,SNC,,,,English,,2351,PTSNC,,,,
+PNCC,New Capenna Commander Promos,2022-04-29,promo,false,true,false,NCC,75,76,NCC,,,,English,,3031,,,,,
+SNC,Streets of New Capenna,2022-04-29,expansion,false,false,false,,469,281,SNC,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Phyrexian, Portuguese (Brazil), Russian, Spanish",SNC,3026,TSNC,4975,Streets of New Capenna,4976,
+NCC,New Capenna Commander,2022-04-29,commander,false,false,false,SNC,447,93,NCC,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",,3031,TNCC,4977,Commander: Streets of New Capenna,,Commander
+PSNC,Streets of New Capenna Promos,2022-04-29,promo,false,false,false,SNC,161,161,SNC,,,,English,,3033,,,,,
+MSNC,Streets of New Capenna Minigames,2022-04-29,minigame,false,false,false,SNC,3,0,SNC,,,,English,,3026,MSNC,,,,
+ASNC,New Capenna Art Series,2022-04-29,memorabilia,false,false,false,SNC,81,0,SNC,,,,English,,3032,ASNC,,,,
+GDY,Game Day Promos,2022-04-08,promo,false,false,false,,9,9,PMEI,,,,English,,52,,5069,Game Day Promos,,
+Q07,Challenger Decks 2022,2022-04-01,box,false,false,true,,1,0,PMEI,,,,English,,2203,Q07,,,,
+YNEO,Alchemy: Kamigawa,2022-03-17,alchemy,true,false,true,NEO,30,30,Y22,,,,English,,2965,,,,,Alchemy 2022
+PW22,Wizards Play Network 2022,2022-03-05,promo,false,false,false,,6,6,PMEI,,,,"English, Phyrexian",,53,,,,,
+SLX,Universes Within,2022-03-03,masters,false,false,true,SLD,30,32,PMEI,,,,English,,3054,,5038,Universes Within,,
+PL22,Year of the Tiger 2022,2022-02-25,promo,false,true,false,,5,5,PMEI,,,,English,,1163,,,,,
+PNEO,Kamigawa: Neon Dynasty Promos,2022-02-18,promo,false,false,false,NEO,148,157,NEO,,,,English,,2968,,,,,
+MNEO,Kamigawa: Neon Dynasty Minigames,2022-02-18,minigame,false,false,false,NEO,3,0,NEO,,,,English,,2965,MNEO,,,,
+SNEO,Kamigawa: Neon Dynasty Substitute Cards,2022-02-18,token,false,false,true,NEO,9,0,NEO,,,,English,,2965,SNEO,,,,
+NEO,Kamigawa: Neon Dynasty,2022-02-18,expansion,false,false,false,,514,302,NEO,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Phyrexian, Portuguese (Brazil), Russian, Spanish",NEO,2965,TNEO,4472,Kamigawa: Neon Dynasty,4473,
+NEC,Neon Dynasty Commander,2022-02-18,commander,false,false,false,NEO,179,38,NEC,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",,2967,TNEC,,,,Commander
+ANEO,Neon Dynasty Art Series,2022-02-18,memorabilia,false,false,false,NEO,81,0,NEO,,,,English,,2966,ANEO,,,,
+CC2,Commander Collection: Black,2022-01-28,arsenal,false,false,false,,8,8,CC2,,,,English,,2905,CC2,4400,Commander Collection: Black,,
+DBL,Innistrad: Double Feature,2022-01-28,draft_innovation,false,false,false,,535,534,PMEI,,,,English,,2942,,4401,Innistrad: Double Feature,,
+P22,Judge Gift Cards 2022,2022-01-01,promo,false,true,false,,10,11,ARCHIE,,,,English,,62,,,,,Judge Gift Cards
+YMID,Alchemy: Innistrad,2021-12-09,alchemy,true,false,true,,63,64,Y22,,,,English,,2864,,,,,Alchemy 2022
+PVOW,Innistrad: Crimson Vow Promos,2021-11-19,promo,false,false,false,VOW,121,137,VOW,,,,English,,2862,,,,,
+OVOC,Crimson Vow Commander Display Commanders,2021-11-19,memorabilia,false,true,true,VOC,2,2,VOC,,,,English,,2900,,,,,Innistrad: Double Feature
+MVOW,Innistrad: Crimson Vow Minigames,2021-11-19,minigame,false,false,false,VOW,3,0,VOW,,,,English,,2862,MVOW,,,,
+SVOW,Innistrad: Crimson Vow Substitute Cards,2021-11-19,token,false,false,true,VOW,9,0,VOW,,,,English,,2862,SVOW,,,,
+VOC,Crimson Vow Commander,2021-11-19,commander,false,false,false,VOW,188,38,VOC,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",,2900,TVOC,,,,Commander
+VOW,Innistrad: Crimson Vow,2021-11-19,expansion,false,false,false,,412,277,VOW,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",VOW,2862,TVOW,4364,Innistrad: Crimson Vow,4423,Innistrad: Double Feature
+AVOW,Crimson Vow Art Series,2021-11-19,memorabilia,false,false,false,VOW,81,0,VOW,,,,English,,2898,AVOW,,,,Innistrad: Double Feature
+Q06,Pioneer Challenger Decks 2021,2021-10-15,box,false,false,true,,10,10,PMEI,,,,English,,2203,,,,,
+SMID,Innistrad: Midnight Hunt Substitute Cards,2021-09-24,token,false,false,true,MID,9,0,MID,,,,English,,2864,SMID,,,,Innistrad: Double Feature
+PMID,Innistrad: Midnight Hunt Promos,2021-09-24,promo,false,false,false,MID,155,171,MID,,,,English,,2892,,,,,Innistrad: Double Feature
+MIC,Midnight Hunt Commander,2021-09-24,commander,false,false,false,MID,187,38,MIC,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",MIC,2893,TMIC,,,,Commander
+OMIC,Midnight Hunt Commander Display Commanders,2021-09-24,memorabilia,false,true,true,MIC,2,2,MIC,,,,English,,2893,,,,,Commander
+AMID,Midnight Hunt Art Series,2021-09-24,memorabilia,false,false,false,MID,81,0,MID,,,,English,,2891,AMID,,,,Innistrad: Double Feature
+MMID,Innistrad: Midnight Hunt Minigames,2021-09-24,minigame,false,false,false,MID,3,0,MID,,,,English,,2864,MMID,,,,
+MID,Innistrad: Midnight Hunt,2021-09-24,expansion,false,false,false,,392,277,MID,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",MID,2864,TMID,4362,Innistrad: Midnight Hunt,4363,Innistrad: Double Feature
+J21,Jumpstart: Historic Horizons,2021-08-26,draft_innovation,true,false,true,,389,388,J21,,,,English,,2654,,,,,
+CMB2,Mystery Booster Playtest Cards 2021,2021-08-20,funny,false,false,true,,121,121,MB1,,,,English,,2570,,,,,
+PH20,2020 Heroes of the Realm,2021-08-01,funny,false,false,true,,3,3,PMEI,,,,English,,1163,,,,,Heroes of the Realm
+PAFR,Adventures in the Forgotten Realms Promos,2021-07-23,promo,false,false,false,AFR,241,241,AFR,,,,English,,2868,,,,,
+OAFC,Forgotten Realms Commander Display Commanders,2021-07-23,memorabilia,false,true,true,AFC,4,4,AFC,,,,English,,2870,,,,,
+OAFR,Forgotten Realms Oversized Cards,2021-07-23,memorabilia,false,false,true,AFR,3,0,AFR,,,,English,,2870,OAFR,,,,
+AFC,Forgotten Realms Commander,2021-07-23,commander,false,false,false,AFR,331,62,AFC,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",,2870,TAFC,,,,Commander
+AAFR,Adventures in the Forgotten Realms Art Series,2021-07-23,memorabilia,false,false,false,AFR,81,0,AFR,,,,English,,2869,AAFR,,,,
+MAFR,Adventures in the Forgotten Realms Minigames,2021-07-23,minigame,false,false,false,AFR,5,5,AFR,,,,English,,2823,MAFR,,,,
+AFR,Adventures in the Forgotten Realms,2021-07-23,expansion,false,false,false,,402,281,AFR,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",AFR,2823,TAFR,4259,Adventures in the Forgotten Realms,4260,
+PLG21,Love Your LGS 2021,2021-06-22,promo,false,false,false,,11,5,PMEI,,,,"English, Japanese",,2899,,,,,
+MMH2,Modern Horizons 2 Minigames,2021-06-18,minigame,false,false,false,MH2,5,5,MH2,,,,English,,2809,MMH2,,,,
+AMH2,Modern Horizons 2 Art Series,2021-06-18,memorabilia,false,false,false,MH2,162,0,MH2,,,,English,,2822,AMH2,,,,
+PMH2,Modern Horizons 2 Promos,2021-06-18,promo,false,false,false,MH2,86,86,MH2,,,,English,,2809,,,,,
+PW21,Wizards Play Network 2021,2021-06-18,promo,false,false,false,,6,6,PMEI,,,,English,,53,,,,,
+H1R,Modern Horizons 1 Timeshifts,2021-06-18,draft_innovation,false,true,false,MH2,40,40,MH1,,,,English,,2422,,,,,
+MH2,Modern Horizons 2,2021-06-18,draft_innovation,false,false,false,,492,303,MH2,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",MH2,2809,TMH2,4219,Modern Horizons 2,4244,Modern Horizons Block
+HA5,Historic Anthology 5,2021-05-27,box,true,false,true,,25,25,HA1,,,,English,,13,,,,,
+PSTX,Strixhaven: School of Mages Promos,2021-04-23,promo,false,false,false,STX,164,180,STX,,,,English,,2773,,,,,
+SSTX,Strixhaven: School of Mages Substitute Cards,2021-04-23,token,false,false,true,STX,9,0,STX,,,,English,,2773,SSTX,,,,
+MSTX,Strixhaven: School of Mages Minigames,2021-04-23,minigame,false,false,false,STX,5,5,STX,,,,English,,2773,MSTX,,,,
+OC21,Commander 2021 Display Commanders,2021-04-23,memorabilia,false,true,true,C21,5,5,C21,,,,English,OC21,2801,,,,,
+C21,Commander 2021,2021-04-23,commander,false,false,false,,409,81,C21,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",C21,2801,TC21,3756,Commander: Strixhaven,,Commander
+STX,Strixhaven: School of Mages,2021-04-23,expansion,false,false,false,,383,275,STX,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",STX,2773,TSTX,3741,Strixhaven: School of Mages,3761,
+STA,Strixhaven Mystical Archive,2021-04-23,masterpiece,false,false,false,STX,126,63,STA,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",STA,2791,,,,,
+ASTX,Strixhaven Art Series,2021-04-23,memorabilia,false,false,false,STX,162,0,STX,,,,English,,2806,ASTX,,,,
+TSR,Time Spiral Remastered,2021-03-19,masters,false,false,false,,411,289,TSR,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",,2772,TTSR,3766,Time Spiral Remastered,3771,
+HA4,Historic Anthology 4,2021-03-11,box,true,false,true,,25,25,HA1,,,,English,,13,,,,,
+PKHM,Kaldheim Promos,2021-02-05,promo,false,false,false,KHM,158,1,KHM,,,,"English, Japanese",,2770,,,,,
+MKHM,Kaldheim Minigames,2021-02-05,minigame,false,false,true,KHM,5,5,KHM,,,,English,,2750,MKHM,,,,
+SKHM,Kaldheim Substitute Cards,2021-02-05,token,false,false,true,KHM,9,0,KHM,,,,English,,2750,SKHM,,,,
+KHC,Kaldheim Commander,2021-02-05,commander,false,false,false,KHM,119,1,KHC,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",,2766,TKHC,3685,Commander: Kaldheim,,Commander
+AKHM,Kaldheim Art Series,2021-02-05,memorabilia,false,false,false,KHM,81,0,KHM,,,,English,,2771,AKHM,,,,
+KHM,Kaldheim,2021-02-05,expansion,false,false,false,,407,285,KHM,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Phyrexian, Portuguese (Brazil), Russian, Spanish",KHM,2750,TKHM,3660,Kaldheim,3680,
+PL21,Year of the Ox 2021,2021-01-25,promo,false,false,false,,5,4,PMEI,,,,"English, Japanese",,1163,PL21,,,,
+PJ21,Judge Gift Cards 2021,2021-01-01,promo,false,true,false,,10,10,ARCHIE,,,,English,,62,,,,,Judge Gift Cards
+CC1,Commander Collection: Green,2020-12-04,arsenal,false,false,false,,8,8,CC1,,,,English,CC1,2699,,3394,Commander Collection: Green,,
+CMR,Commander Legends,2020-11-20,draft_innovation,false,false,false,,718,361,CMR,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",CMR,2708,TCMR,3454,Commander Legends,3459,Commander
+PCMR,Commander Legends Promos,2020-11-20,promo,false,false,false,CMR,6,6,CMR,,,,English,,2708,,,,,
+KLR,Kaladesh Remastered,2020-11-12,masters,true,false,true,,302,301,KLR,,,,English,,,,,,,
+PLST,The List,2020-09-26,masters,false,false,false,,4985,5075,MB1,,,,"English, German, Italian, Japanese, Portuguese (Brazil), Spanish",,2715,PLST,3494,The List,,
+PZNR,Zendikar Rising Promos,2020-09-25,promo,false,false,false,ZNR,153,169,ZNR,,,,English,,2717,,,,,
+MZNR,Zendikar Rising Minigames,2020-09-25,minigame,false,false,true,ZNR,5,5,ZNR,,,,English,,2648,MZNR,,,,
+ZNE,Zendikar Rising Expeditions,2020-09-25,masterpiece,false,false,false,ZNR,30,30,ZNE,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",,2713,,3489,Zendikar Rising Expeditions,,
+AZNR,Zendikar Rising Art Series,2020-09-25,memorabilia,false,false,false,ZNR,81,0,ZNR,,,,English,,2714,AZNR,,,,
+SZNR,Zendikar Rising Substitute Cards,2020-09-25,token,false,false,true,ZNR,9,0,ZNR,,,,English,,2648,SZNR,,,,
+ZNR,Zendikar Rising,2020-09-25,expansion,false,false,false,,392,280,ZNR,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",ZNR,2648,TZNR,3404,Zendikar Rising,3474,
+ZNC,Zendikar Rising Commander,2020-09-25,commander,false,false,false,ZNR,142,1,ZNC,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",,2716,TZNC,3399,Commander: Zendikar Rising,,Commander
+AKR,Amonkhet Remastered,2020-08-13,masters,true,false,true,,339,338,AKR,,,,English,,,,,,,
+ANB,Arena Beginner Set,2020-08-13,starter,true,false,true,,120,116,MTGA,,,,English,,3176,,,,,
+2XM,Double Masters,2020-08-07,masters,false,false,false,,384,332,2XM,,,,"Chinese Simplified, English, French, German, Japanese",2XM,2655,T2XM,3204,Double Masters,3209,
+PH19,2019 Heroes of the Realm,2020-08-01,funny,false,false,true,,7,9,PMEI,,,,English,,1163,,,,,Heroes of the Realm
+AJMP,Jumpstart Arena Exclusives,2020-07-17,starter,true,false,true,JMP,18,18,JMP,,,,English,,13,,,,,
+JMP,Jumpstart,2020-07-17,draft_innovation,false,false,false,,496,78,JMP,,,,"English, Phyrexian",,2654,,3053,Jumpstart,,
+PM21,Core Set 2021 Promos,2020-07-03,promo,false,false,false,M21,137,137,M21,,,,English,,2665,,,,,
+M21,Core Set 2021,2020-07-03,core,false,false,false,,397,274,M21,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",M21,2653,TM21,3048,Core 2021,,Core Set
+SS3,Signature Spellbook: Chandra,2020-06-26,spellbook,false,false,false,,8,8,SS3,,,,English,,2633,,3063,Signature Spellbook: Chandra,,
+FJMP,Jumpstart Front Cards,2020-06-18,memorabilia,false,false,true,JMP,46,0,JMP,,,,English,,2654,FJMP,,,,
+SLU,Secret Lair: Ultimate Edition,2020-05-29,box,false,false,false,SLD,16,1,PMEI,,,,English,,2632,,,,,
+HA3,Historic Anthology 3,2020-05-21,box,true,false,true,,27,27,HA1,,,,English,,13,,,,,
+PLG20,Love Your LGS 2020,2020-05-18,promo,false,true,false,,2,1,PMEI,,,,English,,2899,,,,,
+PIKO,Ikoria: Lair of Behemoths Promos,2020-04-24,promo,false,false,false,IKO,137,137,IKO,,,,English,,2603,,,,,
+IKO,Ikoria: Lair of Behemoths,2020-04-24,expansion,false,false,false,,389,274,IKO,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",IKO,2603,TIKO,2819,Ikoria: Lair of Behemoths,3113,
+OC20,Commander 2020 Oversized,2020-04-17,memorabilia,false,true,false,C20,5,5,C20,,,,English,,2634,,,,,
+C20,Commander 2020,2020-04-17,commander,false,false,false,,322,322,C20,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",C20,2634,TC20,2911,Commander: Ikoria,,Commander
+HA2,Historic Anthology 2,2020-03-12,box,true,false,true,,25,25,HA1,,,,English,,13,,,,,
+UND,Unsanctioned,2020-02-29,funny,false,false,false,,96,96,UND,,,,English,,2598,TUND,2809,Unsanctioned,,
+PTHB,Theros Beyond Death Promos,2020-01-24,promo,false,false,false,THB,137,137,THB,,,,English,,2599,,,,,
+THB,Theros Beyond Death,2020-01-24,expansion,false,false,false,,358,254,THB,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",THB,2568,TTHB,2814,Theros Beyond Death,2961,
+J20,Judge Gift Cards 2020,2020-01-01,promo,false,true,false,,10,10,ARCHIE,,,,English,,62,,,,,Judge Gift Cards
+PF20,MagicFest 2020,2020-01-01,promo,false,false,false,,6,6,PMEI,,,,English,,2376,,,,,
+SLD,Secret Lair Drop,2019-12-02,box,false,false,false,,2434,1,PMEI,,,,"English, Italian, Japanese, Phyrexian, Spanish",,2576,SLD,,,,
+HA1,Historic Anthology 1,2019-11-21,box,true,false,true,,20,20,HA1,,,,English,,13,,,,,
+GN2,Game Night 2019,2019-11-15,box,false,false,false,,64,64,GN2,,,,English,,2359,TGN2,2804,Game Night 2019,,
+CMB1,Mystery Booster Playtest Cards 2019,2019-11-07,funny,false,false,true,,121,121,MB1,,,,English,,2570,,,,,
+PTG,Ponies: The Galloping,2019-10-22,funny,false,true,false,,3,3,PTG,,,,English,,2552,,2699,Ponies: The Galloping,,
+PELD,Throne of Eldraine Promos,2019-10-04,promo,false,false,false,ELD,138,152,ELD,,,,English,,2543,,,,,
+ELD,Throne of Eldraine,2019-10-04,expansion,false,false,false,,397,269,ELD,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",ELD,2494,TELD,2582,Throne of Eldraine,2587,
+PWCS,Planeswalker Championship Promos,2019-10-01,promo,false,true,false,,42,42,PMEI,,,,"English, Japanese",,93,,,,,
+OC19,Commander 2019 Oversized,2019-08-31,memorabilia,false,true,false,C19,4,4,C19,,,,English,,2481,,,,,Commander
+C19,Commander 2019,2019-08-23,commander,false,false,false,,302,302,C19,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",C19,2481,TC19,2448,Commander 2019,,Commander
+PH18,2018 Heroes of the Realm,2019-08-01,funny,false,false,false,,5,4,PMEI,,,,English,,1163,,,,,Heroes of the Realm
+PS19,San Diego Comic-Con 2019,2019-07-18,promo,false,false,true,,5,5,WAR,,,,English,,1163,,,,,
+PM20,Core Set 2020 Promos,2019-07-12,promo,false,false,false,M20,144,144,M20,,,,English,,92,,,,,
+PPP1,M20 Promo Packs,2019-07-12,promo,false,false,false,M20,5,5,PMEI,,,,English,,2477,,,,,Core Set
+M20,Core Set 2020,2019-07-12,core,false,false,false,,345,280,M20,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",M20,2441,TM20,2490,Core 2020: Extras,,Core Set
+SS2,Signature Spellbook: Gideon,2019-06-28,spellbook,false,false,false,,8,8,SS2,,,,English,,2447,,2460,Signature Spellbook: Gideon,,
+PMH1,Modern Horizons Promos,2019-06-14,promo,false,false,false,MH1,2,2,MH1,,,,English,PMH1,2422,,,,,
+MH1,Modern Horizons,2019-06-14,draft_innovation,false,false,false,,255,254,MH1,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",MH1,2422,TMH1,2440,Modern Horizons,,Modern Horizons Block
+AMH1,Modern Horizons Art Series,2019-06-05,memorabilia,false,false,true,MH1,54,54,MH1,,,,English,,2463,AMH1,,,,
+PWAR,War of the Spark Promos,2019-05-03,promo,false,false,false,WAR,176,176,WAR,,,,"English, Japanese",,2418,,,,,
+WAR,War of the Spark,2019-05-03,expansion,false,false,false,,311,264,WAR,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",WAR,2418,TWAR,2439,War of the Spark,2451,Guilds of Ravnica
+J19,Judge Gift Cards 2019,2019-04-10,promo,false,true,false,,8,8,PMEI,,,,English,,62,,,,,Judge Gift Cards
+PRW2,RNA Ravnica Weekend,2019-02-16,promo,false,true,false,RNA,10,10,RNA,,,,English,,1874,,,,,Guilds of Ravnica
+GK2,RNA Guild Kit,2019-02-15,box,false,false,false,,133,133,RNA,,,,"English, French, German, Italian, Japanese, Spanish",,2388,TGK2,,,,
+PRNA,Ravnica Allegiance Promos,2019-01-25,promo,false,false,false,RNA,81,81,RNA,,,,English,,2366,,,,,Guilds of Ravnica
+RNA,Ravnica Allegiance,2019-01-25,expansion,false,false,false,,273,259,RNA,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",RNA,2366,TRNA,2411,Ravnica Allegiance,2419,Guilds of Ravnica
+PF19,MagicFest 2019,2019-01-01,promo,false,false,false,,7,6,PMEI,,,,English,,2376,,,,,
+PUMA,Ultimate Box Topper,2018-12-07,masterpiece,false,true,false,UMA,40,40,UMA,,,,English,PUMA,2361,,,,,
+UMA,Ultimate Masters,2018-12-07,masters,false,false,false,,254,254,UMA,,,,"English, Japanese",UMA,2360,TUMA,2397,Ultimate Masters,,
+G18,M19 Gift Pack,2018-11-16,box,false,true,false,M19,5,5,M19,,,,English,,2084,,,,,
+GNT,Game Night,2018-11-16,box,false,false,true,,68,68,GNT,,,,English,,2359,,,,,
+PRWK,GRN Ravnica Weekend,2018-11-09,promo,false,true,false,GRN,10,10,GRN,,,,English,,1874,,,,,Guilds of Ravnica
+GK1,GRN Guild Kit,2018-11-02,box,false,false,false,,127,127,GRN,,,,"English, French, German, Italian, Japanese, Spanish",,2334,TGK1,,,,
+PGRN,Guilds of Ravnica Promos,2018-10-05,promo,false,false,false,GRN,84,84,GRN,,,,"English, Russian",,2290,,,,,Guilds of Ravnica
+GRN,Guilds of Ravnica,2018-10-05,expansion,false,false,false,,273,259,GRN,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",GRN,2290,TGRN,2348,Guilds of Ravnica,2371,Guilds of Ravnica
+MED,Mythic Edition,2018-10-05,masterpiece,false,true,false,,24,24,MED,,,,English,MS4,2326,TMED,,,,
+C18,Commander 2018,2018-08-10,commander,false,false,false,,307,307,C18,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,2251,TC18,2110,Commander 2018,,Commander
+OC18,Commander 2018 Oversized,2018-08-09,memorabilia,false,true,false,C18,4,4,C18,,,,English,,2251,,,,,Commander
+PH17,2017 Heroes of the Realm,2018-08-01,funny,false,false,true,,3,3,PMEI,,,,English,,1163,,,,,Heroes of the Realm
+PS18,San Diego Comic-Con 2018,2018-07-19,promo,false,true,false,,5,5,PMEI,,,,English,,1163,,,,,
+XANA,Arena New Player Experience Extras,2018-07-14,memorabilia,true,false,true,ANA,20,20,MTGA,,,,English,,3176,,,,,
+ANA,Arena New Player Experience,2018-07-14,starter,true,false,true,,46,46,MTGA,,,,English,,3176,,,,,
+PANA,MTG Arena Promos,2018-07-14,promo,true,false,true,,78,3,MTGA,,,,English,,13,,,,,
+OANA,Arena New Player Experience Cards,2018-07-14,starter,true,false,true,ANA,14,14,MTGA,,,,English,,3176,,,,,
+PM19,Core Set 2019 Promos,2018-07-13,promo,false,false,false,M19,95,95,M19,,,,English,,2250,,,,,
+PSS3,M19 Standard Showdown,2018-07-13,promo,false,true,false,M19,5,5,PMEI,,,,English,,2067,,,,,
+M19,Core Set 2019,2018-07-13,core,false,false,false,,314,280,M19,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",M19,2250,TM19,1835,Core 2019,,Core Set
+GS1,Global Series Jiang Yanggu & Mu Yanling,2018-06-22,duel_deck,false,false,false,,40,40,GS1,,,,"Chinese Simplified, English",,2247,GS1,2108,Global Series Jiang Yanggu & Mu Yanling,,
+SS1,Signature Spellbook: Jace,2018-06-15,spellbook,false,false,false,,8,8,SS1,,,,English,,2220,,2103,Signature Spellbook: Jace,,
+PBBD,Battlebond Promos,2018-06-08,promo,false,true,false,BBD,22,22,BBD,,,,English,,2245,,,,,
+BBD,Battlebond,2018-06-08,draft_innovation,false,false,false,,256,254,BBD,,,,"Chinese Simplified, English, Japanese",,2245,TBBD,2111,Battlebond,,
+CM2,Commander Anthology Volume II,2018-06-08,commander,false,false,false,,312,312,CM2,,,,English,,2246,TCM2,2109,Commander Anthology II,,Commander
+PDOM,Dominaria Promos,2018-04-27,promo,false,false,false,DOM,118,118,DOM,,,,"English, Japanese",,2199,,,,,
+DOM,Dominaria,2018-04-27,expansion,false,false,false,,280,269,DOM,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",DAR,2199,TDOM,1822,Dominaria,,
+DDU,Duel Decks: Elves vs. Inventors,2018-04-06,duel_deck,false,false,false,,76,76,DDU,,,,"English, Japanese",DDU,2207,TDDU,2068,Duel Decks: Elves vs. Inventors,,
+A25,Masters 25,2018-03-16,masters,false,false,false,,249,249,A25,,,,"Chinese Simplified, English, Japanese",A25,2189,TA25,1820,Masters 25,,
+PLNY,Lunar New Year 2018,2018-02-16,promo,false,true,false,,1,1,PMEI,,,,English,,1163,PLNY,,,,
+PNAT,Nationals Promos,2018-01-25,promo,false,true,false,,1,1,PMEI,,,,English,,21,,,,,
+PRIX,Rivals of Ixalan Promos,2018-01-19,promo,false,false,false,RIX,98,98,RIX,,,,English,,2098,,,,,Ixalan
+RIX,Rivals of Ixalan,2018-01-19,expansion,false,false,false,,205,196,RIX,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",RIX,2098,TRIX,1829,Rivals of Ixalan,,Ixalan
+J18,Judge Gift Cards 2018,2018-01-01,promo,false,true,false,,8,8,PMEI,,,,English,,62,,,,,Judge Gift Cards
+F18,Friday Night Magic 2018,2017-12-27,promo,false,true,false,,3,12,PMEI,,,,English,,45,F18,,,,Friday Night Magic
+PUST,Unstable Promos,2017-12-08,promo,false,true,false,UST,1,1,UST,,,,English,,2092,,,,,
+UST,Unstable,2017-12-08,funny,false,false,false,,268,216,UST,,,,English,,2092,TUST,1821,Unstable,,
+PXTC,XLN Treasure Chest,2017-11-24,promo,false,true,false,XLN,10,10,XLN,,,,English,,2043,,,,,Ixalan
+V17,From the Vault: Transform,2017-11-24,from_the_vault,false,true,false,,16,15,V17,,,,English,V17,2078,,1819,From the Vault: Transform,,From the Vault
+E02,Explorers of Ixalan,2017-11-24,box,false,false,true,,47,47,E02,,,,English,,2077,E02,1830,Explorers of Ixalan,,
+IMA,Iconic Masters,2017-11-17,masters,false,false,false,,249,249,IMA,,,,"Chinese Simplified, English, Japanese",IMA,2050,TIMA,1811,Iconic Masters,,
+DDT,Duel Decks: Merfolk vs. Goblins,2017-10-24,duel_deck,false,false,false,,63,63,DDT,,,,"English, Japanese",,2076,TDDT,1818,Duel Decks: Merfolk vs. Goblins,,
+G17,2017 Gift Pack,2017-10-20,box,false,true,false,,5,5,PMEI,,,,English,,2084,,,,,
+PXLN,Ixalan Promos,2017-09-29,promo,false,false,false,XLN,120,120,XLN,,,,English,,2043,,,,,Ixalan
+XLN,Ixalan,2017-09-29,expansion,false,false,false,,289,279,XLN,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",XLN,2043,TXLN,1812,Ixalan,,Ixalan
+PSS2,XLN Standard Showdown,2017-09-29,promo,false,true,false,XLN,5,5,PMEI,,,,English,,2067,,,,,Ixalan
+H17,HasCon 2017,2017-09-20,funny,false,true,false,,3,4,H17,,,,English,,1163,H17,,,,
+PHTR,2016 Heroes of the Realm,2017-09-20,funny,false,false,true,,3,3,PMEI,,,,English,,1163,,,,,Heroes of the Realm
+OC17,Commander 2017 Oversized,2017-08-25,memorabilia,false,true,false,C17,4,4,C17,,,,English,,2009,,,,,Commander
+C17,Commander 2017,2017-08-25,commander,false,false,false,,309,309,C17,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,2009,TC17,1813,Commander 2017,,Commander
+PS17,San Diego Comic-Con 2017,2017-07-20,promo,false,true,false,,6,6,DEFAULT,,,,English,,1163,,,,,
+PHOU,Hour of Devastation Promos,2017-07-14,promo,false,false,false,HOU,62,62,HOU,,,,English,,1934,,,,,Amonkhet
+HOU,Hour of Devastation,2017-07-14,expansion,false,false,false,,209,199,HOU,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",HOU,1934,THOU,1731,Hour of Devastation,,Amonkhet
+OE01,Archenemy: Nicol Bolas Schemes,2017-06-16,archenemy,false,false,true,E01,20,20,E01,,,,English,,1904,,,,,
+E01,Archenemy: Nicol Bolas,2017-06-16,archenemy,false,false,true,,106,106,E01,,,,English,,1904,TE01,1730,Archenemy: Nicol Bolas,,
+CMA,Commander Anthology,2017-06-09,commander,false,false,false,,320,320,CMA,,,,English,,1933,TCMA,1732,Commander Anthology,,Commander
+PAKH,Amonkhet Promos,2017-04-28,promo,false,false,false,AKH,77,77,AKH,,,,English,,1882,,,,,Amonkhet
+MP2,Amonkhet Invocations,2017-04-28,masterpiece,false,true,false,AKH,54,54,MP2,,,,English,MS3,1909,,1798,Amonkhet Invocations,,Amonkhet
+AKH,Amonkhet,2017-04-28,expansion,false,false,false,,287,269,AKH,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",AKH,1882,TAKH,1729,Amonkhet,,Amonkhet
+W17,Welcome Deck 2017,2017-04-15,starter,false,false,true,,30,30,W17,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",W17,1930,,1802,Welcome Deck 2017,,
+DDS,Duel Decks: Mind vs. Might,2017-03-31,duel_deck,false,false,false,,65,65,DDS,,,,"English, Japanese",,1905,TDDS,1728,Duel Decks: Mind vs. Might,,
+MM3,Modern Masters 2017,2017-03-17,masters,false,false,false,,249,249,MM3,,,,"Chinese Simplified, English, Japanese",MM3,1879,TMM3,1727,Modern Masters 2017,,
+PAER,Aether Revolt Promos,2017-01-20,promo,false,false,false,AER,65,65,AER,,,,English,,1857,,,,,Kaladesh
+AER,Aether Revolt,2017-01-20,expansion,false,false,false,,197,184,AER,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",AER,1857,TAER,1718,Aether Revolt,,Kaladesh
+L17,League Tokens 2017,2017-01-01,token,false,true,false,,1,1,DEFAULT,,,,English,,2087,L17,,,,
+J17,Judge Gift Cards 2017,2017-01-01,promo,false,true,false,,9,8,PMEI,,,,English,,62,,,,,Judge Gift Cards
+F17,Friday Night Magic 2017,2017-01-01,promo,false,true,false,,9,12,PMEI,,,,English,,45,F17,,,,Friday Night Magic
+OPCA,Planechase Anthology Planes,2016-11-25,planechase,false,false,true,PCA,86,86,PCA,,,,English,,1793,,,,,
+PCA,Planechase Anthology,2016-11-25,planechase,false,false,true,,156,156,PCA,,,,English,,1793,TPCA,1722,Planechase Anthology,,
+PZ2,Treasure Chest,2016-11-16,treasure_chest,true,false,false,,282,73,PZ2,,,,English,PZ2,,,,,,
+OC16,Commander 2016 Oversized,2016-11-11,memorabilia,false,true,false,C16,5,5,C16,,,,English,,1792,,,,,Commander
+C16,Commander 2016,2016-11-11,commander,false,false,false,,351,351,C16,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,1792,TC16,1719,Commander 2016,,Commander
+PS16,San Diego Comic-Con 2016,2016-10-01,promo,false,true,false,,5,5,DEFAULT,,,,English,,1163,,,,,
+PKLD,Kaladesh Promos,2016-09-30,promo,false,false,false,KLD,83,83,KLD,,,,English,,1791,,,,,Kaladesh
+KLD,Kaladesh,2016-09-30,expansion,false,false,false,,278,264,KLD,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",KLD,1791,TKLD,1717,Kaladesh,,Kaladesh
+MPS,Kaladesh Inventions,2016-09-30,masterpiece,false,true,false,KLD,54,54,MPS,,,,English,MS2,1837,,1733,Kaladesh Inventions,,Kaladesh
+DDR,Duel Decks: Nissa vs. Ob Nixilis,2016-09-02,duel_deck,false,false,false,,70,76,DDR,,,,"English, Japanese",,1835,DDR,1720,Duel Decks: Nissa vs. Ob Nixilis,,
+CN2,Conspiracy: Take the Crown,2016-08-26,draft_innovation,false,false,false,,222,221,CN2,,,,"Chinese Simplified, English, Japanese",,1794,TCN2,1702,Conspiracy: Take the Crown,,Conspiracy
+V16,From the Vault: Lore,2016-08-19,from_the_vault,false,true,false,,15,16,V16,,,,English,V16,1821,V16,1703,From the Vault: Lore,,From the Vault
+PEMN,Eldritch Moon Promos,2016-07-22,promo,false,false,false,EMN,76,77,EMN,,,,English,,1790,PEMN,,,,Shadows over Innistrad
+EMN,Eldritch Moon,2016-07-22,expansion,false,false,false,,208,205,EMN,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",EMN,1790,TEMN,1695,Eldritch Moon,,Shadows over Innistrad
+EMA,Eternal Masters,2016-06-10,masters,false,false,false,,249,249,EMA,,,,"Chinese Simplified, English, Japanese",EMA,1740,TEMA,1696,Eternal Masters,,
+PSOI,Shadows over Innistrad Promos,2016-04-08,promo,false,false,false,SOI,90,89,SOI,,,,English,,1708,,,,,Shadows over Innistrad
+W16,Welcome Deck 2016,2016-04-08,starter,false,false,true,,16,16,W16,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",W16,1765,,1710,Welcome Deck 2016,,
+SOI,Shadows over Innistrad,2016-04-08,expansion,false,false,false,,302,297,SOI,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",SOI,1708,TSOI,1694,Shadows over Innistrad,,Shadows over Innistrad
+DDQ,Duel Decks: Blessed vs. Cursed,2016-02-26,duel_deck,false,false,false,,76,80,DDQ,,,,"English, Japanese",,1726,DDQ,1692,Duel Decks: Blessed vs. Cursed,,
+POGW,Oath of the Gatewatch Promos,2016-01-22,promo,false,false,false,OGW,65,65,OGW,,,,English,,1693,,,,,Battle for Zendikar
+OGW,Oath of the Gatewatch,2016-01-22,expansion,false,false,false,,187,184,OGW,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",OGW,1693,TOGW,1676,Oath of the Gatewatch,,Battle for Zendikar
+L16,League Tokens 2016,2016-01-01,token,false,true,false,,1,1,DEFAULT,,,,English,,2087,L16,,,,
+J16,Judge Gift Cards 2016,2016-01-01,promo,false,true,false,,8,8,PMEI,,,,English,,62,,,,,Judge Gift Cards
+F16,Friday Night Magic 2016,2016-01-01,promo,false,true,false,,12,12,PMEI,,,,English,,45,,,,,Friday Night Magic
+PZ1,Legendary Cube Prize Pack,2015-11-18,treasure_chest,true,false,false,,149,149,PZ1,,,,English,PZ1,,,,,,
+C15,Commander 2015,2015-11-13,commander,false,false,true,,342,342,C15,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Spanish",,1673,TC15,1679,Commander 2015,,Commander
+OC15,Commander 2015 Oversized,2015-11-13,memorabilia,false,true,false,C15,5,5,C15,,,,English,,1673,,,,,Commander
+PBFZ,Battle for Zendikar Promos,2015-10-02,promo,false,false,false,BFZ,90,90,BFZ,,,,English,,1645,,,,,Battle for Zendikar
+PSS1,BFZ Standard Series,2015-10-02,promo,false,false,true,BFZ,5,5,BFZ,,,,English,,2067,,,,,Battle for Zendikar
+EXP,Zendikar Expeditions,2015-10-02,masterpiece,false,true,false,BFZ,45,45,EXP,,,,English,EXP,1649,,1669,Zendikar Expeditions,,Battle for Zendikar
+BFZ,Battle for Zendikar,2015-10-02,expansion,false,false,false,,299,274,BFZ,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",BFZ,1645,TBFZ,1668,Battle for Zendikar,,Battle for Zendikar
+DDP,Duel Decks: Zendikar vs. Eldrazi,2015-08-28,duel_deck,false,false,false,,75,80,DDP,,,,"English, Japanese",,1641,DDP,1663,Duel Decks: Zendikar vs. Eldrazi,,
+V15,From the Vault: Angels,2015-08-21,from_the_vault,false,true,false,,15,15,V15,,,,English,V15,1577,,1661,From the Vault: Angels,,From the Vault
+CP3,Magic Origins Clash Pack,2015-07-17,starter,false,true,false,ORI,6,6,PMEI,,,,English,,1512,,,,,
+PORI,Magic Origins Promos,2015-07-17,promo,false,false,false,ORI,54,54,ORI,,,,English,,1512,,,,,
+ORI,Magic Origins,2015-07-17,core,false,false,false,,288,272,ORI,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",ORI,1512,TORI,1652,Magic Origins,,Core Set
+PS15,San Diego Comic-Con 2015,2015-07-09,promo,false,true,false,,5,5,ORI,,,,English,,1163,,,,,
+MM2,Modern Masters 2015,2015-05-22,masters,false,false,false,,249,249,MM2,,,,"Chinese Simplified, English, Japanese",MM2,1503,TMM2,1641,Modern Masters 2015,,
+TPR,Tempest Remastered,2015-05-06,masters,true,false,false,,269,269,TPR,,,,English,TPR,,,,,,
+PTKDF,Tarkir Dragonfury,2015-04-03,promo,false,false,true,DTK,4,4,DTK,,,,English,,1520,,,,,Khans of Tarkir
+PDTK,Dragons of Tarkir Promos,2015-03-27,promo,false,false,false,DTK,51,51,DTK,,,,English,,1515,,,,,Khans of Tarkir
+DTK,Dragons of Tarkir,2015-03-27,expansion,false,false,false,,264,264,DTK,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",DTK,1515,TDTK,1601,Dragons of Tarkir,,Khans of Tarkir
+DDO,Duel Decks: Elspeth vs. Kiora,2015-02-27,duel_deck,false,false,false,,65,67,DDO,,,,"English, Japanese",,1511,DDO,1593,Duel Decks: Elspeth vs. Kiora,,
+PFRF,Fate Reforged Promos,2015-01-23,promo,false,false,false,FRF,43,43,FRF,,,,English,,1497,,,,,Khans of Tarkir
+CP2,Fate Reforged Clash Pack,2015-01-23,starter,false,true,false,FRF,6,6,PMEI,,,,English,,1497,,,,,Khans of Tarkir
+FRF,Fate Reforged,2015-01-23,expansion,false,false,false,,191,185,FRF,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",FRF,1497,TFRF,1522,Fate Reforged,,Khans of Tarkir
+UGIN,Ugin's Fate,2015-01-17,promo,false,false,true,FRF,26,185,FRF,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",,1507,,,,,Khans of Tarkir
+L15,League Tokens 2015,2015-01-01,token,false,false,true,,1,1,DEFAULT,,,,English,,2087,L15,,,,
+J15,Judge Gift Cards 2015,2015-01-01,promo,false,true,false,,8,8,PMEI,,,,English,,62,,,,,Judge Gift Cards
+F15,Friday Night Magic 2015,2015-01-01,promo,false,true,false,,12,12,PMEI,,,,English,,45,,,,,Friday Night Magic
+JVC,Duel Decks Anthology: Jace vs. Chandra,2014-12-05,duel_deck,false,false,false,,62,62,DD2,,,,English,,1490,TJVC,,,,
+EVG,Duel Decks Anthology: Elves vs. Goblins,2014-12-05,duel_deck,false,false,false,,62,62,EVG,,,,English,,33,TEVG,,,,
+GVL,Duel Decks Anthology: Garruk vs. Liliana,2014-12-05,duel_deck,false,false,false,,63,63,DDD,,,,English,,1490,TGVL,,,,
+DVD,Duel Decks Anthology: Divine vs. Demonic,2014-12-05,duel_deck,false,false,false,,62,62,DDC,,,,English,,1490,TDVD,,,,
+OC14,Commander 2014 Oversized,2014-11-07,memorabilia,false,true,false,C14,5,5,C14,,,,English,,1476,,,,,Commander
+C14,Commander 2014,2014-11-07,commander,false,false,true,,337,337,C14,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Spanish",C14,1476,TC14,1513,Commander 2014,,Commander
+PKTK,Khans of Tarkir Promos,2014-09-26,promo,false,false,false,KTK,56,56,KTK,,,,English,,1356,,,,,Khans of Tarkir
+KTK,Khans of Tarkir,2014-09-26,expansion,false,false,false,,293,269,KTK,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",KTK,1356,TKTK,1495,Khans of Tarkir,,Khans of Tarkir
+DDN,Duel Decks: Speed vs. Cunning,2014-09-05,duel_deck,false,false,false,,81,82,DDN,,,,"English, Japanese",,1477,DDN,1496,Duel Decks: Speed vs. Cunning,,
+V14,From the Vault: Annihilation,2014-08-22,from_the_vault,false,true,false,,15,15,V14,,,,English,V14,1475,,1494,From the Vault: Annihilation,,From the Vault
+CP1,Magic 2015 Clash Pack,2014-07-18,starter,false,true,false,M15,6,6,PMEI,,,,English,,1293,,,,,
+M15,Magic 2015,2014-07-18,core,false,false,false,,284,269,M15,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",M15,1293,TM15,1485,Magic 2015,,Core Set
+PM15,Magic 2015 Promos,2014-07-17,promo,false,false,false,M15,14,14,M15,,,,English,,1293,,,,,
+PPC1,M15 Prerelease Challenge,2014-07-12,memorabilia,false,false,true,M15,1,2,M15,,,,English,,1874,PPC1,,,,
+PDP15,Duels of the Planeswalkers 2015 Promos,2014-07-09,promo,false,true,false,,2,269,M15,,,,English,,1274,,,,,
+PS14,San Diego Comic-Con 2014,2014-07-08,promo,false,true,false,,6,269,DEFAULT,,,,English,,1163,,,,,
+VMA,Vintage Masters,2014-06-16,masters,true,false,false,,325,325,VMA,,,,English,VMA,,,,,,
+PCNS,Conspiracy Promos,2014-06-06,promo,false,true,false,CNS,1,1,CNS,,,,English,,1312,,,,,Conspiracy
+CNS,Conspiracy,2014-06-06,draft_innovation,false,false,false,,210,210,CNS,,,,"Chinese Simplified, English, Japanese",,1312,TCNS,1483,Conspiracy,,Conspiracy
+MD1,Modern Event Deck 2014,2014-05-30,box,false,false,true,,26,26,MD1,,,,English,,1346,TMD1,1484,Modern Event Deck 2014,,
+TDAG,Defeat a God,2014-05-25,memorabilia,false,false,true,JOU,8,15,JOU,,,,English,,1524,TDAG,,,,Theros
+JOU,Journey into Nyx,2014-05-02,expansion,false,false,false,,165,165,JOU,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",JOU,1277,TJOU,1481,Journey into Nyx,,Theros
+THP3,Journey into Nyx Hero's Path,2014-05-02,memorabilia,false,false,true,JOU,7,8,JOU,,,,English,,1524,THP3,,,,Theros
+PJOU,Journey into Nyx Promos,2014-04-26,promo,false,false,false,JOU,10,10,JOU,,,,English,,1277,,,,,Theros
+DDM,Duel Decks: Jace vs. Vraska,2014-03-14,duel_deck,false,false,false,,88,88,DDM,,,,"English, Japanese",DDM,1166,TDDM,1477,Duel Decks: Jace vs. Vraska,,
+TBTH,Battle the Horde,2014-03-01,memorabilia,false,false,true,BNG,10,15,BNG,,,,English,,1524,TBTH,,,,Theros
+BNG,Born of the Gods,2014-02-07,expansion,false,false,false,,165,165,BNG,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",BNG,1276,TBNG,1469,Born of the Gods,,Theros
+THP2,Born of the Gods Hero's Path,2014-02-07,memorabilia,false,false,true,BNG,7,7,BNG,,,,English,,1524,,,,,Theros
+PBNG,Born of the Gods Promos,2014-02-01,promo,false,false,false,BNG,9,9,BNG,,,,English,,1276,,,,,Theros
+L14,League Tokens 2014,2014-01-01,token,false,false,true,,4,4,DEFAULT,,,,English,,2087,L14,,,,
+J14,Judge Gift Cards 2014,2014-01-01,promo,false,true,false,,14,9,PMEI,,,,"English, Phyrexian",,62,,,,,Judge Gift Cards
+F14,Friday Night Magic 2014,2014-01-01,promo,false,true,false,,12,12,PMEI,,,,English,,45,,,,,Friday Night Magic
+OC13,Commander 2013 Oversized,2013-11-01,memorabilia,false,true,false,C13,15,15,C13,,,,English,,1164,,,,,Commander
+C13,Commander 2013,2013-11-01,commander,false,false,true,,356,356,C13,,,,"English, French, German, Italian, Japanese, Spanish",C13,1164,,1464,Commander 2013,,Commander
+TFTH,Face the Hydra,2013-10-19,memorabilia,false,false,true,THS,10,15,THS,,,,English,,1524,TFTH,,,,Theros
+THP1,Theros Hero's Path,2013-09-27,memorabilia,false,false,true,THS,7,7,THS,,,,English,,1524,,,,,Theros
+THS,Theros,2013-09-27,expansion,false,false,false,,249,249,THS,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",THS,1144,TTHS,1457,Theros,,Theros
+PTHS,Theros Promos,2013-09-21,promo,false,false,false,THS,10,10,THS,,,,English,,1144,,,,,Theros
+DDL,Duel Decks: Heroes vs. Monsters,2013-09-06,duel_deck,false,false,false,,81,81,DDL,,,,"English, Japanese",DDL,1145,TDDL,1456,Duel Decks: Heroes vs. Monsters,,
+V13,From the Vault: Twenty,2013-08-23,from_the_vault,false,true,false,,20,20,V13,,,,English,V13,1141,,1455,From the Vault: Twenty,,From the Vault
+M14,Magic 2014,2013-07-19,core,false,false,false,,249,249,M14,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",M14,1113,TM14,1449,Magic 2014,,Core Set
+PM14,Magic 2014 Promos,2013-07-18,promo,false,false,false,M14,6,6,M14,,,,English,,1113,,,,,
+PSDC,San Diego Comic-Con 2013,2013-07-18,promo,false,true,false,,5,5,DEFAULT,,,,English,,1163,,,,,
+MMA,Modern Masters,2013-06-07,masters,false,false,false,,229,229,MMA,,,,English,MMA,1111,TMMA,1444,Modern Masters,,
+DGM,Dragon's Maze,2013-05-03,expansion,false,false,false,,156,156,DGM,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",DGM,570,TDGM,1435,Dragon's Maze,,Return to Ravnica
+PDGM,Dragon's Maze Promos,2013-04-27,promo,false,false,false,DGM,6,6,DGM,,,,English,,570,,,,,Return to Ravnica
+WMC,World Magic Cup Qualifiers,2013-04-06,promo,false,true,false,,5,5,PMEI,,,,English,,93,,,,,
+DDK,Duel Decks: Sorin vs. Tibalt,2013-03-15,duel_deck,false,false,false,,80,80,DDK,,,,"English, Japanese",DDK,601,TDDK,1430,Duel Decks: Sorin vs. Tibalt,,
+GTC,Gatecrash,2013-02-01,expansion,false,false,false,,249,249,GTC,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",GTC,569,TGTC,1424,Gatecrash,,Return to Ravnica
+PGTC,Gatecrash Promos,2013-01-26,promo,false,false,false,GTC,10,10,GTC,,,,English,,569,,,,,Return to Ravnica
+PDP14,Duels of the Planeswalkers 2014 Promos,2013-01-01,promo,false,true,false,,3,3,M14,,,,English,,1274,,,,,
+L13,League Tokens 2013,2013-01-01,token,false,false,true,,4,4,DEFAULT,,,,English,,2087,L13,,,,
+J13,Judge Gift Cards 2013,2013-01-01,promo,false,false,false,,8,8,PMEI,,,,English,,62,J13,,,,Judge Gift Cards
+F13,Friday Night Magic 2013,2013-01-01,promo,false,true,false,,12,12,PMEI,,,,English,,45,,,,,Friday Night Magic
+OCM1,Commander's Arsenal Oversized,2012-11-02,memorabilia,false,true,false,CM1,10,10,CM1,,,,English,,568,,,,,Commander
+CM1,Commander's Arsenal,2012-11-02,arsenal,false,true,false,,18,18,CM1,,,,English,,568,,1418,Commander's Arsenal,,Commander
+RTR,Return to Ravnica,2012-10-05,expansion,false,false,false,,274,274,RTR,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",RTR,370,TRTR,1389,Return to Ravnica,,Return to Ravnica
+PRTR,Return to Ravnica Promos,2012-10-05,promo,false,false,false,RTR,10,10,RTR,,,,English,,370,,,,,Return to Ravnica
+DDJ,Duel Decks: Izzet vs. Golgari,2012-09-07,duel_deck,false,false,false,,90,90,DDJ,,,,"English, Japanese",DDJ,365,TDDJ,1398,Duel Decks: Izzet vs. Golgari,,
+V12,From the Vault: Realms,2012-08-31,from_the_vault,false,true,false,,15,15,V12,,,,English,V12,368,,1397,From the Vault: Realms,,From the Vault
+M13,Magic 2013,2012-07-13,core,false,false,false,,249,249,M13,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",M13,364,TM13,1388,Magic 2013,,Core Set
+PM13,Magic 2013 Promos,2012-07-12,promo,false,false,false,M13,6,6,M13,,,,English,,364,,,,,
+OPC2,Planechase 2012 Planes,2012-06-01,planechase,false,false,true,PC2,40,40,PC2,,,,"English, French, German, Italian, Japanese, Spanish",OPC2,363,,,,,
+PC2,Planechase 2012,2012-06-01,planechase,false,false,true,,156,156,PC2,,,,"English, French, German, Italian, Japanese, Spanish",PC2,363,,1369,Planechase 2012,,
+AVR,Avacyn Restored,2012-05-04,expansion,false,false,false,,244,244,AVR,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",AVR,362,TAVR,1358,Avacyn Restored,,Innistrad
+PHEL,Open the Helvault,2012-04-28,memorabilia,false,false,false,AVR,5,6,AVR,,,,English,,2045,PHEL,,,,
+PAVR,Avacyn Restored Promos,2012-04-28,promo,false,false,false,AVR,6,6,AVR,,,,English,,362,,,,,Innistrad
+DDI,Duel Decks: Venser vs. Koth,2012-03-30,duel_deck,false,false,false,,77,77,DDI,,,,"English, Japanese",DDI,367,TDDI,1350,Duel Decks: Venser vs. Koth,,
+DKA,Dark Ascension,2012-02-03,expansion,false,false,false,,158,158,DKA,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",DKA,125,TDKA,1345,Dark Ascension,,Innistrad
+PDKA,Dark Ascension Promos,2012-01-28,promo,false,false,false,DKA,5,5,DKA,,,,English,,125,,,,,Innistrad
+PW12,Wizards Play Network 2012,2012-01-01,promo,false,true,false,,3,3,PMEI,,,,English,,53,,,,,
+PDP13,Duels of the Planeswalkers 2013 Promos,2012-01-01,promo,false,false,true,,3,3,M13,,,,English,,1274,,,,,
+PIDW,IDW Comics Inserts,2012-01-01,promo,false,false,true,,17,9,PIDW,,,,English,,72,,,,,
+L12,League Tokens 2012,2012-01-01,token,false,false,true,,2,2,DEFAULT,,,,English,,2087,L12,,,,
+F12,Friday Night Magic 2012,2012-01-01,promo,false,false,false,,12,12,PMEI,,,,English,,45,F12,,,,Friday Night Magic
+J12,Judge Gift Cards 2012,2012-01-01,promo,false,false,false,,8,8,PMEI,,,,English,,62,J12,,,,Judge Gift Cards
+PD3,Premium Deck Series: Graveborn,2011-11-18,premium_deck,false,true,false,,30,50,PD3,,,,English,PD3,90,,1337,Premium Deck Series: Graveborn,,
+ISD,Innistrad,2011-09-30,expansion,false,false,false,,264,264,ISD,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",ISD,59,TISD,1327,Innistrad,,Innistrad
+PISD,Innistrad Promos,2011-09-24,promo,false,false,false,ISD,5,5,ISD,,,,English,,59,,,,,Innistrad
+DDH,Duel Decks: Ajani vs. Nicol Bolas,2011-09-02,duel_deck,false,false,false,,80,80,DDH,,,,"English, French, German, Italian, Spanish",DDH,30,TDDH,1288,Duel Decks: Ajani vs. Nicol Bolas,,
+V11,From the Vault: Legends,2011-08-26,from_the_vault,false,true,false,,15,15,V11,,,,English,V11,49,,1286,From the Vault: Legends,,From the Vault
+M12,Magic 2012,2011-07-15,core,false,false,false,,249,249,M12,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Korean, Portuguese (Brazil), Russian, Spanish",M12,70,TM12,1280,Magic 2012,,Core Set
+PM12,Magic 2012 Promos,2011-07-14,promo,false,true,false,M12,3,3,M12,,,,English,,70,,,,,
+OCMD,Commander 2011 Oversized,2011-06-17,memorabilia,false,true,false,CMD,15,15,CMD,,,,English,,25,,,,,Commander
+CMD,Commander 2011,2011-06-17,commander,false,false,true,,318,318,CMD,,,,"English, French, German, Italian, Japanese, Spanish",CMD,25,,,,,Commander
+PCMD,Commander 2011 Launch Party,2011-06-17,memorabilia,false,true,false,CMD,5,5,CMD,,,,English,,82,,,,,Commander
+TD2,Duel Decks: Mirrodin Pure vs. New Phyrexia,2011-05-14,duel_deck,true,false,true,,88,88,TD2,,,,English,TD2,29,,,,,
+NPH,New Phyrexia,2011-05-13,expansion,false,false,false,,175,175,NPH,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",NPH,79,TNPH,1262,New Phyrexia,,Scars of Mirrodin
+PNPH,New Phyrexia Promos,2011-05-12,promo,false,false,false,NPH,4,4,NPH,,,,English,,79,,,,,Scars of Mirrodin
+DDG,Duel Decks: Knights vs. Dragons,2011-04-01,duel_deck,false,false,false,,81,81,DDG,,,,"English, French, German, Italian, Spanish",DDG,36,TDDG,1261,Duel Decks: Knights vs. Dragons,,
+MBS,Mirrodin Besieged,2011-02-04,expansion,false,false,false,,155,155,MBS,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",MBS,76,TMBS,1253,Mirrodin Besieged,,Scars of Mirrodin
+PMBS,Mirrodin Besieged Promos,2011-02-03,promo,false,true,false,MBS,4,4,MBS,,,,English,,76,,,,,Scars of Mirrodin
+ME4,Masters Edition IV,2011-01-10,masters,true,false,false,,269,260,ME4,,,,English,ME4,,,,,,
+PMPS11,Magic Premiere Shop 2011,2011-01-01,promo,false,false,false,,5,5,PMPS,,true,,"English, Japanese",,369,,,,,
+PW11,Wizards Play Network 2011,2011-01-01,promo,false,true,false,,3,3,PMEI,,,,English,,53,,,,,
+PDP12,Duels of the Planeswalkers 2012 Promos,2011-01-01,promo,false,true,false,,3,3,PMTG2,,,,English,,1274,,,,,
+G11,Judge Gift Cards 2011,2011-01-01,promo,false,true,false,,8,8,PARL,,,,English,,62,,,,,Judge Gift Cards
+PS11,Salvat 2011,2011-01-01,box,false,false,true,,224,224,PSAL,,true,,"English, Spanish",,2988,,,,,
+OLGC,Legacy Championship,2011-01-01,memorabilia,false,false,true,,27,27,PMEI,,,,English,,93,,,,,
+F11,Friday Night Magic 2011,2011-01-01,promo,false,true,false,,12,12,PMEI,,,,English,,45,,,,,Friday Night Magic
+P11,Magic Player Rewards 2011,2011-01-01,promo,false,false,false,,7,9,DEFAULT,,,,English,,71,,,,,Magic Player Rewards
+PD2,Premium Deck Series: Fire and Lightning,2010-11-19,premium_deck,false,true,false,,34,34,PD2,,,,English,PD2,89,,,,,
+TD0,Magic Online Theme Decks,2010-11-08,box,true,false,true,,197,197,TD0,,,,English,TD0,,,,,,
+SOM,Scars of Mirrodin,2010-10-01,expansion,false,false,false,,249,249,SOM,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",SOM,100,TSOM,1206,Scars of Mirrodin,,Scars of Mirrodin
+PSOM,Scars of Mirrodin Promos,2010-09-30,promo,false,true,false,SOM,4,4,SOM,,,,English,,100,,,,,Scars of Mirrodin
+DDF,Duel Decks: Elspeth vs. Tezzeret,2010-09-03,duel_deck,false,false,false,,79,79,DDF,,,,"English, French, German, Italian, Japanese, Spanish",DDF,32,TDDF,1203,Duel Decks: Elspeth vs. Tezzeret,,
+V10,From the Vault: Relics,2010-08-27,from_the_vault,false,true,false,,15,15,V10,,,,English,V10,50,,1202,From the Vault: Relics,,From the Vault
+M11,Magic 2011,2010-07-16,core,false,false,false,,249,249,M11,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",M11,69,TM11,1197,Magic 2011,,Core Set
+PM11,Magic 2011 Promos,2010-07-15,promo,false,true,false,M11,6,6,M11,,,,English,,69,,,,,
+OARC,Archenemy Schemes,2010-06-18,archenemy,false,false,true,ARC,45,45,ARC,,,,English,,12,,,,,
+ARC,Archenemy,2010-06-18,archenemy,false,false,true,,150,150,ARC,,,,English,,12,,1194,Archenemy,,
+DPA,Duels of the Planeswalkers,2010-06-04,box,false,false,false,,113,113,DPA,,,,English,,1274,,,,,
+PROE,Rise of the Eldrazi Promos,2010-04-23,promo,false,true,false,ROE,4,4,ROE,,,,English,,98,,,,,Zendikar
+ROE,Rise of the Eldrazi,2010-04-23,expansion,false,false,false,,248,248,ROE,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",ROE,98,TROE,120,Rise of the Eldrazi,,Zendikar
+DDE,Duel Decks: Phyrexia vs. the Coalition,2010-03-19,duel_deck,false,false,false,,71,71,DDE,,,,"English, Japanese",DDE,37,TDDE,119,Duel Decks: Phyrexia vs. The Coalition,,
+PWWK,Worldwake Promos,2010-02-05,promo,false,true,false,WWK,6,6,WWK,,,,"English, Japanese",,122,,,,,Zendikar
+WWK,Worldwake,2010-02-05,expansion,false,false,false,,145,145,WWK,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",WWK,122,TWWK,118,Worldwake,,Zendikar
+PDP10,Duels of the Planeswalkers 2010 Promos,2010-01-01,promo,false,true,false,,2,2,PMTG2,,,,English,,1274,,,,,
+PMPS10,Magic Premiere Shop 2010,2010-01-01,promo,false,false,false,,5,5,PMPS,,true,,"English, Japanese",,369,,,,,
+F10,Friday Night Magic 2010,2010-01-01,promo,false,true,false,,12,12,PARL,,,,English,,45,,,,,Friday Night Magic
+P10,Magic Player Rewards 2010,2010-01-01,promo,false,false,false,,13,9,DEFAULT,,,,English,,71,,,,,Magic Player Rewards
+G10,Judge Gift Cards 2010,2010-01-01,promo,false,true,false,,8,8,PARL,,,,English,,62,,,,,Judge Gift Cards
+H09,Premium Deck Series: Slivers,2009-11-20,premium_deck,false,true,false,,41,41,H09,,,,English,H09,91,,116,Premium Deck Series: Slivers,,
+DDD,Duel Decks: Garruk vs. Liliana,2009-10-30,duel_deck,false,false,false,,63,63,DDD,,,,English,DDD,34,TDDD,115,Duel Decks: Garruk vs. Liliana,,
+PZEN,Zendikar Promos,2009-10-02,promo,false,true,false,ZEN,5,5,ZEN,,,,"English, Japanese",,124,,,,,Zendikar
+ZEN,Zendikar,2009-10-02,expansion,false,false,false,,269,249,ZEN,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",ZEN,124,TZEN,114,Zendikar,,Zendikar
+ME3,Masters Edition III,2009-09-07,masters,true,false,false,,230,230,ME3,,,,English,ME3,,,,,,
+OHOP,Planechase Planes,2009-09-04,planechase,false,false,true,HOP,40,40,HOP,,,,"English, French, German, Italian, Japanese, Spanish",OHOP,84,,,,,
+HOP,Planechase,2009-09-04,planechase,false,false,true,,169,169,HOP,,,,English,PC1,84,,113,Planechase,,
+PHOP,Planechase Promos,2009-09-04,promo,false,false,true,HOP,1,1,PARL,,,,English,,84,,,,,
+V09,From the Vault: Exiled,2009-08-28,from_the_vault,false,true,false,,15,15,V09,,,,English,V09,48,,112,From the Vault: Exiled,,From the Vault
+M10,Magic 2010,2009-07-17,core,false,false,false,,249,249,M10,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",M10,68,TM10,109,Magic 2010,,Core Set
+PM10,Magic 2010 Promos,2009-07-16,promo,false,true,false,M10,3,3,M10,,,,English,,68,,,,,
+PARB,Alara Reborn Promos,2009-04-30,promo,false,true,false,ARB,3,3,ARB,,,,English,,5,,,,,Alara
+ARB,Alara Reborn,2009-04-30,expansion,false,false,false,,145,145,ARB,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",ARB,5,TARB,108,Alara Reborn,,Alara
+DDC,Duel Decks: Divine vs. Demonic,2009-04-10,duel_deck,false,false,false,,62,62,DDC,,,,English,DDC,31,TDDC,107,Duel Decks: Divine vs. Demonic,,
+PURL,URL/Convention Promos,2009-02-08,promo,false,false,false,,15,9,PMEI,,,,"English, German",,1163,,,,,
+PCON,Conflux Promos,2009-02-06,promo,false,true,false,CON,2,2,CON,,,,English,,26,,,,,Alara
+CON,Conflux,2009-02-06,expansion,false,false,false,,145,145,CON,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",CON,26,TCON,106,Conflux,,Alara
+PDTP,Duels of the Planeswalkers 2009 Promos,2009-01-01,promo,false,true,false,,1,1,PXBOX,,,,English,,1274,,,,,
+PMPS09,Magic Premiere Shop 2009,2009-01-01,promo,false,false,false,,5,5,PMPS,,true,,"English, Japanese",,369,,,,,
+F09,Friday Night Magic 2009,2009-01-01,promo,false,true,false,,12,12,PARL,,,,English,,45,,,,,Friday Night Magic
+G09,Judge Gift Cards 2009,2009-01-01,promo,false,true,false,,10,10,PARL,,,,English,,62,,,,,Judge Gift Cards
+P09,Magic Player Rewards 2009,2009-01-01,promo,false,false,false,,13,7,DEFAULT,,,,English,,71,,,,,Magic Player Rewards
+DD2,Duel Decks: Jace vs. Chandra,2008-11-07,duel_deck,false,false,false,,64,62,DD2,,,,"English, Japanese",DD2,35,TDD2,104,Duel Decks: Jace vs. Chandra,,
+PALA,Shards of Alara Promos,2008-10-03,promo,false,true,false,ALA,2,2,ALA,,,,English,,103,,,,,Alara
+ALA,Shards of Alara,2008-10-03,expansion,false,false,false,,250,249,ALA,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",ALA,103,TALA,102,Shards of Alara,,Alara
+ME2,Masters Edition II,2008-09-22,masters,true,false,false,,245,245,ME2,,,,English,ME2,,,,,,
+DRB,From the Vault: Dragons,2008-08-29,from_the_vault,false,true,false,,15,15,DRB,,,,English,DRB,47,,100,From the Vault: Dragons,,From the Vault
+PEVE,Eventide Promos,2008-07-25,promo,false,true,false,EVE,2,2,EVE,,,,English,,39,,,,,Shadowmoor
+EVE,Eventide,2008-07-25,expansion,false,false,false,,180,180,EVE,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",EVE,39,TEVE,99,Eventide,,Shadowmoor
+PSHM,Shadowmoor Promos,2008-05-02,promo,false,true,false,SHM,2,2,SHM,,,,English,,102,,,,,Shadowmoor
+SHM,Shadowmoor,2008-05-02,expansion,false,false,false,,302,301,SHM,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",SHM,102,TSHM,95,Shadowmoor,,Shadowmoor
+P15A,15th Anniversary Cards,2008-04-01,promo,false,true,false,,2,2,DEFAULT,,,,English,,1163,,,,,
+PMOR,Morningtide Promos,2008-02-01,promo,false,true,false,MOR,2,2,MOR,,,,English,,77,,,,,Lorwyn
+MOR,Morningtide,2008-02-01,expansion,false,false,false,,150,150,MOR,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",MOR,77,TMOR,92,Morningtide,,Lorwyn
+PMPS08,Magic Premiere Shop 2008,2008-01-01,promo,false,false,false,,6,5,PMPS,,true,,"English, Japanese",,369,,,,,
+F08,Friday Night Magic 2008,2008-01-01,promo,false,true,false,,12,12,PARL,,,,English,,45,,,,,Friday Night Magic
+P08,Magic Player Rewards 2008,2008-01-01,promo,false,false,false,,7,7,DEFAULT,,,,English,,71,,,,,Magic Player Rewards
+G08,Judge Gift Cards 2008,2008-01-01,promo,false,true,false,,5,5,PARL,,,,English,,62,,,,,Judge Gift Cards
+DD1,Duel Decks: Elves vs. Goblins,2007-11-16,duel_deck,false,false,false,,62,62,EVG,,,,English,EVG,33,TDD1,91,Duel Decks: Elves vs. Goblins,,
+PLRW,Lorwyn Promos,2007-10-12,promo,false,true,false,LRW,3,3,LRW,,,,English,,67,,,,,Lorwyn
+LRW,Lorwyn,2007-10-12,expansion,false,false,false,,301,301,LRW,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",LRW,67,TLRW,84,Lorwyn,,Lorwyn
+ME1,Masters Edition,2007-09-10,masters,true,false,false,,195,195,ME1,,,,English,MED,,,,,,
+10E,Tenth Edition,2007-07-13,core,false,false,false,,510,383,10E,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",10E,1,T10E,74,Tenth Edition,,Core Set
+P10E,Tenth Edition Promos,2007-07-13,promo,false,true,false,10E,3,3,10E,,,,English,,1,,,,,
+PFUT,Future Sight Promos,2007-05-04,promo,false,true,false,FUT,2,2,FUT,,,,English,,51,,,,,Time Spiral
+FUT,Future Sight,2007-05-04,expansion,false,false,false,,180,180,FUT,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",FUT,51,,70,Future Sight,,Time Spiral
+PGPX,Grand Prix Promos,2007-02-24,promo,false,true,false,,20,20,PMEI,,,,English,,54,,1595,Grand Prix Promos,,
+PPRO,Pro Tour Promos,2007-02-09,promo,false,false,false,,17,17,PMEI,,,,English,,93,,1596,Pro Tour Promos,,
+PPLC,Planar Chaos Promos,2007-02-02,promo,false,true,false,PLC,2,2,PLC,,,,English,,83,,,,,Time Spiral
+PLC,Planar Chaos,2007-02-02,expansion,false,false,false,,165,165,PLC,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",PLC,83,,58,Planar Chaos,,Time Spiral
+PMPS07,Magic Premiere Shop 2007,2007-01-01,promo,false,false,false,,5,5,PMPS,,true,,"English, Japanese",,369,,,,,
+F07,Friday Night Magic 2007,2007-01-01,promo,false,true,false,,12,12,PARL,,,,English,,45,,,,,Friday Night Magic
+P07,Magic Player Rewards 2007,2007-01-01,promo,false,false,false,,7,7,DEFAULT,,,,English,,71,,,,,Magic Player Rewards
+G07,Judge Gift Cards 2007,2007-01-01,promo,false,true,false,,5,5,PARL,,,,English,,62,,,,,Judge Gift Cards
+HHO,Happy Holidays,2006-12-31,funny,false,true,false,,22,21,PMEI,,,,English,,1163,HHO,,,,
+PTSP,Time Spiral Promos,2006-10-06,promo,false,true,false,TSP,3,3,TSP,,,,English,,110,,,,,Time Spiral
+TSB,Time Spiral Timeshifted,2006-10-06,expansion,false,false,false,TSP,121,121,TSP,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",TSB,111,,,,,Time Spiral
+TSP,Time Spiral,2006-10-06,expansion,false,false,false,,301,301,TSP,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",TSP,110,,56,Time Spiral,,Time Spiral
+PCSP,Coldsnap Promos,2006-07-21,promo,false,true,false,CSP,1,1,CSP,,,,English,,24,PCSP,,,,Ice Age
+CSP,Coldsnap,2006-07-21,expansion,false,false,false,,155,155,CSP,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",CSP,24,,52,Coldsnap,,Ice Age
+CST,Coldsnap Theme Decks,2006-07-21,box,false,false,true,CSP,62,62,CSP,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,1348,,82,Coldsnap Theme Decks,,Ice Age
+PDIS,Dissension Promos,2006-05-05,promo,false,true,false,DIS,2,2,DIS,,,,English,,28,,,,,Ravnica
+DIS,Dissension,2006-05-05,expansion,false,false,false,,180,180,DIS,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",DIS,28,,53,Dissension,,Ravnica
+PCMP,Champs and States,2006-03-18,promo,false,false,false,,12,12,DEFAULT,,,,English,,21,,,,,
+PGPT,Guildpact Promos,2006-02-03,promo,false,true,false,GPT,2,2,GPT,,,,English,,55,,,,,Ravnica
+GPT,Guildpact,2006-02-03,expansion,false,false,false,,167,165,GPT,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",GPT,55,,54,Guildpact,,Ravnica
+PMPS06,Magic Premiere Shop 2006,2006-01-01,promo,false,true,false,,5,5,PMTG2,,true,,"English, Japanese",,369,,,,,
+PAL06,Arena League 2006,2006-01-01,promo,false,false,false,,9,8,PARL,,,,English,,13,,,,,Arena League
+PJAS,Junior APAC Series,2006-01-01,promo,false,true,false,,6,6,PARL,,,,English,,61,,,,,
+DCI,DCI Promos,2006-01-01,promo,false,false,false,,80,79,PARL,,,,"English, French, German, Italian, Japanese, Spanish",,1163,,66,DCI Promos,,
+PHUK,Hachette UK,2006-01-01,box,false,false,true,,60,60,PHUK,,,,English,,72,,,,,
+P06,Magic Player Rewards 2006,2006-01-01,promo,false,false,false,,7,7,PARL,,,,English,,71,,,,,Magic Player Rewards
+G06,Judge Gift Cards 2006,2006-01-01,promo,false,true,false,,4,4,PARL,,,,English,,62,,,,,Judge Gift Cards
+F06,Friday Night Magic 2006,2006-01-01,promo,false,true,false,,12,12,PARL,,,,English,,45,,,,,Friday Night Magic
+P2HG,Two-Headed Giant Tournament,2005-12-09,promo,false,true,false,,1,1,PARL,,,,English,,93,,,,,
+PMPS,Magic Premiere Shop 2005,2005-10-07,promo,false,true,false,,20,20,RAV,,true,,"English, Japanese",,369,,,,,
+PRAV,Ravnica: City of Guilds Promos,2005-10-07,promo,false,true,false,RAV,2,2,RAV,,,,English,,95,,,,,Ravnica
+RAV,Ravnica: City of Guilds,2005-10-07,expansion,false,false,false,,306,306,RAV,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",RAV,95,,55,Ravnica: City of Guilds,,Ravnica
+PSAL,Salvat 2005,2005-08-22,box,false,false,true,,720,720,PHUK,,true,,"English, French, Italian, Spanish",,2989,,,,,
+P9ED,Ninth Edition Promos,2005-07-29,promo,false,true,false,9ED,2,2,9ED,,,,"English, Russian",,4,,,,,Core Set
+9ED,Ninth Edition,2005-07-29,core,false,false,false,,710,350,9ED,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Russian, Spanish",9ED,4,,49,Ninth Edition,,Core Set
+PSOK,Saviors of Kamigawa Promos,2005-06-03,promo,false,true,false,SOK,2,2,SOK,,,,English,,99,,,,,Kamigawa
+SOK,Saviors of Kamigawa,2005-06-03,expansion,false,false,false,,165,165,SOK,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",SOK,99,,50,Saviors of Kamigawa,,Kamigawa
+PBOK,Betrayers of Kamigawa Promos,2005-02-04,promo,false,true,false,BOK,2,2,BOK,,,,English,,18,,,,,Kamigawa
+BOK,Betrayers of Kamigawa,2005-02-04,expansion,false,false,false,,165,165,BOK,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",BOK,18,,51,Betrayers of Kamigawa,,Kamigawa
+PAL05,Arena League 2005,2005-01-01,promo,false,false,false,,8,8,PARL,,,,English,,13,,,,,Arena League
+PJSE,Junior Series Europe,2005-01-01,promo,false,true,false,,8,8,PARL,,,,English,,61,,,,,
+P05,Magic Player Rewards 2005,2005-01-01,promo,false,false,false,,6,6,PARL,,,,English,,71,,,,,Magic Player Rewards
+G05,Judge Gift Cards 2005,2005-01-01,promo,false,true,false,,4,4,PARL,,,,English,,62,,,,,Judge Gift Cards
+F05,Friday Night Magic 2005,2005-01-01,promo,false,true,false,,12,12,PARL,,,,English,,45,,,,,Friday Night Magic
+PUNH,Unhinged Promos,2004-11-19,promo,false,true,false,UNH,1,1,UNH,,,,English,,114,,,,,
+UNH,Unhinged,2004-11-19,funny,false,false,false,,168,140,UNH,,,,English,,114,,59,Unhinged,,
+PCHK,Champions of Kamigawa Promos,2004-10-01,promo,false,true,false,CHK,1,1,CHK,,,,English,,20,,,,,Kamigawa
+CHK,Champions of Kamigawa,2004-10-01,expansion,false,false,false,,307,306,CHK,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",CHK,20,,48,Champions of Kamigawa,,Kamigawa
+WC04,World Championship Decks 2004,2004-09-01,memorabilia,false,false,true,,93,103,DEFAULT,,,,English,,2198,WC04,,,,
+P5DN,Fifth Dawn Promos,2004-06-04,promo,false,true,false,5DN,1,1,5DN,,,,English,,43,,,,,Mirrodin
+PMRD,Mirrodin Promos,2004-06-04,promo,false,true,false,MRD,1,1,MRD,,,,English,,75,,,,,Mirrodin
+5DN,Fifth Dawn,2004-06-04,expansion,false,false,false,,165,165,5DN,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",5DN,43,,47,Fifth Dawn,,Mirrodin
+PDST,Darksteel Promos,2004-02-06,promo,false,true,false,DST,1,1,DST,,,,English,,27,,,,,Mirrodin
+DST,Darksteel,2004-02-06,expansion,false,false,false,,165,165,DST,,,,"Chinese Simplified, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",DST,27,,46,Darksteel,,Mirrodin
+PAL04,Arena League 2004,2004-01-01,promo,false,false,false,,14,8,PARL,,,,English,,13,,,,,Arena League
+G04,Judge Gift Cards 2004,2004-01-01,promo,false,true,false,,6,6,PARL,,,,English,,62,,,,,Judge Gift Cards
+P04,Magic Player Rewards 2004,2004-01-01,promo,false,false,false,,1,1,PARL,,,,English,,71,P04,,,,Magic Player Rewards
+F04,Friday Night Magic 2004,2004-01-01,promo,false,true,false,,12,12,PARL,,,,English,,45,,,,,Friday Night Magic
+MRD,Mirrodin,2003-10-02,expansion,false,false,false,,306,306,MRD,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",MRD,75,,45,Mirrodin,,Mirrodin
+WC03,World Championship Decks 2003,2003-08-06,memorabilia,false,false,true,,132,142,DEFAULT,,,,English,,2198,WC03,,,,
+P8ED,Eighth Edition Promos,2003-07-28,promo,false,true,false,8ED,1,1,8ED,,,,English,,3,,,,,Core Set
+8ED,Eighth Edition,2003-07-28,core,false,false,false,,711,350,8ED,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",8ED,3,,44,Eighth Edition,,Core Set
+PSCG,Scourge Promos,2003-05-26,promo,false,true,false,SCG,1,1,SCG,,,,English,,101,,,,,Onslaught
+SCG,Scourge,2003-05-26,expansion,false,false,false,,143,143,SCG,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",SCG,101,,43,Scourge,,Onslaught
+PLGN,Legions Promos,2003-02-03,promo,false,true,false,LGN,1,1,LGN,,,,English,,66,,,,,Onslaught
+LGN,Legions,2003-02-03,expansion,false,false,false,,145,145,LGN,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",LGN,66,,42,Legions,,Onslaught
+PMOA,Magic Online Avatars,2003-01-01,vanguard,true,false,false,,85,85,MTGO,,,,English,PMOA,,,,,,
+PJJT,Japan Junior Tournament,2003-01-01,promo,false,true,false,,12,12,PARL,,true,,"English, Japanese",,61,,,,,
+PAL03,Arena League 2003,2003-01-01,promo,false,false,false,,8,8,PARL,,,,English,,13,,,,,Arena League
+P03,Magic Player Rewards 2003,2003-01-01,promo,false,false,true,,1,1,PARL,,,,English,,71,P03,,,,Magic Player Rewards
+F03,Friday Night Magic 2003,2003-01-01,promo,false,true,false,,13,12,PARL,,,,English,,45,,,,,Friday Night Magic
+OVNT,Vintage Championship,2003-01-01,memorabilia,false,false,false,,35,35,PMEI,,,,English,,93,,,,,
+G03,Judge Gift Cards 2003,2003-01-01,promo,false,true,false,,3,3,PARL,,,,English,,62,,,,,Judge Gift Cards
+WC02,World Championship Decks 2002,2002-12-01,memorabilia,false,false,true,,143,153,DEFAULT,,,,English,,2198,WC02,,,,
+ONS,Onslaught,2002-10-07,expansion,false,false,false,,351,350,ONS,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",ONS,81,,41,Onslaught,,Onslaught
+PONS,Onslaught Promos,2002-09-28,promo,false,true,false,ONS,1,1,ONS,,,,English,,81,,,,,Onslaught
+JP1,Hobby Japan Promos,2002-07-01,promo,false,false,true,,5,5,DEFAULT,,,,English,,1163,,,,,
+PRM,Magic Online Promos,2002-06-24,promo,true,false,false,,3110,3110,MTGO,,,,English,PRM,,,,,,
+PJUD,Judgment Promos,2002-05-27,promo,false,true,false,JUD,1,1,JUD,,,,"English, Hebrew",,63,,,,,Odyssey
+JUD,Judgment,2002-05-27,expansion,false,false,false,,143,143,JUD,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",JUD,63,,40,Judgment,,Odyssey
+PTOR,Torment Promos,2002-02-04,promo,false,true,false,TOR,3,1,TOR,,,,"English, Russian",,112,,,,,Odyssey
+TOR,Torment,2002-02-04,expansion,false,false,false,,143,143,TOR,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",TOR,112,,39,Torment,,Odyssey
+PAL02,Arena League 2002,2002-01-01,promo,false,true,false,,5,5,PARL,,,,English,,13,,,,,Arena League
+G02,Judge Gift Cards 2002,2002-01-01,promo,false,true,false,,2,2,PARL,,,,English,,62,,,,,Judge Gift Cards
+F02,Friday Night Magic 2002,2002-01-01,promo,false,true,false,,12,12,PARL,,,,English,,45,,,,,Friday Night Magic
+PR2,Magic Player Rewards 2002,2002-01-01,promo,false,false,true,,6,6,PARL,,,,English,,71,PR2,,,,Magic Player Rewards
+DKM,Deckmasters,2001-12-01,box,false,false,false,,58,50,DKM,,,,English,,1311,,67,Deckmasters,,
+PODY,Odyssey Promos,2001-10-01,promo,false,true,false,ODY,1,1,ODY,,,,"Arabic, English",,80,,,,,Odyssey
+ODY,Odyssey,2001-10-01,expansion,false,false,false,,353,350,ODY,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",OD,80,,38,Odyssey,,Odyssey
+WC01,World Championship Decks 2001,2001-08-08,memorabilia,false,false,true,,128,138,DEFAULT,,,,English,,2198,WC01,,,,
+PSDG,Sega Dreamcast Cards,2001-06-28,box,true,false,true,,10,10,PSDG,,,,English,,72,,,,,
+PAPC,Apocalypse Promos,2001-06-04,promo,false,true,false,APC,1,1,APC,,,,"English, Sanskrit",,10,,,,,Invasion
+APC,Apocalypse,2001-06-04,expansion,false,false,false,,143,143,APC,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",AP,10,,36,Apocalypse,,Invasion
+7ED,Seventh Edition,2001-04-11,core,false,false,false,,708,350,7ED,,,,"English, French, German, Japanese, Portuguese (Brazil), Spanish",7E,2,,37,Seventh Edition,,Core Set
+PPLS,Planeshift Promos,2001-02-05,promo,false,true,false,PLS,1,1,PLS,,,,"Ancient Greek, English",,85,,,,,Invasion
+PLS,Planeshift,2001-02-05,expansion,false,false,false,,146,143,PLS,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",PS,85,,35,Planeshift,,Invasion
+PAL01,Arena League 2001,2001-01-01,promo,false,true,false,,12,12,PARL2,,,,English,,13,,,,,Arena League
+MPR,Magic Player Rewards 2001,2001-01-01,promo,false,false,false,,1,8,PARL,,,,English,,71,MPR,,,,Magic Player Rewards
+G01,Judge Gift Cards 2001,2001-01-01,promo,false,true,false,,2,2,PARL,,,,English,,62,,,,,Judge Gift Cards
+F01,Friday Night Magic 2001,2001-01-01,promo,false,true,false,,7,7,PARL,,,,English,,45,,,,,Friday Night Magic
+PINV,Invasion Promos,2000-10-02,promo,false,true,false,INV,1,1,INV,,,,"English, Latin",,60,,,,,Invasion
+INV,Invasion,2000-10-02,expansion,false,false,false,,354,350,INV,,,,"Chinese Simplified, Chinese Traditional, English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",IN,60,,34,Invasion,,Invasion
+BTD,Beatdown Box Set,2000-10-01,box,false,false,false,,90,90,BTD,,,,English,,16,,,,,
+WC00,World Championship Decks 2000,2000-08-02,memorabilia,false,false,true,,107,117,DEFAULT,,,,English,,2198,WC00,,,,
+PPCY,Prophecy Promos,2000-06-05,promo,false,true,false,PCY,1,1,PCY,,,,English,,94,,,,,Masques
+PCY,Prophecy,2000-06-05,expansion,false,false,false,,144,143,PCY,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",PR,94,,33,Prophecy,,Masques
+S00,Starter 2000,2000-04-01,starter,false,false,false,,20,20,S00,,,,"English, French, German, Italian, Portuguese (Brazil), Spanish",,106,,65,Starter 2000,,
+PNEM,Nemesis Promos,2000-02-14,promo,false,true,false,NEM,1,1,NEM,,,,English,,78,,,,,Masques
+NEM,Nemesis,2000-02-14,expansion,false,false,false,,143,143,NEM,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",NE,78,,32,Nemesis,,Masques
+PELP,European Land Program,2000-02-05,promo,false,false,true,,15,15,PEURO,,,,English,,38,,,,,
+PAL00,Arena League 2000,2000-01-01,promo,false,true,false,,11,11,PARL2,,,,English,,13,,,,,Arena League
+FNM,Friday Night Magic 2000,2000-01-01,promo,false,true,false,,11,350,DEFAULT,,,,English,,45,,,,,Friday Night Magic
+G00,Judge Gift Cards 2000,2000-01-01,promo,false,true,false,,2,2,PARL,,,,English,,62,,,,,Judge Gift Cards
+PSUS,Junior Super Series,1999-12-01,promo,false,true,false,,18,350,PARL,,,,English,,61,,,,,
+BRB,Battle Royale Box Set,1999-11-12,box,false,false,true,,136,136,BRB,,,,English,,15,,,,,
+PMMQ,Mercadian Masques Promos,1999-10-04,promo,false,true,false,MMQ,1,1,MMQ,,,,English,,73,,,,,Masques
+MMQ,Mercadian Masques,1999-10-04,expansion,false,false,false,,350,350,MMQ,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",MM,73,,31,Mercadian Masques,,Masques
+PWOS,Wizards of the Coast Online Store,1999-09-04,promo,false,true,false,,1,1,DEFAULT,,,,English,,,,,,,
+WC99,World Championship Decks 1999,1999-08-04,memorabilia,false,false,true,,100,111,DEFAULT,,,,English,,2198,WC99,,,,
+PWOR,World Championship Promos,1999-08-04,promo,false,true,false,,2,350,DEFAULT,,,,English,,93,,,,,
+PGRU,Guru,1999-07-12,promo,false,false,true,,5,5,PGRU,,,,English,,56,,,,,
+S99,Starter 1999,1999-07-01,starter,false,false,true,,173,173,S99,,,,English,,105,,63,Starter 1999,,
+PUDS,Urza's Destiny Promos,1999-06-07,promo,false,true,false,UDS,1,1,UDS,,,,English,,116,,,,,Urza
+UDS,Urza's Destiny,1999-06-07,expansion,false,false,false,,143,143,UDS,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",UD,116,,28,Urza's Destiny,,Urza
+PPTK,Portal Three Kingdoms Promos,1999-05-01,promo,false,false,true,PTK,2,2,PTK,,,,English,,88,,,,,Portal
+PTK,Portal Three Kingdoms,1999-05-01,starter,false,false,true,,180,180,PTK,,,,"Chinese Simplified, English, Japanese",,88,,30,Portal Three Kingdoms,,Portal
+6ED,Classic Sixth Edition,1999-04-21,core,false,false,true,,351,350,6ED,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,23,,29,Sixth Edition,,Core Set
+PULG,Urza's Legacy Promos,1999-02-15,promo,false,true,false,ULG,2,1,ULG,,,,English,,117,,,,,Urza
+ULG,Urza's Legacy,1999-02-15,expansion,false,false,false,,143,143,ULG,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",UL,117,,27,Urza's Legacy,,Urza
+PAL99,Arena League 1999,1999-01-01,promo,false,true,false,,10,350,USG,,,,English,,13,,,,,Arena League
+G99,Judge Gift Cards 1999,1999-01-01,promo,false,true,false,,1,350,DEFAULT,,,,English,,62,,,,,Judge Gift Cards
+ATH,Anthologies,1998-11-01,box,false,false,true,,85,85,ATH,,,,English,,1275,,75,Anthologies,,
+PUSG,Urza's Saga Promos,1998-10-12,promo,false,true,false,USG,1,1,USG,,,,English,,118,,,,,Urza
+USG,Urza's Saga,1998-10-12,expansion,false,false,true,,357,350,USG,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",UZ,118,,26,Urza's Saga,,Urza
+PALP,Asia Pacific Land Program,1998-09-01,promo,false,false,true,,15,15,PAPAC,,,,English,,9,,,,,
+WC98,World Championship Decks 1998,1998-08-12,memorabilia,false,false,true,,107,117,DEFAULT,,,,English,,2198,WC98,,,,
+UGL,Unglued,1998-08-11,funny,false,false,true,,88,94,UGL,,,,English,,113,TUGL,22,Unglued,,
+P02,Portal Second Age,1998-06-24,starter,false,false,true,,165,165,P02,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,87,,24,Portal Second Age,,Portal
+PEXO,Exodus Promos,1998-06-15,promo,false,false,true,EXO,1,1,EXO,,,,English,,40,,,,,Tempest
+EXO,Exodus,1998-06-15,expansion,false,false,true,,143,143,EXO,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",EX,40,,21,Exodus,,Tempest
+PSTH,Stronghold Promos,1998-03-02,promo,false,false,true,STH,1,1,STH,,,,English,,107,,,,,Tempest
+STH,Stronghold,1998-03-02,expansion,false,false,true,,143,143,STH,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",ST,107,,20,Stronghold,,Tempest
+JGP,Judge Gift Cards 1998,1998-01-01,promo,false,true,false,,3,3,DEFAULT,,,,English,,62,,,,,Judge Gift Cards
+PTMP,Tempest Promos,1997-10-14,promo,false,false,true,TMP,1,1,TMP,,,,English,,108,,,,,Tempest
+TMP,Tempest,1997-10-14,expansion,false,false,true,,350,350,TMP,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",TE,108,,19,Tempest,,Tempest
+WC97,World Championship Decks 1997,1997-08-13,memorabilia,false,false,true,,121,131,DEFAULT,,,,English,,2198,WC97,,,,
+WTH,Weatherlight,1997-06-09,expansion,false,false,true,,167,167,WTH,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",WL,121,,18,Weatherlight,,Mirage
+OLEP,Oversized League Prizes,1997-05-30,memorabilia,false,false,true,,83,83,PMEI,,,,English,,2087,,,,,
+POR,Portal,1997-05-01,starter,false,false,true,,257,243,POR,,,,"English, French, German, Japanese, Spanish",,86,,25,Portal,,Portal
+PVAN,Vanguard Series,1997-05-01,vanguard,false,false,true,,32,32,VAN,,,,English,,119,,,,,
+PMIC,MicroProse Promos,1997-04-01,memorabilia,false,false,true,PAST,1,1,PAST,,,,English,,72,,,,,
+PAST,Astral Cards,1997-04-01,box,true,false,true,,12,12,PAST,,,,English,,14,,,,,
+5ED,Fifth Edition,1997-03-24,core,false,false,true,,460,455,5ED,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,44,,23,Fifth Edition,,Core Set
+VIS,Visions,1997-02-03,expansion,false,false,true,,167,167,VIS,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",VI,120,,17,Visions,,Mirage
+ITP,Introductory Two-Player Set,1996-12-31,starter,false,false,true,,67,67,X2PS,,,,"English, French, German, Italian, Spanish",,2742,,85,Introductory Two-Player Set,,
+MGB,Multiverse Gift Box,1996-11-01,box,false,false,true,VIS,10,10,VIS,,,,English,,2084,,1519,Multiverse Gift Box,,
+MIR,Mirage,1996-10-08,expansion,false,false,true,,353,350,MIR,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",MI,74,,16,Mirage,,Mirage
+PRED,Redemption Program,1996-10-01,promo,false,false,true,,1,1,DEFAULT,,true,,English,,1163,,,,,
+PCEL,Celebration Cards,1996-08-14,memorabilia,false,false,false,,9,9,PMEI,,,,English,,1163,,,,,
+PARL,Arena League 1996,1996-08-02,promo,false,false,true,,7,7,PARL,,,,English,,13,,,,,Arena League
+RQS,Rivals Quick Start Set,1996-07-01,box,false,false,true,,65,65,DEFAULT,,,,English,,2778,,,,,
+PLGM,DCI Legend Membership,1996-07-01,promo,false,false,true,,2,2,DEFAULT,,,,English,,1163,,,,,
+ALL,Alliances,1996-06-10,expansion,false,false,true,,199,199,ALL,,,,"English, French, German, Italian, Portuguese (Brazil), Spanish",,6,,15,Alliances,,Ice Age
+PTC,Pro Tour Collector Set,1996-05-01,memorabilia,false,false,true,,307,308,DEFAULT,,,,English,,93,PTC,,,,
+O90P,Oversized 90's Promos,1996-04-01,memorabilia,false,false,true,,10,10,PMEI,,,,English,,1163,,,,,
+HML,Homelands,1995-10-01,expansion,false,false,true,,140,140,HML,,,,"English, French, German, Italian, Portuguese (Brazil), Spanish",,57,,14,Homelands,,
+RIN,Rinascimento,1995-08-01,masters,false,false,true,,69,69,RIN,,true,,"English, Italian",,2379,,96,Rinascimento,,
+REN,Renaissance,1995-08-01,masters,false,false,true,,122,122,REN,,true,,"English, French, German",,2379,,60,Renaissance,,
+CHR,Chronicles,1995-07-01,masters,false,false,true,,125,125,CHR,,,,English,,22,,12,Chronicles,,
+BCHR,Chronicles Foreign Black Border,1995-07-01,masters,false,false,true,CHR,125,125,CHR,,,,"English, Japanese",,22,,,,,
+ICE,Ice Age,1995-06-03,expansion,false,false,true,,383,383,ICE,,,,"English, French, German, Italian, Portuguese (Brazil), Spanish",,58,,11,Ice Age,,Ice Age
+4BB,Fourth Edition Foreign Black Border,1995-04-01,core,false,false,true,4ED,378,378,4ED,,true,,"English, Japanese, Portuguese (Brazil), Spanish",,1688,,,,,
+4ED,Fourth Edition,1995-04-01,core,false,false,true,,380,378,4ED,,,,"English, French, German, Italian, Japanese, Portuguese (Brazil), Spanish",,46,,10,Fourth Edition,,Core Set
+PMEI,Media and Collaboration Promos,1995-01-01,promo,false,false,false,,87,87,PMEI,,,,"English, German, Japanese, Phyrexian",,72,,,,,
+FEM,Fallen Empires,1994-11-01,expansion,false,false,true,,187,187,FEM,,,,English,,41,,9,Fallen Empires,,
+PHPR,HarperPrism Book Promos,1994-09-01,promo,false,false,true,,5,5,PBOOK,,,,English,,72,,,,,
+DRK,The Dark,1994-08-01,expansion,false,false,true,,122,119,DRK,,,,"English, Italian",,109,,8,The Dark,,
+PDRC,Dragon Con,1994-07-15,promo,false,false,true,,1,1,PDRC,,,,English,,1163,,,,,
+SUM,Summer Magic / Edgar,1994-06-21,core,false,false,true,,306,306,PSUM,,,,English,,2642,,,,,Core Set
+LEG,Legends,1994-06-01,expansion,false,false,true,,310,310,LEG,,,,"English, Italian",,65,,7,Legends,,
+FBB,Foreign Black Border,1994-04-11,core,false,false,true,3ED,307,306,3ED,,true,,"English, French, German, Italian",,1689,,57,Foreign Black Bordered,,Core Set
+3ED,Revised Edition,1994-04-11,core,false,false,true,,306,306,3ED,,,,"English, French, German, Italian",,97,,6,Revised,,Core Set
+ATQ,Antiquities,1994-03-04,expansion,false,false,true,,102,100,ATQ,,,,English,,8,,5,Antiquities,,
+ARN,Arabian Nights,1993-12-17,expansion,false,false,true,,92,78,ARN,,,,English,,11,,4,Arabian Nights,,
+CEI,Intl. Collectors' Edition,1993-12-10,memorabilia,false,false,true,,302,302,CEI,,,,English,,1527,,,,,
+CED,Collectors' Edition,1993-12-10,memorabilia,false,false,true,,302,302,CED,,,,English,,1526,,61,Collectors' Edition,,
+2ED,Unlimited Edition,1993-12-01,core,false,false,true,,302,302,2ED,,,,English,,115,,,,,Core Set
+LEB,Limited Edition Beta,1993-10-04,core,false,false,true,,302,302,LEB,,,,English,,17,,,,,Core Set
+LEA,Limited Edition Alpha,1993-08-05,core,false,false,true,,295,295,LEA,,,,English,,7,,,,,Core Set
+DD3,Duel Decks: Anthology,2014-12-05,duel_deck,false,false,false,,0,0,PMEI,,,,English,,1490,,,,,
+Q01,Challenger Decks 2018,2018-04-06,box,false,false,false,,0,0,DEFAULT,,,,English,,2203,,,,,
+Q02,Challenger Decks 2019,2019-04-12,box,false,false,false,,0,0,DEFAULT,,,,English,,2203,,,,,
+Q03,Challenger Decks 2019 Japan,2019-11-08,box,false,false,false,,0,0,DEFAULT,,,,English,,2203,,,,,
+Q04,Challenger Decks 2020,2020-03-27,box,false,false,false,,0,0,DEFAULT,,,,English,,2203,,,,,
+Q05,Challenger Decks 2021,2021-03-02,box,false,false,false,,0,0,DEFAULT,,,,English,,2203,,,,,
+Q08,Pioneer Challenger Decks 2022,2022-11-04,box,false,false,false,,0,0,DEFAULT,,,,English,,2203,,,,,
+MB1,Mystery Booster,2019-11-07,masters,false,false,true,,0,249,DEFAULT,,,,English,,2570,,,,,
+FWB,Foreign White Border,1994-04-11,core,false,false,true,3ED,0,0,3ED,,,,English,,,,,,,Core Set

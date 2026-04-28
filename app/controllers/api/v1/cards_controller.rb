@@ -49,6 +49,8 @@ class Api::V1::CardsController < ApplicationController
   def load_query
     # Use safe navigation for nested parameters
     collection_only = params.dig(:q, :collection_only)
+    price_min = params.dig(:q, :price_gteq)
+    price_max = params.dig(:q, :price_lteq)
     colors = params[:colors]
 
     base_scope = if collection_only && @collection
@@ -58,10 +60,12 @@ class Api::V1::CardsController < ApplicationController
                  end
 
     base_scope = colors.present? ? base_scope.with_color(colors, Card) : base_scope
+    base_scope = Card.with_price_range(base_scope, min_price: price_min, max_price: price_max)
 
-    @query = base_scope.order("original_release_date ASC").ransack(params[:q])
+    query_params = params[:q]&.except(:price_gteq, :price_lteq)
+    @query = base_scope.includes(:price_records).order("original_release_date ASC").ransack(query_params)
     # Limiting here; consider if this needs to be pushed down to the database instead.
-    @sorted_cards = Card.sort_by_color(@query.result.by_mana_and_name.limit(50000))
+    @sorted_cards = Card.sort_cards(@query.result.limit(50000), params[:sort])
     @stats = Card.card_stats(@sorted_cards)
   end
 

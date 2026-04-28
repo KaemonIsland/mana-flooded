@@ -3,7 +3,7 @@ import { ManaFloodedThemeProvider } from '../theme/ManaFloodedThemeProvider'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { getUser } from '../utils'
 import { deckLoader, setLoader } from '../loaders'
-import { Home, Deck as DeckPage, Set as SetPage } from './pages'
+import { CollectionAll, Home, Deck as DeckPage, Set as SetPage } from './pages'
 import { Page } from './components'
 
 const router = createBrowserRouter([
@@ -41,6 +41,14 @@ const router = createBrowserRouter([
       </Page>
     ),
     loader: setLoader,
+  },
+  {
+    path: '/collection/all',
+    element: (
+      <Page>
+        <CollectionAll />
+      </Page>
+    ),
   },
 ])
 

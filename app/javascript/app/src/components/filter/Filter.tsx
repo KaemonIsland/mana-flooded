@@ -40,11 +40,18 @@ interface ManaValue {
   max: number
 }
 
+interface PriceRange {
+  min: number | null
+  max: number | null
+}
+
 interface FilterContentProps {
+  sort: string
   color: Array<string>
   rarity: Array<string>
   type: string
   manaValue: ManaValue
+  price: PriceRange
   stats: CardStats
   update: Update
   clear: Clear
@@ -52,21 +59,26 @@ interface FilterContentProps {
 }
 
 const FilterContent = ({
+  sort,
   color,
   type,
   rarity,
   manaValue,
+  price,
   stats,
   update,
   clear,
   apply,
 }: FilterContentProps): ReactElement => {
   const isDisabled = !(
+    sort !== 'default' ||
     color.length ||
     rarity.length ||
     type ||
     manaValue.min ||
-    manaValue.max !== 20
+    manaValue.max !== 20 ||
+    price.min !== null ||
+    price.max !== null
   )
   return (
     <FilterContainer>
@@ -81,6 +93,25 @@ const FilterContent = ({
             </Button>
           </Flex>
         }
+      </FilterBox>
+      <FilterBox>
+        <Flex alignItems="center" justifyContent="space-between">
+          <Text family="roboto">Sort</Text>
+        </Flex>
+        <hr />
+        <Container width="100%">
+          <select name="sort" value={sort} onChange={update} style={{ width: '100%' }}>
+            <option value="default">Default</option>
+            <option value="name_asc">Name: A-Z</option>
+            <option value="name_desc">Name: Z-A</option>
+            <option value="mana_value_asc">Mana Value: Low-High</option>
+            <option value="mana_value_desc">Mana Value: High-Low</option>
+            <option value="price_asc">Price: Low-High</option>
+            <option value="price_desc">Price: High-Low</option>
+            <option value="rarity_asc">Rarity: Common-Uncommon-Rare-Mythic</option>
+            <option value="rarity_desc">Rarity: Mythic-Rare-Uncommon-Common</option>
+          </select>
+        </Container>
       </FilterBox>
       <FilterBox>
         <Flex alignItems="center" justifyContent="space-between">
@@ -224,7 +255,7 @@ const FilterContent = ({
             </StyledLabel>
             <input
               type="range"
-              name="min"
+              name="manaValueMin"
               min={0}
               max={manaValue.max}
               id="min"
@@ -238,12 +269,50 @@ const FilterContent = ({
             </StyledLabel>
             <input
               type="range"
-              name="max"
+              name="manaValueMax"
               min={manaValue.min}
               max={20}
               id="max"
               value={manaValue.max}
               onChange={update}
+            />
+          </Container>
+        </Flex>
+      </FilterBox>
+      <FilterBox>
+        <Flex alignItems="center" justifyContent="space-between">
+          <Text family="roboto">Price</Text>
+        </Flex>
+        <hr />
+        <Flex isColumn alignItems="start" justifyContent="start">
+          <Container width="100%" marginBottom={2}>
+            <StyledLabel htmlFor="priceMin">
+              <span>Min Price</span>
+            </StyledLabel>
+            <input
+              type="number"
+              name="priceMin"
+              min={0}
+              step="0.01"
+              id="priceMin"
+              value={price.min ?? ''}
+              onChange={update}
+              style={{ width: '100%' }}
+            />
+          </Container>
+          <Container width="100%">
+            <StyledLabel htmlFor="priceMax">
+              <span>Max Price</span>
+            </StyledLabel>
+            <input
+              type="number"
+              name="priceMax"
+              min={0}
+              step="0.01"
+              id="priceMax"
+              value={price.max ?? ''}
+              onChange={update}
+              style={{ width: '100%' }}
             />
           </Container>
         </Flex>

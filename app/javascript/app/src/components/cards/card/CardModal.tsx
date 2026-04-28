@@ -4,6 +4,9 @@ import { Flex, Text, Modal, FlipCard, Container, Grid } from '../../../elements'
 import { Prices } from '../../price'
 import { AddCardForm, CategoriesForm } from '../../forms'
 import { getCard } from '../../../../utils'
+import { CardPrices } from '../../../../interface/Card'
+import { usePricePreference } from '../../../../providers'
+import { getDisplayPrices, getPriceSourceNote } from '../../../../utils/prices'
 
 const CardImgContainer = styled.div(({ theme }) => ({
   zIndex: 100,
@@ -64,9 +67,23 @@ export const CardModal = ({
   cardProps,
 }: CardModalProps): ReactElement => {
   const [cardImages, setCardImages] = useState([])
-  const [cardPrices, setCardPrices] = useState({})
+  const { preferredPriceProvider } = usePricePreference()
 
-  const { identifiers, locations, categories = [] } = cardProps
+  const {
+    identifiers,
+    locations,
+    categories = [],
+    prices = {},
+    name,
+  } = cardProps as {
+    identifiers: Array<{ scryfallId: string }>
+    locations: Array<any>
+    categories?: Array<string>
+    prices?: CardPrices
+    name: string
+  }
+  const displayPrices = getDisplayPrices(prices, preferredPriceProvider)
+  const priceSourceNote = getPriceSourceNote(displayPrices)
 
   const inCollection = locations.filter((location) => location.type === 'collection')[0]
 
@@ -96,9 +113,6 @@ export const CardModal = ({
 
     // Set card images
     getCardImage(cardData, 'normal')
-
-    // Set card Price
-    setCardPrices(cardData && cardData.prices)
   }
 
   // Fetches a new card image whenever the card viewer is opened
@@ -143,13 +157,14 @@ export const CardModal = ({
             <Container width="100%">
               <Prices
                 prices={[
-                  { label: 'Normal', price: cardPrices && cardPrices.usd },
-                  { label: 'Foil', price: cardPrices && cardPrices.usdFoil },
+                  { label: 'Normal', price: displayPrices && displayPrices.usd },
+                  { label: 'Foil', price: displayPrices && displayPrices.usdFoil },
                   {
-                    label: 'Foil Etched',
-                    price: cardPrices && cardPrices.usdFoilEtched,
+                    label: 'Etched',
+                    price: displayPrices && displayPrices.usdEtched,
                   },
                 ]}
+                note={priceSourceNote}
               />
             </Container>
           </Grid.Item>
