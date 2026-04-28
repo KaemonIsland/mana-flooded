@@ -41,7 +41,21 @@ export const ImportExport = (): ReactElement => {
               })}.json`}
               style={{ textDecoration: 'none', marginRight: '1rem' }}
             >
-              Export
+              Export JSON
+            </Button>
+            <Button
+              color="grey"
+              shade={1}
+              as="a"
+              href="/api/v1/collection/export.csv"
+              download={`mtg_collection_${formatDate(new Date(), {
+                month: 'numeric',
+                day: 'numeric',
+                year: 'numeric',
+              })}.csv`}
+              style={{ textDecoration: 'none', marginRight: '1rem' }}
+            >
+              Export CSV
             </Button>
             <Button color="grey" shade={1} onClick={() => setShowOptions(!showOptions)}>
               Import

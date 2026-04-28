@@ -1,12 +1,22 @@
+require 'csv'
+
 class Api::V1::CollectionController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :ensure_signed_in
-  respond_to :json
+  respond_to :json, :csv
 
   def export
     @collection = current_user.collection
     @cards = @collection.collected_cards.includes(:card)
     @decks = current_user.decks.includes(decked_cards: :card)
+
+    if request.format.csv?
+      return send_data(
+        archidekt_collection_csv(@cards),
+        filename: archidekt_export_filename,
+        type: 'text/csv'
+      )
+    end
 
     export_json = {
       cards: @cards.map do |collected_card|
@@ -110,6 +120,72 @@ class Api::V1::CollectionController < ApplicationController
   end
 
   private
+
+  def archidekt_export_filename
+    "mana_flood_collection_#{Time.zone.today}.csv"
+  end
+
+  def archidekt_collection_csv(collected_cards)
+    cards = collected_cards.map(&:card)
+    identifiers_by_uuid = Identifier.where(uuid: cards.map(&:uuid)).index_by(&:uuid)
+    sets_by_code = CardSet.where(code: cards.map(&:set_code).uniq.compact).index_by(&:code)
+
+    CSV.generate(headers: true) do |csv|
+      csv << ['Quantity', 'Card name', 'Edition name', 'Condition', 'Language', 'Foil/Variant', 'Scryfall ID', 'Collector number']
+
+      collected_cards.each do |collected_card|
+        card = collected_card.card
+        scryfall_id = identifiers_by_uuid[card.uuid]&.scryfall_id
+        set_name = sets_by_code[card.set_code]&.name || card.set_code
+
+        csv_rows_for_card(collected_card, card.name, set_name, scryfall_id, card.number).each do |row|
+          csv << row
+        end
+      end
+    end
+  end
+
+  def csv_rows_for_card(collected_card, card_name, set_name, scryfall_id, collector_number)
+    rows = []
+    non_foil_count = collected_card.quantity.to_i - collected_card.foil.to_i
+
+    if non_foil_count.positive?
+      rows << collection_export_row(
+        quantity: non_foil_count,
+        name: card_name,
+        edition: set_name,
+        foil_variant: nil,
+        scryfall_id: scryfall_id,
+        collector_number: collector_number
+      )
+    end
+
+    if collected_card.foil.to_i.positive?
+      rows << collection_export_row(
+        quantity: collected_card.foil.to_i,
+        name: card_name,
+        edition: set_name,
+        foil_variant: 'Foil',
+        scryfall_id: scryfall_id,
+        collector_number: collector_number
+      )
+    end
+
+    rows
+  end
+
+  def collection_export_row(quantity:, name:, edition:, foil_variant:, scryfall_id:, collector_number:)
+    [
+      quantity,
+      name,
+      edition,
+      'Near Mint',
+      'English',
+      foil_variant,
+      scryfall_id,
+      collector_number
+    ]
+  end
 
   def ensure_signed_in
     unless current_user

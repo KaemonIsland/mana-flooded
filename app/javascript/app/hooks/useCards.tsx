@@ -94,6 +94,7 @@ export const useCards = (options: Options = {}): Actions => {
   })
   const [stats, setStats] = useState(defaultStats)
   const [query, setQuery] = useState(options?.query || new URLSearchParams())
+  const baseQueryString = options?.query?.toString() || ''
 
   const buildQuery = (cardQuery = new URLSearchParams()): URLSearchParams => {
     const mergedQuery = new URLSearchParams(options?.query?.toString() || '')
@@ -171,14 +172,8 @@ export const useCards = (options: Options = {}): Actions => {
   }
 
   useEffect(() => {
-    if (isLoading) {
-      getCards(options.query)
-    }
-  }, [isLoading])
-
-  useEffect(() => {
-    setIsLoading(true)
-  }, [options.query])
+    getCards(options.query)
+  }, [options.setId, options.deckId, options.isDeck, baseQueryString])
 
   return {
     isLoading,
